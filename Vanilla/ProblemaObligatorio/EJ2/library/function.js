@@ -17,14 +17,15 @@ function isPrime(number) {
     return "es primo"
 }
 
-function numberAnalysis(number) {
+export function numberAnalysis(number) {
     return (
-        "El numero" +
+        "El numero " +
         number +
+        " " +
         isEven(number) +
         ", " +
         isPositive(number) +
-        "y " +
+        " y " +
         isPrime(number)
     )
 }
