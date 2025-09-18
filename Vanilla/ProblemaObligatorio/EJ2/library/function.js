@@ -18,6 +18,7 @@ function isPrime(number) {
 }
 
 export function numberAnalysis(number) {
+    if (isNaN(month)) return "Eso no es un numero animal de corral"
     return (
         "El numero " +
         number +
