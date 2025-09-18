@@ -30,7 +30,7 @@ export function power(base, exponent) {
     } else {
         var result = 1
         var counter = 1
-        while (counter < exponent) {
+        while (counter <= exponent) {
             result *= base
             counter++
         }

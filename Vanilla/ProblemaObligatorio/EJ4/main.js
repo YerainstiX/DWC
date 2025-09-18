@@ -2,4 +2,4 @@
 
 import { power } from "./library/function.js"
 
-console.log(power(2, 4))
+console.log(power(2, 6))
