@@ -2,4 +2,4 @@
 
 import { numberAnalysis } from "./library/function.js"
 
-console.log(numberAnalysis(-2))
+console.log(numberAnalysis(3))

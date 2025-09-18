@@ -1,5 +1,5 @@
 "use strict"
-
+//Required checks to the number
 function isEven(number) {
     if (number % 2 == 0) return "es par"
     else return "es impar"
@@ -17,8 +17,10 @@ function isPrime(number) {
     return "es primo"
 }
 
+//Function to show the checked number
 export function numberAnalysis(number) {
-    if (isNaN(month)) return "Eso no es un numero animal de corral"
+    if (isNaN(number)) return "Debes introducir un numero"
+    if (number % 1 != 0) return number + " no es un numero entero"
     return (
         "El numero " +
         number +

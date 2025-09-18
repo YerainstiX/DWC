@@ -16,6 +16,8 @@ function showResult(result, number1, number2, operator) {
 export function calculator(number1, number2, operator) {
     if (isNaN(number1) || isNaN(number2))
         return "La operación no es valida debes introducir números"
+    if (number1 % 1 != 0) return number1 + " no es un numero entero"
+    if (number2 % 1 != 0) return number2 + " no es un numero entero"
     var result = 0
     switch (operator) {
         case "+":
