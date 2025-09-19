@@ -1,0 +1,17 @@
+.interprete_container {
+    display: flex;
+    align-items: flex-start;
+    border: green solid 1px;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.interprete_image {
+    height: auto;
+}
+
+.interprete_texto {
+    display: flex;
+    flex-direction: column;
+}
