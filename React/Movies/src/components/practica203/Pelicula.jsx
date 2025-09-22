@@ -12,7 +12,7 @@ const Pelicula = (props) => {
                 ></img>
                 <div className="pelicula_texto">
                     <h1 className="plicula_titulo">{props.titulo}</h1>
-                    <h2 className="pelicula_direccion"></h2>
+                    <h2 className="pelicula_direccion">{props.direccion}</h2>
                     <p className="pelicula_resumen">{props.children}</p>
                 </div>
             </div>

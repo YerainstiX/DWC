@@ -2,6 +2,7 @@ import React from "react"
 import "./Interprete.css"
 
 const Interprete = (props) => {
+    
     return (
         <>
             <div className="interprete_container">
