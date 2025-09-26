@@ -4,7 +4,7 @@ import { createCourse } from "./library/ej1.js"
 import { showCourse } from "./library/ej2.js"
 import { pupil } from "./library/ej3.js"
 import { pupil2 } from "./library/ej3.js"
-import { showObject } from "./ej5.js"
+import { showObject } from "./library/ej5.js"
 
 //EX1
 /* 
