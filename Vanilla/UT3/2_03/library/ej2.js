@@ -1,17 +1,29 @@
 "use strict"
 
+import { pupil } from "./ej3.js"
+
+//This a function
 export const showCourse = (course) => {
-    return `The course ${course.name} of ${course.year} with description: ${course.description} and with the pupils ${course.students.join()}.`
+    console.log("The course has the follow characteristics:")
+    for (let property in course) {
+        if (Object.prototype.hasOwnProperty.call(course, property)) {
+            let element = course[property]
+            if (Array.isArray(element)) {
+                console.log(`${property}:`)
+                if (element.length === 0) {
+                    console.log(`No hay estudiantes`);
+                    continue
+                }
+                element.forEach((pupil) => {
+                    if (typeof pupil === "object") {
+                        console.log(`${pupil.id}: ${pupil.name}`)
+                    }
+                })
+                continue
+            }
+            if (element !== undefined && typeof element !== "function") {
+                console.log(`${property}: ${element}`)
+            }
+        }
+    }
 }
-
-const hasName = (course) => {
-    if (typeof course.name != "undefined") return true
-    return false
-}
-
-const hasYear = (course) => {
-    if (typeof course.year != "undefined") return true
-    return false
-}
-
-const hasDescription = (course)
