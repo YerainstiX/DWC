@@ -4,42 +4,57 @@ export const showObject = (object) => {
     for (const key in object) {
         if (Object.prototype.hasOwnProperty.call(object, key)) {
             const element = object[key]
+            //ARRAY CASE
             if (Array.isArray(element)) {
+                //EMPTY ARRAY
                 if (element.length === 0) {
-                    console.log(`The object contains an empty array`)
+                    console.log(`The object contains an empty array (${key})`)
                     continue
-                }
-                for (let i = 0; i < element.length; i++) {
-                    if (
-                        typeof element[i] === "object" &&
-                        !Array.isArray(element(i))
-                    ) {
-                        console.log(
-                            `The object contains an Object with the following elements:`
-                        )
-                        showObject(element[i])
-                    } else {
-                        console.log(
-                            `The object contains an Array with the following elements:\n ${element.join()}`
-                        )
-                    }
+                } else {
+                    //ARRAY NOT EMPTY
+                    console.log(
+                        `\tThe object contains an array (${key}) with the following elements:`
+                    )
                 }
 
+                for (let i = 0; i < element.length; i++) {
+                    //THE ELEMENT OF THE ARRAY IS AN OBJECT
+                    if (
+                        typeof element[i] === "object" &&
+                        !Array.isArray(element[i])
+                    ) {
+                        showObject(element[i])
+                        continue
+                    }
+                    //THE ELEMENT OF THE ARRAY IS AN ARRAY
+                    if (Array.isArray(element[i])) {
+                        console.log(
+                            `\tThe object contains an Array (${key}) with the following elements:\n ${element.join()}`
+                        )
+                        continue
+                    }
+                    //THE ELEMENT OF THE ARRAY IS A PRIMITIVE
+                   console.log(`\t${element[i]}, ${typeof element[i]}`);
+                }
                 continue
             }
+            //FUNCTION CASE
             if (typeof element === "function") {
-                console.log(`The object contains the this function: ${element}`)
-                continue
-            }
-            if (typeof element === "object" && !Array.isArray(element)) {
                 console.log(
-                    `El objeto contiene un objeto con las siguientes caracteristicas ${showObject(
-                        element
-                    )}`
+                    `\tThe object contains the this function: ${element}`
                 )
                 continue
             }
-            console.log(`${key}, ${element}, tipo: ${typeof element}`)
+            //OBJECT CASE
+            if (typeof element === "object" && !Array.isArray(element)) {
+                console.log(
+                    `\tThe object contains an object (${key}) with the following characteristics:`
+                )
+                showObject(element)
+                continue
+            }
+            //PRIMITIVE CASE
+            console.log(`\t${key}, ${element}, tipo: ${typeof element}`)
         }
     }
 }

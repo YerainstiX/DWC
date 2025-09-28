@@ -7,7 +7,8 @@ import { pupil2 } from "./library/ej3.js"
 import { showObject } from "./library/ej5.js"
 
 //EX1
-/* 
+console.log(`\nEX1\n`);
+console.log(`-------------------------------------------\n`);
 console.log(
     createCourse(
         "2ºDAW",
@@ -16,33 +17,40 @@ console.log(
     )
 )
 //EX2
-
+console.log(`\nEX2\n`);
+console.log(`-------------------------------------------\n`);
 showCourse(
     createCourse("2ºDAW", 2025, "Ayuda sáquenme de aquí voy a perder la cabeza")
 )
 
    
 //EX3
+console.log(`\nEX3\n`);
+console.log(`-------------------------------------------\n`);
 console.log(pupil.calculateAverage())
 console.log(pupil.showHobbies())
 console.log(pupil.printReport())
-*/
+
 
 //EX4
+console.log(`\nEX4\n`);
+console.log(`-------------------------------------------\n`);
 const course = createCourse(
     "2ºDAW",
     "2025",
     "Ayuda sáquenme de aquí voy a perder la cabeza"
 )
 
-//showCourse(course)
+showCourse(course)
 
 course.matriculate(pupil)
 course.matriculate(pupil2)
 
-//showCourse(course)
-
+showCourse(course)
+showObject(course)
 //EX5
+console.log(`\nEX5\n`);
+console.log(`-------------------------------------------\n`);
 showObject({
     letter: "a",
     number: 5,
