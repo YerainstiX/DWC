@@ -1,19 +1,19 @@
 "use strict"
 
 export const showObject = (object) => {
-    for (const key in object) {
-        if (Object.prototype.hasOwnProperty.call(object, key)) {
-            const element = object[key]
+    for (const property in object) {
+        if (Object.prototype.hasOwnProperty.call(object, property)) {
+            const element = object[property]
             //ARRAY CASE
             if (Array.isArray(element)) {
                 //EMPTY ARRAY
                 if (element.length === 0) {
-                    console.log(`The object contains an empty array (${key})`)
+                    console.log(`The object contains an empty array (${property})`)
                     continue
                 } else {
-                    //ARRAY NOT EMPTY
+                //ARRAY NOT EMPTY
                     console.log(
-                        `\tThe object contains an array (${key}) with the following elements:`
+                        `\tThe object contains an array (${property}) with the following elements:`
                     )
                 }
 
@@ -29,7 +29,7 @@ export const showObject = (object) => {
                     //THE ELEMENT OF THE ARRAY IS AN ARRAY
                     if (Array.isArray(element[i])) {
                         console.log(
-                            `\tThe object contains an Array (${key}) with the following elements:\n ${element.join()}`
+                            `\tThe object contains an Array (${property}) with the following elements:\n ${element.join()}`
                         )
                         continue
                     }
@@ -48,13 +48,13 @@ export const showObject = (object) => {
             //OBJECT CASE
             if (typeof element === "object" && !Array.isArray(element)) {
                 console.log(
-                    `\tThe object contains an object (${key}) with the following characteristics:`
+                    `\tThe object contains an object (${property}) with the following characteristics:`
                 )
                 showObject(element)
                 continue
             }
             //PRIMITIVE CASE
-            console.log(`\t${key}, ${element}, tipo: ${typeof element}`)
+            console.log(`\t${property}, ${element}, tipo: ${typeof element}`)
         }
     }
 }

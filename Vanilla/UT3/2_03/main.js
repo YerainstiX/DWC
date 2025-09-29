@@ -27,7 +27,7 @@ showCourse(
 //EX3
 console.log(`\nEX3\n`);
 console.log(`-------------------------------------------\n`);
-console.log(pupil.calculateAverage())
+console.log(`The pupil has this average: ${pupil.calculateAverage()}`)
 console.log(pupil.showHobbies())
 console.log(pupil.printReport())
 
@@ -42,42 +42,47 @@ const course = createCourse(
 )
 
 showCourse(course)
-
+console.log(`-------------------------------------------\n`);
 course.matriculate(pupil)
+
+showCourse(course)
+console.log(`-------------------------------------------\n`);
 course.matriculate(pupil2)
 
 showCourse(course)
-showObject(course)
+
 //EX5
 console.log(`\nEX5\n`);
 console.log(`-------------------------------------------\n`);
 showObject({
-    letter: "a",
-    number: 5,
+    letter: "L",
+    number: 3019, 
     obj: {
-        helloWorld: ["Hello", "World"],
-        num: 82546257,
+        helloWorld: ["Mordor", "Gondor"],
+        num: 123456,
         obj3: {
-            testJ: "Bye",
-            testZ: "World",
+            testJ: "Frodo",
+            testZ: "Sam",
             obj4: {
-                fact: "Google Chrome se comió la RAM de mi ordenador",
+                fact: "The One Ring whispered and Boromir tried to steal it",
                 method: function () {
-                    console.log("Soy un método de Google")
+                    console.log("I'm Aragorn's method: For Frodo!")
                 },
                 arrow: () => {
-                    console.log("Soy la función flecha de Google")
+                    console.log("I'm Legola's arrow that never misses")
                 },
                 finalObj: {
-                    value: "valor feo",
-                    superFinal: { final: "Nunca" },
+                    value: "Mithril",
+                    superFinal: { final: "Mount Doom" },
                 },
-                status: true,
+                status: true, //The Fellowship is still united
             },
         },
     },
-    arrayTest: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+    arrayTest: ["Ring", "Sword", "Bow", "Axe", "Elf", "Dwarf", "Orc", "Troll", "Ent", true],
     finalFunc: function () {
-        console.log("Soy una función de Chrome")
+        console.log("I'm the final function that summons Gandalf the White with his magic light")
     },
 })
+console.log(`-------------------------------------------\n`);
+showObject(course)
