@@ -96,27 +96,39 @@ export const addUser = (user) => {
     return [...users, user]
 }
 
-const plus18 = (users) => {
+export const plus18 = (users) => {
+    if (!isJSONArray(users)) {
+        return "No es un objeto JSON, poco agraciado a la vista"
+    }
     return users.filter((user) => user.preferencias.edad > 18)
 }
 
-const yahooServer = (users) => {
+export const yahooServer = (users) => {
+    if (!isJSONArray(users)) {
+        return "No es un objeto JSON, poco agraciado a la vista"
+    }
     return users.filter((user) =>
         user.contacto.correoelectronico.includes("@yahoo")
     )
 }
 
-const megaFilter = (users) => {
+export const megaFilter = (users) => {
+    if (!isJSONArray(users)) {
+        return "No es un objeto JSON, poco agraciado a la vista"
+    }
     return plus18(users).filter(
         (user) =>
             user.preferencias.tema === "claro" &&
             user.contacto.direccion.pais === "España"
     )
 }
-//In this function I use destructuring to extract directly the data from the object, I extract 
-//the same way the data from preferencias, I use "|| {}"" to make sure that preferencias is not 
-//undefined, and it that way it don't explodes when destructuring.
-const missingData = (users) => {
+/*In this function I use destructuring to extract directly the data from the object, I extract
+the same way the data from preferencias, I use "|| {}"" to make sure that preferencias is not
+undefined, and it that way it don't explodes when destructuring.*/
+export const missingData = (users) => {
+    if (!isJSONArray(users)) {
+        return "No es un objeto JSON, poco agraciado a la vista"
+    }
     return users.filter(({ nombre, preferencias, contacto }) => {
         const { tema, idioma, edad } = preferencias || {}
         const { direccion, correoelectronico, telefono } = contacto || {}
@@ -134,10 +146,38 @@ const missingData = (users) => {
             telefono,
         ]
 
-        return datos.some((d) => d !== undefined)
+        return datos.some((dato) => dato === undefined || dato === "")
     })
 }
 
-const addLastName = (users) => {
-    return users.map((user) => ({...user, apellido: "No definido"}))
+export const addLastName = (users) => {
+    if (!isJSONArray(users)) {
+        return "No es un objeto JSON, poco agraciado a la vista"
+    }
+    return users.map((user) => ({ ...user, apellido: "No definido" }))
+}
+
+export const addPostalCode = (users) => {
+    if (!isJSONArray(users)) {
+        return "No es un objeto JSON, poco agraciado a la vista"
+    }
+    return users.map((user) => ({
+        ...user,
+        contacto: {
+            ...user.contacto,
+            direccion: {
+                ...user.direccion,
+                codigo: "00000",
+            },
+        },
+    }))
+}
+//Function to prove that we are receiving a Array with JSON objects inside
+const isJSONArray = (array) => {
+    return (
+        Array.isArray(array) &&
+        array.every(
+            (object) => typeof object === "object" && !Array.isArray(object)
+        )
+    )
 }
