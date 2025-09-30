@@ -157,6 +157,7 @@ export const addLastName = (users) => {
     return users.map((user) => ({ ...user, apellido: "No definido" }))
 }
 
+//I use the spread operator with map() to access the property direccion
 export const addPostalCode = (users) => {
     if (!isJSONArray(users)) {
         return "No es un objeto JSON, poco agraciado a la vista"
@@ -166,12 +167,13 @@ export const addPostalCode = (users) => {
         contacto: {
             ...user.contacto,
             direccion: {
-                ...user.direccion,
+                ...user.contacto.direccion, 
                 codigo: "00000",
             },
         },
     }))
 }
+
 //Function to prove that we are receiving a Array with JSON objects inside
 const isJSONArray = (array) => {
     return (

@@ -19,6 +19,7 @@ import { missingData } from "./library/ej3.js"
 import { addLastName } from "./library/ej3.js"
 import { addPostalCode } from "./library/ej3.js"
 
+//EX1
 console.log(`EX1`)
 console.log(`-------------------------------------------\n`)
 console.log(`Array in uppercase:`)
@@ -28,6 +29,7 @@ console.log(reverseOrder(names).join())
 console.log(`Array with JSON object:`)
 console.table(JSON.stringify(namesJSON(names), null, 2))
 
+//EX2
 console.log(`\nEX2`)
 console.log(`-------------------------------------------\n`)
 const array1 = generateArray()
@@ -43,6 +45,7 @@ console.log(`Filtered and combined array`)
 const combinedArray = filterAndCombineArray(array1, array2, array3)
 console.log(combinedArray.join())
 
+//EX3
 console.log(`\nEX3`)
 console.log(`-------------------------------------------\n`)
 console.log(`Result of the function addUser Aragorn:`)
@@ -77,7 +80,8 @@ console.log(JSON.stringify(megaFilter(users), null, 2))
 console.log(`Result of the function to see the users with missing data:`)
 console.log(JSON.stringify(missingData(users), null, 2))
 console.log(
-    `Result of the function to add a fiel to the JSON object with the last name`
+    `Result of the function to add a fiel to the JSON object with the last name:`
 )
 console.log(JSON.stringify(addLastName(users), null, 2))
-console.log(`Result of the function `)
+console.log(`Result of the function to add a field to the JON object with postal code:`)
+console.log(JSON.stringify(addPostalCode(users), null, 2))

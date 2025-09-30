@@ -9,7 +9,7 @@ export const namesUpper = (names) => {
 export const reverseOrder = (names) => {
     return [...names].sort().reverse()
 }
-
+//I've decided to use the push to make it more simple, i knew it might be a better way.
 export const namesJSON = (names) => {
     const namesJSON = []
     for (let i = 0; i < names.length; i++) {
