@@ -46,6 +46,7 @@ const combinedArray = filterAndCombineArray(array1, array2, array3)
 console.log(combinedArray.join())
 
 //EX3
+
 console.log(`\nEX3`)
 console.log(`-------------------------------------------\n`)
 console.log(`Result of the function addUser Aragorn:`)
