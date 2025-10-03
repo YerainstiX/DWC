@@ -1,0 +1,81 @@
+/* Texto del título */
+.listado_container {
+    background-color: gray;
+    border: 4px solid rgb(32, 29, 29);
+    border-radius: 10px;
+}
+
+.listado_p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #1f2937; /* gris oscuro */
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Botón de generar */
+.listado_addnumber {
+    background: #2563eb; /* azul */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    margin: 0.3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.listado_addnumber:hover {
+    background: #1e40af; /* azul más oscuro */
+}
+
+.listado_addnumber:active {
+    transform: scale(0.95);
+}
+
+/* Botón de borrar */
+.listado_deletelist {
+    background: #dc2626; /* rojo */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    margin: 0.3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.listado_deletelist:hover {
+    background: #991b1b; /* rojo oscuro */
+}
+
+.listado_deletelist:active {
+    transform: scale(0.95);
+}
+
+/* Lista de números */
+.listado_numberlist {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.listado_numberlist li {
+    background: #e0e7ff; /* azul clarito */
+    margin: 0.4rem 0;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 500;
+    color: #1e3a8a; /* azul fuerte */
+    transition: transform 0.2s ease;
+}
+
+.listado_numberlist li:hover {
+    transform: translateX(5px);
+}

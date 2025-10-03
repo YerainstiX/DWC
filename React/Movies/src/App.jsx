@@ -5,6 +5,9 @@ import "./App.css"
 import Contenedor from "./components/Contenedor.jsx"
 import Interprete from "./components/Interprete.jsx"
 import Pelicula from "./components/Pelicula.jsx"
+import Listado from "./components/Listado.jsx"
+import ContadorLimite from "./components/ContadorLimite.jsx"
+import ContadorLikes from "./components/ContadorLikes.jsx"
 
 function App() {
     const [count, setCount] = useState(0)
@@ -51,6 +54,9 @@ function App() {
                     </Interprete>
                 </Contenedor>
             </Pelicula>
+            <Listado />
+            <ContadorLimite />
+            <ContadorLikes />
         </>
     )
 }
