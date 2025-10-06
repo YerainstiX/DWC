@@ -1,24 +1,23 @@
-/* Contenedor general: fila horizontal */
 .contadorlikes_container {
     display: flex;
-    align-items: center;
-    gap: 2rem; /* espacio entre like y dislike */
     justify-content: center;
+    align-items: center;
+    gap: 8px;
+    max-width: 400px;
+    margin: 0 auto;
     background-color: gray;
     border: 4px solid rgb(32, 29, 29);
     border-radius: 10px;
-    max-width: 10%;
+    padding: 16px;
 }
 
-/* Cada botón + número juntos en columna */
 .contadorlikes_item {
     display: flex;
-    flex-direction: column; /* columna vertical */
-    align-items: center; /* centra el número debajo del botón */
-    gap: 0.3rem; /* espacio entre botón y número */
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
 }
 
-/* Botones */
 .contadorlikes_likes,
 .contadorlikes_dislikes {
     background: none;
@@ -27,7 +26,6 @@
     font-size: 2rem;
 }
 
-/* Pulgares */
 .contadorlikes_likes::before {
     content: "👍";
 }
@@ -35,7 +33,6 @@
     content: "👎";
 }
 
-/* Texto de contador */
 .contadorlikes_text {
     font-size: 1.2rem;
     font-weight: bold;

@@ -54,9 +54,12 @@ function App() {
                     </Interprete>
                 </Contenedor>
             </Pelicula>
+            <hr></hr>
+            <div className="practica_ocho">
             <Listado />
             <ContadorLimite />
             <ContadorLikes />
+            </div>
         </>
     )
 }
