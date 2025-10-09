@@ -8,6 +8,7 @@ import Pelicula from "./components/Pelicula.jsx"
 import Listado from "./components/Listado.jsx"
 import ContadorLimite from "./components/ContadorLimite.jsx"
 import ContadorLikes from "./components/ContadorLikes.jsx"
+import Matricula from "./components/Matricula.jsx"
 
 function App() {
     const [count, setCount] = useState(0)
@@ -60,6 +61,8 @@ function App() {
             <ContadorLimite />
             <ContadorLikes />
             </div>
+            <hr />
+            <Matricula></Matricula>
         </>
     )
 }
