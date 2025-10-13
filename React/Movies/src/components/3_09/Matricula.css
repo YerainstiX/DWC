@@ -1,0 +1,95 @@
+/* Contenedor general */
+div {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #333;
+}
+
+/* Títulos */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #1e40af;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+/* Contenedor de botones de filtros */
+.matricula_botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+/* Estilo de botones */
+.matricula_botones button,
+button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.matricula_botones button:hover,
+button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.matricula_botones button:active,
+button:active {
+  transform: translateY(0);
+  background-color: #1e3a8a;
+}
+
+/* Texto cuando la lista está vacía */
+p {
+  text-align: center;
+  font-style: italic;
+  color: #6b7280;
+}
+
+/* Contenedor de la lista de alumnos */
+div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Botones individuales de "Unenroll" */
+div > div > button {
+  background-color: #dc2626;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  align-self: flex-start;
+}
+
+div > div > button:hover {
+  background-color: #b91c1c;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .matricula_botones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .matricula_botones button {
+    width: 80%;
+  }
+}

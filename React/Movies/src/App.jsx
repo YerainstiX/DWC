@@ -15,7 +15,7 @@ function App() {
 
     return (
         <>
-        {/*
+            {/*
             <Pelicula
                 titulo="The Lord of the Rings: The Two Towers"
                 direccion="Peter Jacson"
@@ -63,7 +63,7 @@ function App() {
             <ContadorLikes />
             </div>
             */}
-            <Matricula></Matricula>
+            <Matricula />
         </>
     )
 }
