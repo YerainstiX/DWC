@@ -2,19 +2,20 @@ import { useState } from "react"
 import reactLogo from "./assets/react.svg"
 import viteLogo from "/vite.svg"
 import "./App.css"
-import Contenedor from "./components/Contenedor.jsx"
-import Interprete from "./components/Interprete.jsx"
-import Pelicula from "./components/Pelicula.jsx"
-import Listado from "./components/Listado.jsx"
-import ContadorLimite from "./components/ContadorLimite.jsx"
-import ContadorLikes from "./components/ContadorLikes.jsx"
-import Matricula from "./components/Matricula.jsx"
+//import Contenedor from "./components/Contenedor.jsx"
+//import Interprete from "./components/Interprete.jsx"
+//import Pelicula from "./components/Pelicula.jsx"
+//import Listado from "./components/Listado.jsx"
+//import ContadorLimite from "./components/ContadorLimite.jsx"
+//import ContadorLikes from "./components/ContadorLikes.jsx"
+import Matricula from "./components/3_09/Matricula.jsx"
 
 function App() {
     const [count, setCount] = useState(0)
 
     return (
         <>
+        {/*
             <Pelicula
                 titulo="The Lord of the Rings: The Two Towers"
                 direccion="Peter Jacson"
@@ -61,7 +62,7 @@ function App() {
             <ContadorLimite />
             <ContadorLikes />
             </div>
-            <hr />
+            */}
             <Matricula></Matricula>
         </>
     )
