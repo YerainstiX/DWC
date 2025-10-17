@@ -1,13 +1,5 @@
 body {
     background-color: #242424;
     color: white;
+    width: 100%;
 }
-
-.practica_ocho {
-  display: flex;                
-  justify-content: center;      
-  align-items: flex-start;      
-  flex-wrap: wrap;              
-  padding: 2rem;               
-}
-
