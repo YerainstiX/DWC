@@ -2,6 +2,7 @@
 import "../functions/mathFunctions.js"
 import { isPrime } from "../functions/mathFunctions.js"
 
+//It took a while but this is the logic to create a table with the size you want and to add numbers to the cells from 1 to n
 export const createTable = (size) => {
     const body = document.body
     const table = document.createElement("table")

@@ -1,4 +1,4 @@
-/* Títulos */
+
 h1 {
   text-align: center;
   font-size: 2rem;
@@ -13,7 +13,7 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* Contenedor de botones de filtros */
+
 .matricula_botones {
   display: flex;
   flex-wrap: wrap;
@@ -22,7 +22,7 @@ h2 {
   margin-bottom: 2rem;
 }
 
-/* Estilo de botones */
+
 .matricula_botones button,
 button {
   background-color: #2563eb;
@@ -47,21 +47,20 @@ button:active {
   background-color: #1e3a8a;
 }
 
-/* Texto cuando la lista está vacía */
 p {
   text-align: center;
   font-style: italic;
   color: #6b7280;
 }
 
-/* Contenedor de la lista de alumnos */
+
 div > div {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
-/* Botones individuales de "Unenroll" */
+
 div > div > button {
   background-color: #dc2626;
   font-size: 0.9rem;
@@ -73,7 +72,6 @@ div > div > button:hover {
   background-color: #b91c1c;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .matricula_botones {
     flex-direction: column;
