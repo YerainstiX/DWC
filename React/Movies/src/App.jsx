@@ -10,6 +10,7 @@ import ContadorLimite from "./components/3_08/ContadorLimite.jsx"
 import ContadorLikes from "./components/3_08/ContadorLikes.jsx"
 import Matricula from "./components/3_09/Matricula.jsx"
 import ListaInterpretes from "./components/4_05/ListaInterpretes.jsx"
+import Taquilla from "./components/4_05/Taquilla.jsx"
 
 function App() {
     const [count, setCount] = useState(0)
@@ -39,8 +40,8 @@ function App() {
                     Paralelamente, Frodo y Sam continúan su peligroso viaje
                     hacia Mordor acompañados por Gollum.
                 </Pelicula>
-                <ListaInterpretes interpretes={elenco}/>
-                
+                <Taquilla>938.828.326 $</Taquilla>
+                <ListaInterpretes interpretes={elenco}/>   
             </Contenedor>
             
              {/*
