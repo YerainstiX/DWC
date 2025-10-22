@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import matriculados from "../../data/matriculados.json"
+import matriculados from "../../assets/data/matriculados.json"
 import Pupil from "./Pupil.jsx"
 import "./Matricula.css"
 
