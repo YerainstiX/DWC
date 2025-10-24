@@ -1,7 +1,7 @@
 import React from "react"
 import ButtonNavigate from "../components/ButtonNavigate.jsx"
 import "./Product.css"
-
+//The product page.
 const Products = () => {
     return (
         <>

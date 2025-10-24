@@ -6,6 +6,7 @@ import About from "../pages/About.jsx"
 import Contact from "../pages/Contact.jsx"
 import Error from "../pages/Error.jsx"
 
+//The element where I show the page i wan't to show.
 const Paths = () => {
     return (
         <>

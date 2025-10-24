@@ -1,6 +1,7 @@
 import React from "react"
 import "./Error.css"
 
+//It took a lot of effort to copy this from the internet (just joking) but the train as I will say in Spanish "Esta guapardo".
 const Error = () => {
     return (
         <>

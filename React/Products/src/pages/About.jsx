@@ -1,7 +1,7 @@
 import React from "react"
 import ButtonNavigate from "../components/ButtonNavigate.jsx"
 import "./About.css"
-
+//The about page
 const About = () => {
     return (
         <>

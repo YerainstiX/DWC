@@ -1,5 +1,6 @@
 import React from "react"
 import "./Start.css"
+//The start page.
 const Start = () => {
     return (
         <>

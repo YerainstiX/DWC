@@ -6,7 +6,9 @@ const Menu = () => {
     return (
         <>
             <nav>
-                <h1>Productos para feardos</h1>
+                <Link to="/">
+                    <h1>Productos para Feardos</h1>
+                </Link>
                 <div className="menu">
                     <Link className="menu_element" to="/">
                         Start

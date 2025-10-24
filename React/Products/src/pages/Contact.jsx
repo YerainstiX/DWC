@@ -1,7 +1,7 @@
 import React from "react"
 import ButtonNavigate from "../components/ButtonNavigate.jsx"
 import "./Contact.css"
-
+//The contact page
 const Contact = () => {
     return (
         <>
