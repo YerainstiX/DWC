@@ -1,8 +1,7 @@
 import React from "react"
-import "./Interprete.css"
+//import "./Interprete.css"
 
-const Interprete = ({nombre}) => {
-    
+const Interprete = (props) => {
     return (
         <>
             <div className="interprete_container">

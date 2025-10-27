@@ -1,0 +1,79 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "title": "The Fellowship of the Ring",
+            "director": "Peter Jackson",
+            "year": 2001,
+            "image": "https://upload.wikimedia.org/wikipedia/en/0/0c/The_Lord_of_the_Rings_The_Fellowship_of_the_Ring_cover.jpg",
+            "summary": "A young hobbit, Frodo Baggins, inherits the One Ring and must embark on a perilous quest to destroy it in Mount Doom, preventing it from falling into the hands of the Dark Lord Sauron. Along his journey, he forms the Fellowship of the Ring with hobbits, men, elves, a dwarf, and the wizard Gandalf.",
+            "cast": [
+                {
+                    "name": "Elijah Wood",
+                    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Elijah_Wood_2016_%28cropped%29.jpg",
+                    "description": "Played Frodo Baggins, the hobbit who bears the Ring and must resist its power."
+                },
+                {
+                    "name": "Ian McKellen",
+                    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/45/Ian_McKellen_2019_by_Glenn_Francis.jpg",
+                    "description": "Played Gandalf the Grey, the wizard who guides Frodo and the Fellowship on their mission."
+                },
+                {
+                    "name": "Viggo Mortensen",
+                    "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Viggo_Mortensen_2017.jpg",
+                    "description": "Played Aragorn, heir of Isildur and human warrior who joins the Fellowship."
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "The Two Towers",
+            "director": "Peter Jackson",
+            "year": 2002,
+            "image": "https://upload.wikimedia.org/wikipedia/en/a/ad/Lord_of_the_Rings_-_The_Two_Towers_cover.jpg",
+            "summary": "The Fellowship has been broken. Frodo and Sam continue toward Mordor with the treacherous Gollum as their guide, while Aragorn, Legolas, and Gimli travel to the kingdom of Rohan to face Saruman’s army in the epic Battle of Helm’s Deep.",
+            "cast": [
+                {
+                    "name": "Sean Astin",
+                    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/98/Sean_Astin_2016.jpg",
+                    "description": "Played Samwise Gamgee, Frodo’s loyal friend and companion throughout the quest."
+                },
+                {
+                    "name": "Orlando Bloom",
+                    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Orlando_Bloom_2013.jpg",
+                    "description": "Played Legolas, the elven prince and master archer."
+                },
+                {
+                    "name": "Andy Serkis",
+                    "photo": "https://upload.wikimedia.org/wikipedia/commons/9/98/Andy_Serkis_Cannes_2014.jpg",
+                    "description": "Played Gollum/Sméagol, the tormented creature who guides Frodo and Sam to Mordor."
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "The Return of the King",
+            "director": "Peter Jackson",
+            "year": 2003,
+            "image": "https://upload.wikimedia.org/wikipedia/en/9/9d/The_Lord_of_the_Rings_The_Return_of_the_King_cover.jpg",
+            "summary": "The final chapter of the saga: while Frodo and Sam struggle to reach Mount Doom and destroy the Ring, Aragorn accepts his destiny as the King of Gondor and leads the final battle against Sauron to save Middle-earth.",
+            "cast": [
+                {
+                    "name": "Billy Boyd",
+                    "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Billy_Boyd_2007.jpg",
+                    "description": "Played Pippin (Peregrin Took), a hobbit of the Fellowship who faces trials and grows in courage."
+                },
+                {
+                    "name": "Dominic Monaghan",
+                    "photo": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Dominic_Monaghan_2014_%28cropped%29.jpg",
+                    "description": "Played Merry (Meriadoc Brandybuck), Frodo’s cousin who takes part in the war of men."
+                },
+                {
+                    "name": "John Rhys-Davies",
+                    "photo": "https://upload.wikimedia.org/wikipedia/commons/8/84/John_Rhys-Davies_2014.jpg",
+                    "description": "Played Gimli, the brave dwarf companion of Aragorn and Legolas in the final battle."
+                }
+            ]
+        }
+    ]
+}
