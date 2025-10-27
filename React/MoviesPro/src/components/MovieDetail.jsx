@@ -1,10 +1,13 @@
 import React from "react"
+import { useParams } from "react-router-dom"
 import movies from "../assets/movies.json"
 import ListaInterpretes from "./ListaInterpretes.jsx"
 
 const MovieDetails = () => {
-    const mov = movies.movies
-    
+    const { id } = useParams()
+    const movieId = parseInt(id)
+    const mov = movies.movies.find((m) => m.id.toString() === id)
+
     return (
         <>
             <div className="pelicula_container">
@@ -16,12 +19,13 @@ const MovieDetails = () => {
                 <div className="pelicula_image_resumen">
                     <img
                         src={mov.image}
-                        alt="imagen"
+                        alt={mov.title}
                         className="pelicula_image"
                     ></img>
                     <p className="pelicula_resumen">{mov.summary}</p>
                 </div>
-                <ListaInterpretes cast={mov.cast} />
+                <h2>INTERPRETES</h2>
+                <ListaInterpretes id={movieId} />
             </div>
         </>
     )

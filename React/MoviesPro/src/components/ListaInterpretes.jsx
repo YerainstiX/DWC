@@ -1,11 +1,12 @@
 import React, { useRef } from "react"
 import Interprete from "./Interprete.jsx"
+import movies from "../assets/movies.json"
 
-const ListaInterpretes = (props) => {
-    console.log(props.cast)
+const ListaInterpretes = ({ id }) => {
+    const mov = movies.movies.find((m) => m.id === id)
     return (
         <div className="ListaInterprete_container">
-            {props.cast.map((int, index) => (
+            {mov.cast.map((int, index) => (
                 <Interprete key={index} nombre={int.name} foto={int.photo}>
                     {int.description}
                 </Interprete>

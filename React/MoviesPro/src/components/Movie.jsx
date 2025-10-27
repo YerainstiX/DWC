@@ -18,7 +18,9 @@ const Movie = ({ id, title, director, year, image, summary, cast }) => {
                         className="pelicula_image"
                     ></img>
                 </div>
-                <Link to={`/movies/${id}`}>DETAILS</Link>
+                <Link to={`/movies/${id}`}>
+                    <button>DETAILS</button>
+                </Link>
             </div>
         </>
     )
