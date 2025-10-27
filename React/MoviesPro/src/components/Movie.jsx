@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import ListaInterpretes from "./ListaInterpretes.jsx"
 import MovieDetails from "./MovieDetail.jsx"
 
-const Movie = ({ id, title, director, year, image, summary, cast }) => {
+const Movie = ({ id, title, year, image }) => {
     return (
         <>
             <div className="pelicula_container">
