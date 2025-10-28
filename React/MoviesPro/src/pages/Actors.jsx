@@ -1,7 +1,10 @@
 import React from "react"
+import AllActors from "../components/AllActors.jsx"
 
 const Actors = () => {
-    return <></>
+    return <>
+        <AllActors></AllActors>
+    </>
 }
 
 export default Actors

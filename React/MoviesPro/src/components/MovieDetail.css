@@ -1,0 +1,66 @@
+/* CONTENEDOR GENERAL (imagen + texto + título intérpretes) */
+.pelicula_container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+    flex-wrap: wrap; /* garantiza que el h2 e intérpretes bajen */
+    box-sizing: border-box;
+}
+
+/* IMAGEN A LA IZQUIERDA */
+.pelicula_image_resumen {
+    flex: 0 0 300px;
+}
+
+.pelicula_image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+}
+
+/* TEXTO A LA DERECHA */
+.pelicula_texto {
+    flex: 1;
+    min-width: 260px;
+}
+
+.plicula_titulo {
+    font-size: 2.2rem;
+    margin: 0;
+    color: #111;
+}
+
+.pelicula_direccion {
+    font-size: 1.2rem;
+    margin: 6px 0;
+    color: #444;
+}
+
+.pelicula_year {
+    font-size: 1rem;
+    margin: 4px 0 14px;
+    color: #777;
+}
+
+.pelicula_resumen {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* SECCIÓN DE INTERPRETES */
+.pelicula_container > h2 {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.6rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 6px;
+    color: #111;
+}

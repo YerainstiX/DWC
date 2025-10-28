@@ -1,0 +1,9 @@
+.ListaInterprete_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    justify-items: center;
+    box-sizing: border-box;
+}

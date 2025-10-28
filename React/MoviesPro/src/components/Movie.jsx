@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import ListaInterpretes from "./ListaInterpretes.jsx"
 import MovieDetails from "./MovieDetail.jsx"
+import "./Movie.css"
 
 const Movie = ({ id, title, year, image }) => {
     return (

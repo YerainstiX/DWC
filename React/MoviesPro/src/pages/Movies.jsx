@@ -9,6 +9,7 @@ const Movies = () => {
         <>
             {mov.map((movie, index) => (
                 <Movie
+                    key={movie.id}
                     id={movie.id}
                     title={movie.title}
                     director={movie.director}

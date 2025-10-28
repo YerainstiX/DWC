@@ -1,0 +1,38 @@
+.interprete_container {
+    width: 300px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.interprete_container:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.interprete_image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.interprete_texto {
+    padding: 16px;
+}
+
+.interprete_name {
+    font-size: 1.25rem;
+    margin: 0;
+    color: #222;
+}
+
+.interprete_description {
+    font-size: 0.95rem;
+    margin-top: 8px;
+    color: #555;
+    line-height: 1.4;
+}
