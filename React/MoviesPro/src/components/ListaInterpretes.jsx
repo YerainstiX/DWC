@@ -3,6 +3,7 @@ import Interprete from "./Interprete.jsx"
 import movies from "../assets/movies.json"
 import "./ListaInterpretes.css"
 
+//The component to show all the actors
 const ListaInterpretes = ({ id }) => {
     const mov = movies.movies.find((m) => m.id === id)
     return (

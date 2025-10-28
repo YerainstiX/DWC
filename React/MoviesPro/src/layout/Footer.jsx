@@ -4,8 +4,8 @@ const Footer = () => {
     return (
         <>
             <footer>
-                © 2025 Sitio para feos. Todos los derechos reservados menos si
-                eres un cardo.
+                © 2025 Site for ugly people . All right reserved except if you
+                are handsome
             </footer>
         </>
     )

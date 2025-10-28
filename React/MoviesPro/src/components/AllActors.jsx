@@ -3,6 +3,7 @@ import movies from "../assets/movies.json"
 import Interprete from "./Interprete"
 import "./AllActors.css"
 
+//Here I show all the actors of movies.json
 const AllActors = () => {
     const mov = movies.movies
     const cast = mov.flatMap((movie) => movie.cast)

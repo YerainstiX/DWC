@@ -1,4 +1,3 @@
-/* CONTENEDOR GENERAL (imagen + texto + título intérpretes) */
 .pelicula_container {
     width: 100%;
     max-width: 1100px;
@@ -8,11 +7,10 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 32px;
-    flex-wrap: wrap; /* garantiza que el h2 e intérpretes bajen */
+    flex-wrap: wrap;
     box-sizing: border-box;
 }
 
-/* IMAGEN A LA IZQUIERDA */
 .pelicula_image_resumen {
     flex: 0 0 300px;
 }
@@ -24,7 +22,6 @@
     object-fit: cover;
 }
 
-/* TEXTO A LA DERECHA */
 .pelicula_texto {
     flex: 1;
     min-width: 260px;
@@ -55,7 +52,6 @@
     text-align: justify;
 }
 
-/* SECCIÓN DE INTERPRETES */
 .pelicula_container > h2 {
     width: 100%;
     margin-top: 20px;

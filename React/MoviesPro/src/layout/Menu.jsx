@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./Menu.css"
-
+//The menu component to navigate the application
 const Menu = () => {
     return (
         <>
@@ -18,6 +18,9 @@ const Menu = () => {
                     </Link>
                     <Link className="menu_element" to="/actors">
                         Actors
+                    </Link>
+                    <Link className="menu element" to="/gallery">
+                        Gallery
                     </Link>
                     <Link className="menu_element" to="/about">
                         About

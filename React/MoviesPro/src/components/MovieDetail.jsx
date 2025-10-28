@@ -4,6 +4,7 @@ import movies from "../assets/movies.json"
 import ListaInterpretes from "./ListaInterpretes.jsx"
 import "./MovieDetail.css"
 
+//The component to show the details of the movie by the ID
 const MovieDetails = () => {
     const { id } = useParams()
     const movieId = parseInt(id)

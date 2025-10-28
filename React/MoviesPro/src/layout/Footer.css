@@ -5,8 +5,7 @@ footer {
     text-align: center;
     padding: 16px 0;
     font-size: 14px;
-    margin-top: 40px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: 0.3px;
     box-shadow: 0 -2px 6px rgba(2, 2, 2, 0.3);
 }

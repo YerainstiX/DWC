@@ -1,0 +1,83 @@
+/* === Layout principal === */
+.gallery_layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #0f0f0f;
+    color: #fff;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* === Aside (menú lateral) === */
+.gallery_aside {
+    flex: 0 0 220px;
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    position: sticky;
+    top: 1rem;
+    height: fit-content;
+}
+
+/* === Contenedor del Outlet y galería === */
+.gallery_content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* === Sección dinámica del Outlet === */
+.gallery_content > .outlet {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* === Galería de imágenes === */
+.gallery_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+}
+
+.gallery_container img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery_container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* === Responsive === */
+@media (max-width: 900px) {
+    .gallery_layout {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .gallery_aside {
+        width: 100%;
+        position: static;
+        border-radius: 10px;
+    }
+
+    .gallery_container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .gallery_container img {
+        height: 180px;
+    }
+}

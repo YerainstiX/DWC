@@ -1,6 +1,7 @@
 import React from "react"
 import "./Interprete.css"
 
+//The individual component to show the actor
 const Interprete = (props) => {
     return (
         <>

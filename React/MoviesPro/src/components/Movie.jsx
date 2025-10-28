@@ -4,6 +4,7 @@ import ListaInterpretes from "./ListaInterpretes.jsx"
 import MovieDetails from "./MovieDetail.jsx"
 import "./Movie.css"
 
+//The individual component to show a resumed view of the movie
 const Movie = ({ id, title, year, image }) => {
     return (
         <>
