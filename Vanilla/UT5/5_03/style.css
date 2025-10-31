@@ -1,6 +1,110 @@
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 30px 40px;
+    max-width: 900px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ===== TÍTULO ===== */
+.container h1 {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+}
+
+/* ===== LAYOUT PRINCIPAL ===== */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+}
+
+/* ===== PANEL DE COLORES ===== */
+.colors {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #f4f6fa;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones de color */
+.colors div {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.colors div:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Colores específicos */
+.colors .white {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.colors .black {
+    background-color: #000;
+}
+.colors .yellow {
+    background-color: #ff0;
+}
+.colors .red {
+    background-color: #f00;
+}
+.colors .blue {
+    background-color: #00f;
+}
+.colors .green {
+    background-color: #0f0;
+}
+
+/* ===== ÁREA DE DIBUJO ===== */
+.canva {
+    border: 2px solid #222;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    display: inline-block;
+}
+
+/* ===== TABLA ===== */
 table {
     border-collapse: collapse;
-    border: 1px solid black;
 }
 
 td,
@@ -9,4 +113,26 @@ th {
     height: 10px;
     padding: 0;
     margin: 0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+/* ===== COLORES EN CELDAS ===== */
+.canva .white {
+    background-color: #ffffff;
+}
+.canva .black {
+    background-color: #000000;
+}
+.canva .yellow {
+    background-color: #ffff00;
+}
+.canva .red {
+    background-color: #ff0000;
+}
+.canva .blue {
+    background-color: #0000ff;
+}
+.canva .green {
+    background-color: #00ff00;
 }
