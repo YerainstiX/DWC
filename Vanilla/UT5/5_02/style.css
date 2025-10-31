@@ -1,0 +1,44 @@
+.hidden {
+    display: none;
+}
+
+.tabs {
+    display: flex;
+    gap: 5px;
+    border-bottom: 2px solid #ccc;
+}
+
+.tab {
+    padding: 10px 20px;
+    background-color: #eee;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.tab:hover {
+    background-color: #ddd;
+}
+
+.tab.active {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-bottom: 0;
+    font-weight: bold;
+}
+
+.content {
+    border: 2px solid #ccc;
+    border-top: 0;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+.panel {
+    transition: opacity 0.2s ease;
+}
