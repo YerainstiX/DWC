@@ -15,8 +15,11 @@ window.onload = () => {
     container.addEventListener(
         "click",
         (event) => {
-            clase = event.target.classList.value
+            if (event.target.classList.value !== "colors") {
+                clase = event.target.classList.value
             document.querySelector(".color_select").innerText = clase
+            }
+            
         },
         false
     )
