@@ -7,9 +7,10 @@ window.onload = () => {
     container.addEventListener(
         "click",
         (event) => {
+            //If the element clicked is odd we save the nextSibling
             if (event.target.classList.contains("odd")) {
                 const sibling = event.target.nextElementSibling
-
+                //If sibling exist and contains even I toggle the class hidden
                 if (sibling && sibling.classList.contains("even")) {
                     sibling.classList.toggle("hidden")
                 }
