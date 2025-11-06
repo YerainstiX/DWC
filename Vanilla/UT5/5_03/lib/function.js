@@ -1,5 +1,6 @@
 "use strict"
 
+//Function to create a table due to a size 
 export const createTable = (size) => {
     const container = document.querySelector(".canva")
     const table = document.createElement("table")

@@ -7,7 +7,9 @@ export const generatePieces = (array) => {
         let img = document.createElement("img")
         img.src = url
         img.alt = `Trozo`
-        img.id = i
+        let id = url.split("/")
+        id = id[2].split(".")
+        img.id = id[0]
         img.setAttribute("draggable", true)
 
         document.getElementById("draggables").appendChild(img)
@@ -25,4 +27,30 @@ export const shuffle = (array) => {
         array[j] = aux
     }
     return array
+}
+
+export const validateTable = () => {
+    const container = document.getElementById("releasables")
+    let allCorrect = true
+
+    Array.from(container.children).forEach((element, i) => {
+        const img = element.children[0]
+
+        console.log(img)
+
+        if (img.tagName !== "IMG") {
+            allCorrect = false
+        }
+
+        if (img.id !== i + 1) {
+            allCorrect = false
+        }
+    })
+
+    if (allCorrect) {
+        document.getElementById("win").innerText =
+            "I see you have the optifine installed"
+    } else {
+        document.getElementById("win").innerText = ""
+    }
 }

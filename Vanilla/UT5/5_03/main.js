@@ -8,7 +8,7 @@ window.onload = () => {
     const canva = document.querySelector(".canva")
     const td = document.querySelectorAll("td")
     const remove = document.querySelector(".remove_color")
-    let clase = ""
+    let clase = "white"
     let painting = false
 
     //SELECT COLOR
@@ -17,9 +17,8 @@ window.onload = () => {
         (event) => {
             if (event.target.classList.value !== "colors") {
                 clase = event.target.classList.value
-            document.querySelector(".color_select").innerText = clase
+                document.querySelector(".color_select").innerText = clase
             }
-            
         },
         false
     )
