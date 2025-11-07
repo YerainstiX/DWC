@@ -20,9 +20,9 @@ window.onload = () => {
 
     document.getElementById("draggable_zone").addEventListener(
         "dragstart",
-        (evento) => {
-            evento.dataTransfer.setData("id", evento.target.id)
-            evento.dataTransfer.setData("name", evento.target.localName)
+        (e) => {
+            e.dataTransfer.setData("id", e.target.id)
+            e.dataTransfer.setData("name", e.target.localName)
         },
         false
     )
@@ -37,16 +37,26 @@ window.onload = () => {
 
     document.getElementById("draggable_zone").addEventListener(
         "drop",
-        (evento) => {
-            evento.preventDefault()
-            if (evento.target.classList.contains("releasable")) {
-                evento.target.appendChild(
-                    document.getElementById(evento.dataTransfer.getData("id"))
+        (e) => {
+            e.preventDefault()
+            //To avoid the user to drop more than 1 item into the div
+            if (
+                e.target.classList[0] === "releasable" &&
+                e.target.children === 1
+            )
+                return
+
+            if (e.target.classList.contains("releasable")) {
+                e.target.appendChild(
+                    document.getElementById(e.dataTransfer.getData("id"))
                 )
             }
-
-            if (document.getElementById("draggables").hasChildNodes()) {
+            //If the container up is empty it will check the puzzle
+            if (document.getElementById("draggables").children.length === 0) {
                 validateTable()
+            } else {
+                //Otherwise it remove the inside of the win message div
+                document.getElementById("win").innerText = ""
             }
         },
         false
@@ -56,11 +66,15 @@ window.onload = () => {
         "click",
         () => {
             const releasable = document.getElementsByClassName("releasable")
+            //Remove all the innerHtml of the puzzle
             for (let i = 0; i < releasable.length; i++) {
                 releasable[i].innerHTML = ""
             }
+            //It regenerate the shuffle array in the up container
             shuffledArray = shuffle(images)
             generatePieces(shuffledArray)
+            //I remove the win message
+            document.getElementById("win").innerText = ""
         },
         false
     )
