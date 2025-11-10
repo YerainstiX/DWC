@@ -79,5 +79,5 @@ window.onload = () => {
         false
     )
 
-    document.getElem
+    
 } //THE END

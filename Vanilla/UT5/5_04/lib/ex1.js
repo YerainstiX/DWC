@@ -7,7 +7,7 @@ export const generatePieces = (array) => {
         let img = document.createElement("img")
         img.src = url
         img.alt = `Trozo`
-        /* I need to asing the ID to the image to check if the puzzle is correct 
+        /* I need to assign the ID to the image to check if the puzzle is correct 
         so I use split + the url to get the correct ID */
         let id = url.split("/")
         id = id[2].split(".")
@@ -49,6 +49,6 @@ export const validateTable = () => {
     //Only if allCorrect is true it will show the win message
     if (allCorrect) {
         document.getElementById("win").innerText =
-            "I see you have the optifine installed"
+            "I see you have the optifine installed :)"
     }
 }
