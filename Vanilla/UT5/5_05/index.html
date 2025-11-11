@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="">
+            <div>
+                <label for="name">Disc Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="The new Abnormal"
+                />
+            </div>
+            <div>
+                <label for="cover">Cover(URL)</label>
+                <input type="url" name="cover" id="cover" placeholder="url" />
+            </div>
+            <div>
+                <label for="singer_group">Singer/Group</label>
+                <input
+                    type="text"
+                    name="singer_group"
+                    id="singer_group"
+                    placeholder="The Strokes"
+                />
+            </div>
+            <div>
+                <label for="year">Year of publication</label>
+                <input type="number" name="year" id="year" placeholder="2020" />
+            </div>
+            <div>
+                <label for="gender">Gender</label>
+                <select name="gender" id="gender">
+                    <option value="pop">Pop</option>
+                    <option value="rock">Rock</option>
+                    <option value="indie">Indie</option>
+                    <option value="jazz">Jazz</option>
+                </select>
+            </div>
+            <div>
+                <label for="localization_code">Localization</label>
+                <input
+                    type="text"
+                    name="localization_code"
+                    id="localization_code"
+                    placeholder="ES-001AA"
+                />
+            </div>
+            <div>
+                <label for="borrowed">Borrowed</label>
+                <input
+                    type="radio"
+                    name="borrowed"
+                    id="borrowed"
+                    value="true"
+                />
+                <label for="borrowed">Yes</label>
+                <input
+                    type="radio"
+                    name="borrowed"
+                    id="borrowed"
+                    value="false"
+                />
+                <label for="borrowed">No</label>
+            </div>
+            <div>
+                <button>Save</button>
+            </div>
+        </form>
+    </body>
+</html>
