@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blog3</title>
+    </head>
+    <body>
+        <header><h1>Blog3</h1></header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./imagen.html">Image</a></li>
+                <li><a href="./formulario.html">Form</a></li>
+                <li><a href="./blog3.html">Blog</a></li>
+            </ul>
+        </nav>
+        <hr />
+        <video id="video">
+            <source src="videoshimy.mp4" />
+        </video>
+        <div>
+            <button onclick="reset()">Reiniciar</button>
+            <button onclick="back()">Retrasar 5s</button>
+            <button onclick="forward()">Adelantar 5s</button>
+            <button id="mute" onclick="mute()">Silenciar</button>
+            <button onclick="volumeDown()">Bajar volumen</button>
+            <button onclick="volumeUp()">Subir volumen</button>
+        </div>
+        <hr />
+        <video id="video2" onclick="document.getElementById('video2').play()">
+            <source src="videoshimy.mp4#t=2,7" />
+        </video>
+        <script>
+            const video = document.getElementById("video")
+            const bttnmute = document.getElementById("mute")
+
+            const reset = () => {
+                video.play()
+            }
+            const back = () => {
+                if (video.currentTime > 0) video.currentTime -= 5
+            }
+
+            const forward = () => {
+                if (video.currentTime < video.duration) video.currentTime += 5
+            }
+            const mute = () => {
+                video.muted = !video.muted
+                bttnmute.textContent = video.muted ? "Escuchar" : "Silenciar"
+            }
+            const volumeUp = () => {
+                if (video.volume < 1) video.volume += 0.1
+            }
+            const volumeDown = () => {
+                if (video.volume > 0) video.volume -= 0.1
+            }
+        </script>
+    </body>
+</html>
