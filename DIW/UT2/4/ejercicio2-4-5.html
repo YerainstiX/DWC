@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <img id="img" src="./domingo.jpeg" alt="img" />
+        <canvas id="lienzo" height="1000" width="1000"></canvas>
+        <script>
+            window.onload = function () {
+                var canvas = document.getElementById("lienzo")
+                if (canvas && canvas.getContext) {
+                    var ctx = canvas.getContext("2d")
+                    var srcImg = document.getElementById("img")
+                    ctx.drawImage(
+                        srcImg,
+                        0,
+                        0,
+                        ctx.canvas.width,
+                        ctx.canvas.height
+                    )
+                    var imgData = ctx.getImageData(
+                        0,
+                        0,
+                        ctx.canvas.width,
+                        ctx.canvas.height
+                    )
+                    var pixels = imgData.data
+                    for (var i = 0; i < pixels.length; i += 4) {
+                
+                        tr = 0.393R + 0.769G + 0.189B
+                        tg = 0.349R + 0.686G + 0.168B
+                        tb = 0.272R + 0.534G + 0.131B
+                    }
+                    ctx.putImageData(imgData, 0, 0)
+                }
+            }
+        </script>
+    </body>
+</html>
