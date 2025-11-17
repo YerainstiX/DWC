@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <svg width="1000" height="1000">
+            <defs>
+                <radialGradient id="gradiente">
+                    <stop offset="10%" stop-color="green"></stop>
+                    <stop offset="50%" stop-color="red"></stop>
+                    <stop offset="90%" stop-color="blue"></stop>
+                </radialGradient>
+                <pattern
+                    id="patron"
+                    x="1"
+                    y="1"
+                    height="40"
+                    width="40"
+                    patternUnits="userSpaceOnUse"
+                >
+                    <image
+                        xlink:href="./gato.png"
+                        x="1"
+                        y="1"
+                        width="50"
+                        height="50"
+                    ></image>
+                </pattern>
+            </defs>
+
+            <rect
+                x="210"
+                y="200"
+                height="100"
+                width="180"
+                fill="url(#gradiente)"
+            ></rect>
+
+            <polygon
+                points="200,200 300,100 400,200 "
+                fill="url(#gradiente)"
+            ></polygon>
+
+            <rect x="290" y="260" height="40" width="20"></rect>
+
+            <circle cx="300" cy="150" r="10" fill="blue"></circle>
+
+            <line
+                x1="0"
+                y1="0"
+                x2="250"
+                y2="200"
+                stroke="green"
+                stroke-width="20"
+            ></line>
+
+            <polyline
+                points="500,500 600,500 500,600"
+                fill="none"
+                stroke="red"
+            />
+
+            <circle cx="500" cy="500" r="100" fill="url(#patron)"></circle>
+
+            <rect
+                x="700"
+                y="700"
+                rx="20"
+                ry="20"
+                height="100"
+                width="100"
+                fill="url(#gradiente)"
+            ></rect>
+
+            <ellipse
+                cx="100"
+                cy="700"
+                rx="100"
+                ry="150"
+                fill="url(#patron)"
+            ></ellipse>
+            
+        </svg>
+    </body>
+</html>

@@ -14,13 +14,7 @@
                 if (canvas && canvas.getContext) {
                     var ctx = canvas.getContext("2d")
                     var srcImg = document.getElementById("img")
-                    ctx.drawImage(
-                        srcImg,
-                        0,
-                        0,
-                        ctx.canvas.width,
-                        ctx.canvas.height
-                    )
+                    ctx.drawImage(srcImg, 0, 0)
                     var imgData = ctx.getImageData(
                         0,
                         0,
@@ -28,11 +22,19 @@
                         ctx.canvas.height
                     )
                     var pixels = imgData.data
+
                     for (var i = 0; i < pixels.length; i += 4) {
-                
-                        tr = 0.393R + 0.769G + 0.189B
-                        tg = 0.349R + 0.686G + 0.168B
-                        tb = 0.272R + 0.534G + 0.131B
+                        let r = pixels[i]
+                        let g = pixels[i + 1]
+                        let b = pixels[i + 2]
+
+                        r2 = 0.393 * r + 0.769 * g + 0.189 * b
+                        g2 = 0.349 * r + 0.686 * g + 0.168 * b
+                        b2 = 0.272 * r + 0.534 * g + 0.131 * b
+
+                        pixels[i] = r2
+                        pixels[i + 1] = g2
+                        pixels[i + 2] = b2
                     }
                     ctx.putImageData(imgData, 0, 0)
                 }
