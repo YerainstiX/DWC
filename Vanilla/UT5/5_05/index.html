@@ -15,11 +15,13 @@
                     id="name"
                     placeholder="The new Abnormal"
                 />
+                <p id="name_error" class="msg_error"></p>
             </div>
             <div>
                 <label for="cover">Cover(URL)</label>
                 <input type="url" name="cover" id="cover" placeholder="url" />
             </div>
+            <br />
             <div>
                 <label for="singer_group">Singer/Group</label>
                 <input
@@ -28,10 +30,12 @@
                     id="singer_group"
                     placeholder="The Strokes"
                 />
+                <p id="singer_error" class="msg_error"></p>
             </div>
             <div>
                 <label for="year">Year of publication</label>
                 <input type="number" name="year" id="year" placeholder="2020" />
+                <p id="year_error" class="msg_error"></p>
             </div>
             <div>
                 <label for="gender">Gender</label>
@@ -41,6 +45,7 @@
                     <option value="indie">Indie</option>
                     <option value="jazz">Jazz</option>
                 </select>
+                <p id="gender_error" class="msg_error"></p>
             </div>
             <div>
                 <label for="localization_code">Localization</label>
@@ -50,27 +55,28 @@
                     id="localization_code"
                     placeholder="ES-001AA"
                 />
+                <p id="localization_error" class="msg_error"></p>
             </div>
             <div>
                 <label for="borrowed">Borrowed</label>
                 <input
                     type="radio"
                     name="borrowed"
-                    id="borrowed"
+                    id="borrowed_no"
                     value="true"
                 />
-                <label for="borrowed">Yes</label>
+                <label for="borrowed_yes">Yes</label>
                 <input
                     type="radio"
                     name="borrowed"
-                    id="borrowed"
+                    id="borrowed_yes"
                     value="false"
                 />
-                <label for="borrowed">No</label>
+                <label for="borrowed_no">No</label>
             </div>
-            <div>
-                <button id="save">Save</button>
-            </div>
+            <br>
         </form>
+        <button id="save">Save</button>
+        <script type="module" src="./main.js"></script>
     </body>
 </html>
