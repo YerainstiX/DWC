@@ -47,9 +47,7 @@ export const validateSinger = (singer) => {
 export const validateYear = (year) => {
     let valid = true
     if (year === "") {
-        document.getElementById("year_error").innerText +=
-            "The year can't be empty, as me after finishing Expeditions 33\n"
-        valid = false
+       return valid 
     }
     if (year.length > 4 || year.length < 4) {
         document.getElementById("year_error").innerText +=
@@ -74,12 +72,6 @@ export const validateYear = (year) => {
 export const validateGender = (gender) => {
     let valid = true
     const validOptions = ["pop", "rock", "indie", "jazz"]
-    if (gender === "") {
-        document.getElementById("gender_error").innerText +=
-            "The gender can't be empty, as me after finishing Expeditions 33\n"
-        valid = false
-    }
-
     if (!validOptions.includes(gender)) {
         document.getElementById("gender_error").innerText +=
             "The gender must be one of the giving types, skill issue I guess\n"

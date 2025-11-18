@@ -17,7 +17,7 @@ window.onload = () => {
                 const formData = new FormData(form)
                 if (validateForm()) {
                     const newDisc = {
-                        id: crypto.randomUUID,
+                        id: crypto.randomUUID(),
                         name: formData.get("name"),
                         cover: formData.get("cover") || "Without cover",
                         singer: formData.get("singer_group"),
@@ -43,7 +43,7 @@ window.onload = () => {
     document.getElementById("show").addEventListener(
         "click",
         () => {
-            document.getElementById("show_container").innerHTML +=
+            document.getElementById("show_container_body").innerHTML =
                 showDisc(discs)
         },
         false
@@ -60,7 +60,8 @@ window.onload = () => {
                 if (confirm("Delete disc?")) {
                     discs = deleteDisc(discs, e.target.id)
                     localStorage.setItem("discs", JSON.stringify(discs))
-                    showDisc(discs)
+                    document.getElementById("show_container_body").innerHTML =
+                        showDisc(discs)
                 }
             }
         },
@@ -71,8 +72,15 @@ window.onload = () => {
         "click",
         () => {
             localStorage.clear()
-            showDisc()
+            document.getElementById("show_container_body").innerHTML =
+                showDisc(discs)
         },
         false
+    )
+    //TODO: TERMINA ESTO MAQUINA
+    document.getElementById("search").addEventListener(
+        "onchange", (e) => {
+            discs.filter(e.target.value)
+        }, false
     )
 } //THE END

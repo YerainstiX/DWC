@@ -9,8 +9,8 @@ export const showDisc = (json) => {
     json.map((v) => {
         texto += `
             <tr>
-                <td">${v.name}</td>
-                <td><img src="${v.cover}" alt="img" ></td>
+                <td>${v.name}</td>
+                <td><img src="${v.cover}" alt="No cover" ></td>
                 <td>${v.singer}</td>
                 <td>${v.year}</td>
                 <td>${v.gender}</td>

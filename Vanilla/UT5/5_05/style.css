@@ -1,3 +1,194 @@
+/* =============== RESET Y BASE =============== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: #0f0f10;
+    color: #e5e5e5;
+    padding: 20px;
+}
+
+/* =============== FORMULARIO =============== */
+
+form {
+    background: #1a1a1d;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    max-width: 550px;
+    margin-bottom: 20px;
+    border: 1px solid #2a2a2e;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #cfcff9;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    background: #242428;
+    color: #f0f0f5;
+    border: 1px solid #444;
+    border-radius: 7px;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: #9d4edd;
+    outline: none;
+    box-shadow: 0 0 6px #9d4edd;
+}
+
+.msg_error {
+    color: #ff4c7a;
+    font-size: 12px;
+}
+
+/* tu clase de error */
 .validation_error {
-    border: 2px solid red;
+    border: 2px solid #ff4c7a !important;
+}
+
+/* =============== RADIO BUTTONS =============== */
+
+.radio_container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+input[type="radio"] {
+    width: auto;
+    accent-color: #c77dff; /* Morado pastel bonito */
+}
+
+/* =============== BOTONES =============== */
+
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Botón principal */
+#save, #show {
+    background: #9d4edd;
+}
+
+#save:hover, #show:hover {
+    background: #7b2cbf;
+}
+
+/* Botón borrar */
+button.delete {
+    background: #ff4d6d;
+}
+
+button.delete:hover {
+    background: #e63950;
+}
+
+/* Botón limpiar */
+#clear {
+    background: #3f37c9;
+}
+
+#clear:hover {
+    background: #2a2aa8;
+}
+
+/* =============== TABLA =============== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1a1a1d;
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+thead {
+    background: #7b2cbf;
+    color: white;
+}
+
+thead td {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #2a2a2e;
+}
+
+/* filas alternas */
+tbody tr:nth-child(even) {
+    background: #202026;
+}
+
+/* imagen dentro de la tabla */
+tbody img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 7px;
+    box-shadow: 0 1px 4px rgba(255,255,255,0.1);
+    border: 1px solid #333;
+}
+
+/* botón centradito */
+tbody td:last-child {
+    text-align: center;
+}
+
+/* =============== RESPONSIVE =============== */
+
+@media (max-width: 700px) {
+    table, thead, tbody, tr, td {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    tbody td {
+        border: none;
+        padding: 8px 5px;
+    }
+
+    tbody td img {
+        margin: 10px auto;
+    }
 }

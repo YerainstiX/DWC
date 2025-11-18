@@ -60,6 +60,7 @@
             </div>
             <div>
                 <label for="borrowed">Borrowed</label>
+                <div class="radio_container">
                 <input
                     type="radio"
                     name="borrowed"
@@ -74,26 +75,35 @@
                     value="No"
                 />
                 <label for="borrowed_no">No</label>
+                </div>
             </div>
             <br />
         </form>
         <button id="save">Save</button>
         <button id="show">Show</button>
-        
+        <form action="">
+            <input type="search">
+        </form>
+
         <table id="show_container">
-            <tr>
-                <td>Name</td>
-                <td>Cover</td>
-                <td>Singer/Group</td>
-                <td>Year</td>
-                <td>Gender</td>
-                <td>Localization</td>
-                <td>Borrowed</td>
-                <td></td>
-            </tr>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Cover</td>
+                    <td>Singer/Group</td>
+                    <td>Year</td>
+                    <td>Gender</td>
+                    <td>Localization</td>
+                    <td>Borrowed</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody id="show_container_body">
+
+            </tbody>
         </table>
         <button id="clear">Limpiar</button>
-        
+
         <script type="module" src="./main.js"></script>
     </body>
 </html>
