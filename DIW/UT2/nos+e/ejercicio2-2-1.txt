@@ -1,0 +1,1 @@
+Es para definir como se comporta el degradado mas allá del área definida, puede ser “pad”, “reflect” o “repeat”

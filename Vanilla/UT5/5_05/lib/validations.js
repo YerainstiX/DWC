@@ -7,7 +7,7 @@ export const validateName = (name) => {
             "The name can't be empty, as me after finishing Expeditions 33\n"
         valid = false
     }
-    
+
     if (name.length < 5) {
         document.getElementById("name_error").innerText +=
             "The name must have over 5 chars, reboot your brain\n"
@@ -83,7 +83,7 @@ export const validateGender = (gender) => {
     if (!validOptions.includes(gender)) {
         document.getElementById("gender_error").innerText +=
             "The gender must be one of the giving types, skill issue I guess\n"
-        valid = falseA
+        valid = false
     }
 
     if (year === null) {
@@ -96,7 +96,7 @@ export const validateGender = (gender) => {
 
 export const validateLocalization = (localization) => {
     let valid = true
-    const re = /^[ES-[0-9]{3}[A-Z]{2}$/
+    const re = /^ES-[0-9]{3}[A-Z]{2}$/
 
     if (localization === "") {
         document.getElementById("localization_error").innerText +=
@@ -119,9 +119,47 @@ export const validateLocalization = (localization) => {
 }
 
 export const clearErrors = () => {
-    Array.from(document.getElementsByClassName(".msg_error")).forEach(
-        (element) => {
-            element.innerText = ""
-        }
-    )
+    document.querySelectorAll(".msg_error").forEach((element) => {
+        element.innerText = ""
+    })
+    document.querySelectorAll(".validation_error").forEach((element) => {
+        element.classList.remove("validation_error")
+    })
+}
+
+export const validateForm = () => {
+    let valid = true
+    clearErrors()
+    const form = document.getElementById("form")
+    const formData = new FormData(form)
+    if (!validateName(formData.get("name"))) {
+        document.getElementById("name").classList.add("validation_error")
+        valid = false
+    }
+
+    if (!validateSinger(formData.get("singer_group"))) {
+        document
+            .getElementById("singer_group")
+            .classList.add("validation_error")
+        valid = false
+    }
+
+    if (!validateYear(formData.get("year"))) {
+        document.getElementById("year").classList.add("validation_error")
+        valid = false
+    }
+
+    if (!validateGender(formData.get("gender"))) {
+        document.getElementById("gender").classList.add("validation_error")
+        valid = false
+    }
+
+    if (!validateLocalization(formData.get("localization_code"))) {
+        document
+            .getElementById("localization_code")
+            .classList.add("validation_error")
+        valid = false
+    }
+
+    return valid
 }

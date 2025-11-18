@@ -1,46 +1,42 @@
 "use strict"
 
-import {
-    clearErrors,
-    validateGender,
-    validateLocalization,
-    validateName,
-    validateSinger,
-    validateYear,
-} from "./lib/validations.js"
+import { clearForm, showDisc } from "./lib/functions.js"
+import { validateForm } from "./lib/validations.js"
 
 window.onload = () => {
-    document.getElementById("save").addEventListener(
+    let discs = JSON.parse(localStorage.getItem("discs")) || []
+    if (typeof Storage !== undefined) {
+        document.getElementById("save").addEventListener(
+            "click",
+            () => {
+                const form = document.getElementById("form")
+                const formData = new FormData(form)
+                if (validateForm()) {
+                    const newDisc = {
+                        id: crypto.randomUUID,
+                        name: formData.get("name"),
+                        cover: formData.get("cover") ? "" : "Without cover",
+                        singer: formData.get("singer_group"),
+                        year: formData.get("year") ? "" : "Without year",
+                        gender: formData.get("gender"),
+                        localization: formData.get("localization_code"),
+                        borrowed: formData.get("borrowed") ? null : "Missing",
+                    }
+
+                    discs = [...discs, newDisc]
+                    localStorage.setItem("discs", JSON.stringify(discs))
+                    clearForm(form)
+                }
+            },
+            false
+        )
+    }
+
+    document.getElementById("show").addEventListener(
         "click",
         () => {
-            clearErrors()
-            const form = document.getElementById("form")
-            const formData = new FormData(form)
-            if (!validateName(formData.get("name"))) {
-                document.getElementById("name").classList.toggle("validation_error")
-            } else {
-            }
-
-            if (!validateSinger(formData.get("singer_group"))) {
-                document.getElementById("singer_group").classList.toggle("validation_error")
-            } else {
-            }
-
-            if (!validateYear(formData.get("year"))) {
-                document.getElementById("year").classList.toggle("validation_error")
-            } else {
-            }
-
-            if (!validateGender(formData.get("gender"))) {
-                document.getElementById("ngenderame").classList.toggle("validation_error")
-            } else {
-            }
-
-            if (!validateLocalization(formData.get("localization_code"))) {
-                document.getElementById("localization_code").classList.toggle("validation_error")
-            } else {
-            }
-
+            document.getElementById("show_container").innerHTML =
+                showDisc(discs)
         },
         false
     )
