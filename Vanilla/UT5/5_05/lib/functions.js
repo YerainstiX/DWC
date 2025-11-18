@@ -7,19 +7,22 @@ export const clearForm = (form) => {
 export const showDisc = (json) => {
     let texto = ""
     json.map((v) => {
-        texto += `<div class="disc">
-        <button class="delete">Delete</button>
-        name: ${v.name},
-        cover: <img src="${v.cover}" alt="img" >,
-        singer: ${v.singer},
-        year: ${v.year},
-        gender: ${v.gender},
-        localization: ${v.localization},
-        borrowed: ${v.borrowed}
-        </div>`
+        texto += `
+            <tr>
+                <td">${v.name}</td>
+                <td><img src="${v.cover}" alt="img" ></td>
+                <td>${v.singer}</td>
+                <td>${v.year}</td>
+                <td>${v.gender}</td>
+                <td>${v.localization}</td>
+                <td>${v.borrowed}</td>
+                <td><button id="${v.id}" class="delete">Delete</button></td>
+            </tr>`
     })
 
     return texto
 }
 
-const deleteDisc = () => {}
+export const deleteDisc = (disc, id) => {
+    return disc.filter((disc) => disc.id !== id)
+}

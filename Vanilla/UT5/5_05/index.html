@@ -63,15 +63,15 @@
                 <input
                     type="radio"
                     name="borrowed"
-                    id="borrowed_no"
-                    value="true"
+                    id="borrowed_yes"
+                    value="Yes"
                 />
                 <label for="borrowed_yes">Yes</label>
                 <input
                     type="radio"
                     name="borrowed"
-                    id="borrowed_yes"
-                    value="false"
+                    id="borrowed_no"
+                    value="No"
                 />
                 <label for="borrowed_no">No</label>
             </div>
@@ -79,7 +79,21 @@
         </form>
         <button id="save">Save</button>
         <button id="show">Show</button>
-        <div id="show_container"></div>
+        
+        <table id="show_container">
+            <tr>
+                <td>Name</td>
+                <td>Cover</td>
+                <td>Singer/Group</td>
+                <td>Year</td>
+                <td>Gender</td>
+                <td>Localization</td>
+                <td>Borrowed</td>
+                <td></td>
+            </tr>
+        </table>
+        <button id="clear">Limpiar</button>
+        
         <script type="module" src="./main.js"></script>
     </body>
 </html>

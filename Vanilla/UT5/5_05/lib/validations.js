@@ -138,8 +138,7 @@ export const validateForm = () => {
     }
 
     if (!validateSinger(formData.get("singer_group"))) {
-        document
-            .getElementById("singer_group")
+        document.getElementById("singer_group")
             .classList.add("validation_error")
         valid = false
     }
