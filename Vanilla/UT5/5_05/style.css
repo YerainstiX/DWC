@@ -11,6 +11,19 @@ body {
     padding: 20px;
 }
 
+#main_container {
+    display: flex;
+    gap: 20px;
+}
+
+#main_container > div:first-child {
+    flex: 1;
+}
+
+#main_container > div:last-child {
+    flex: 2;
+}
+
 form {
     background: #1a1a1d;
     padding: 20px;
@@ -166,6 +179,7 @@ label[for="search"] {
 }
 
 #search {
+    width: 200px;
     padding: 8px 12px;
     border: 2px solid #ccc;
     border-radius: 8px;

@@ -10,7 +10,7 @@ export const validateName = (name) => {
         valid = false
     }
 
-    if (name.length < 5) {
+    if (name.trim().length < 5) {
         document.getElementById("name_error").innerText +=
             "The name must have over 5 chars, reboot your brain\n"
         valid = false
@@ -32,7 +32,7 @@ export const validateSinger = (singer) => {
         valid = false
     }
 
-    if (singer.length < 5) {
+    if (singer.trim().length < 5) {
         document.getElementById("singer_error").innerText +=
             "The singer/group must have over 5 chars, you can do it I trust you\n"
         valid = false

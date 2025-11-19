@@ -3,105 +3,123 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Ugly</title>
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <h1>Ugly Discs</h1>
-        <form id="form">
+        <div id="main_container">
             <div>
-                <label for="name">Disc Name</label>
-                <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder="The new Abnormal"
-                />
-                <p id="name_error" class="msg_error"></p>
-            </div>
-            <div>
-                <label for="cover">Cover(URL)</label>
-                <input type="URL" name="cover" id="cover" placeholder="url" />
-            </div>
-            <br />
-            <div>
-                <label for="singer_group">Singer/Group</label>
-                <input
-                    type="text"
-                    name="singer_group"
-                    id="singer_group"
-                    placeholder="The Strokes"
-                />
-                <p id="singer_error" class="msg_error"></p>
-            </div>
-            <div>
-                <label for="year">Year of publication</label>
-                <input type="number" name="year" id="year" placeholder="2020" />
-                <p id="year_error" class="msg_error"></p>
-            </div>
-            <div>
-                <label for="gender">Gender</label>
-                <select name="gender" id="gender">
-                    <option value="Pop">Pop</option>
-                    <option value="Rock">Rock</option>
-                    <option value="Indie">Indie</option>
-                    <option value="Jazz">Jazz</option>
-                </select>
-                <p id="gender_error" class="msg_error"></p>
-            </div>
-            <div>
-                <label for="localization_code">Localization</label>
-                <input
-                    type="text"
-                    name="localization_code"
-                    id="localization_code"
-                    placeholder="ES-001AA"
-                />
-                <p id="localization_error" class="msg_error"></p>
-            </div>
-            <div>
-                <label for="borrowed">Borrowed</label>
-                <div class="radio_container">
-                    <input
-                        type="radio"
-                        name="borrowed"
-                        id="borrowed_yes"
-                        value="Yes"
-                    />
-                    <label for="borrowed_yes">Yes</label>
-                    <input
-                        type="radio"
-                        name="borrowed"
-                        id="borrowed_no"
-                        value="No"
-                    />
-                    <label for="borrowed_no">No</label>
-                </div>
-            </div>
-            <br />
-        </form>
-        <button id="save">Save</button>
-        <button id="show">Show</button>
-        <div class="search-container">
-            <label for="search">Search:</label>
-            <input type="search" id="search" />
-        </div>
+                <form id="form">
+                    <div>
+                        <label for="name">Disc Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="The new Abnormal"
+                        />
+                        <p id="name_error" class="msg_error"></p>
+                    </div>
+                    <div>
+                        <label for="cover">Cover(URL)</label>
+                        <input
+                            type="URL"
+                            name="cover"
+                            id="cover"
+                            placeholder="url"
+                        />
+                    </div>
+                    <br />
+                    <div>
+                        <label for="singer_group">Singer/Group</label>
+                        <input
+                            type="text"
+                            name="singer_group"
+                            id="singer_group"
+                            placeholder="The Strokes"
+                        />
+                        <p id="singer_error" class="msg_error"></p>
+                    </div>
+                    <div>
+                        <label for="year">Year of publication</label>
+                        <input
+                            type="number"
+                            name="year"
+                            id="year"
+                            placeholder="2020"
+                        />
+                        <p id="year_error" class="msg_error"></p>
+                    </div>
+                    <div>
+                        <label for="gender">Gender</label>
+                        <select name="gender" id="gender">
+                            <option value="Pop">Pop</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Indie">Indie</option>
+                            <option value="Jazz">Jazz</option>
+                        </select>
+                        <p id="gender_error" class="msg_error"></p>
+                    </div>
+                    <div>
+                        <label for="localization_code">Localization</label>
+                        <input
+                            type="text"
+                            name="localization_code"
+                            id="localization_code"
+                            placeholder="ES-001AA"
+                        />
+                        <p id="localization_error" class="msg_error"></p>
+                    </div>
+                    <div>
+                        <label for="borrowed">Borrowed</label>
+                        <div class="radio_container">
+                            <input
+                                type="radio"
+                                name="borrowed"
+                                id="borrowed_yes"
+                                value="Yes"
+                            />
+                            <label for="borrowed_yes">Yes</label>
+                            <input
+                                type="radio"
+                                name="borrowed"
+                                id="borrowed_no"
+                                value="No"
+                            />
+                            <label for="borrowed_no">No</label>
+                        </div>
+                    </div>
+                    <br />
+                </form>
 
-        <table id="show_container">
-            <thead>
-                <tr>
-                    <td>Name</td>
-                    <td>Cover</td>
-                    <td>Singer/Group</td>
-                    <td>Year</td>
-                    <td>Gender</td>
-                    <td>Localization</td>
-                    <td>Borrowed</td>
-                    <td></td>
-                </tr>
-            </thead>
-            <tbody id="show_container_body"></tbody>
-        </table>
+                <button id="save">Save</button>
+                <button id="show">Show</button>
+                <button id="clear">Clear Form</button>
+            </div>
+            <div>
+                <div class="search-container">
+                    <label for="search">Search:</label>
+                    <input type="search" id="search" />
+                </div>
+
+                <table id="show_container">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Cover</td>
+                            <td>Singer/Group</td>
+                            <td>Year</td>
+                            <td>Gender</td>
+                            <td>Localization</td>
+                            <td>Borrowed</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="show_container_body"></tbody>
+                </table>
+            </div>
+        </div>
 
         <script type="module" src="./main.js"></script>
     </body>

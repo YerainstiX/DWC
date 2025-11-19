@@ -1,5 +1,5 @@
 "use strict"
-
+//Auxiliar functions to do some task like clear the form 
 export const clearForm = (form) => {
     form.reset()
 }

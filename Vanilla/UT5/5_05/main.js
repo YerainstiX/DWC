@@ -49,6 +49,15 @@ window.onload = () => {
         false
     )
 
+    document.getElementById("clear").addEventListener(
+        "click",
+        () => {
+            const form = document.getElementById("form")
+            clearForm(form)
+        },
+        false
+    )
+
     //DELETE
     document.getElementById("show_container").addEventListener(
         "click",
