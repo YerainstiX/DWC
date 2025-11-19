@@ -1,5 +1,7 @@
 "use strict"
 
+//All the logic of the validations is here
+
 export const validateName = (name) => {
     let valid = true
     if (name === "") {
@@ -71,7 +73,7 @@ export const validateYear = (year) => {
 
 export const validateGender = (gender) => {
     let valid = true
-    const validOptions = ["pop", "rock", "indie", "jazz"]
+    const validOptions = ["Pop", "Rock", "Indie", "Jazz"]
     if (!validOptions.includes(gender)) {
         document.getElementById("gender_error").innerText +=
             "The gender must be one of the giving types, skill issue I guess\n"

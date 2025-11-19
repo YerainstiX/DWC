@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <h1>Ugly Discs</h1>
         <form id="form">
             <div>
                 <label for="name">Disc Name</label>
@@ -41,10 +42,10 @@
             <div>
                 <label for="gender">Gender</label>
                 <select name="gender" id="gender">
-                    <option value="pop">Pop</option>
-                    <option value="rock">Rock</option>
-                    <option value="indie">Indie</option>
-                    <option value="jazz">Jazz</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Indie">Indie</option>
+                    <option value="Jazz">Jazz</option>
                 </select>
                 <p id="gender_error" class="msg_error"></p>
             </div>
@@ -61,29 +62,30 @@
             <div>
                 <label for="borrowed">Borrowed</label>
                 <div class="radio_container">
-                <input
-                    type="radio"
-                    name="borrowed"
-                    id="borrowed_yes"
-                    value="Yes"
-                />
-                <label for="borrowed_yes">Yes</label>
-                <input
-                    type="radio"
-                    name="borrowed"
-                    id="borrowed_no"
-                    value="No"
-                />
-                <label for="borrowed_no">No</label>
+                    <input
+                        type="radio"
+                        name="borrowed"
+                        id="borrowed_yes"
+                        value="Yes"
+                    />
+                    <label for="borrowed_yes">Yes</label>
+                    <input
+                        type="radio"
+                        name="borrowed"
+                        id="borrowed_no"
+                        value="No"
+                    />
+                    <label for="borrowed_no">No</label>
                 </div>
             </div>
             <br />
         </form>
         <button id="save">Save</button>
         <button id="show">Show</button>
-        <form action="">
-            <input type="search">
-        </form>
+        <div class="search-container">
+            <label for="search">Search:</label>
+            <input type="search" id="search" />
+        </div>
 
         <table id="show_container">
             <thead>
@@ -98,11 +100,8 @@
                     <td></td>
                 </tr>
             </thead>
-            <tbody id="show_container_body">
-
-            </tbody>
+            <tbody id="show_container_body"></tbody>
         </table>
-        <button id="clear">Limpiar</button>
 
         <script type="module" src="./main.js"></script>
     </body>

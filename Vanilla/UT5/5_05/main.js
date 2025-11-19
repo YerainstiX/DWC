@@ -4,11 +4,8 @@ import { clearForm, deleteDisc, showDisc } from "./lib/functions.js"
 import { validateForm } from "./lib/validations.js"
 
 window.onload = () => {
-    /*********************************************************************
-     * Save
-     *********************************************************************/
-
     let discs = JSON.parse(localStorage.getItem("discs")) || []
+    //SAVE
     if (typeof Storage !== undefined) {
         document.getElementById("save").addEventListener(
             "click",
@@ -31,28 +28,28 @@ window.onload = () => {
                     localStorage.setItem("discs", JSON.stringify(discs))
                     clearForm(form)
                 }
+                document.getElementById("show_container_body").innerHTML =
+                    showDisc(discs)
             },
             false
         )
     }
 
-    /*********************************************************************
-     * Show
-     *********************************************************************/
-
+    //SHOW
     document.getElementById("show").addEventListener(
         "click",
-        () => {
-            document.getElementById("show_container_body").innerHTML =
-                showDisc(discs)
+        (e) => {
+            const table = document.getElementById("show_container_body")
+            if (table.children.length === 0) {
+                table.innerHTML = showDisc(discs)
+            } else {
+                table.innerHTML = ""
+            }
         },
         false
     )
 
-    /*********************************************************************
-     * Delete
-     *********************************************************************/
-
+    //DELETE
     document.getElementById("show_container").addEventListener(
         "click",
         (e) => {
@@ -68,19 +65,22 @@ window.onload = () => {
         false
     )
 
-    document.getElementById("clear").addEventListener(
-        "click",
-        () => {
-            localStorage.clear()
-            document.getElementById("show_container_body").innerHTML =
-                showDisc(discs)
-        },
-        false
-    )
-    //TODO: TERMINA ESTO MAQUINA
-    document.getElementById("search").addEventListener(
-        "onchange", (e) => {
-            discs.filter(e.target.value)
-        }, false
-    )
+    //SEARCH
+    //With this I don't need the button to clear the filter because is dynamic
+    document.getElementById("search").addEventListener("input", (e) => {
+        const text = e.target.value.toLowerCase()
+
+        const filtered = discs.filter(
+            (disc) =>
+                disc.name.toLowerCase() === text ||
+                disc.singer.toLowerCase() === text ||
+                disc.year.toLowerCase().includes(text) ||
+                disc.gender.toLowerCase().includes(text) ||
+                disc.localization.toLowerCase().includes(text) ||
+                disc.borrowed.toLowerCase().includes(text)
+        )
+
+        document.getElementById("show_container_body").innerHTML =
+            showDisc(filtered)
+    })
 } //THE END
