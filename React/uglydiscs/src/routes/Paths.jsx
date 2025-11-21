@@ -2,7 +2,7 @@ import React from "react"
 import { Routes, Route } from "react-router-dom"
 import Home from "../pages/Home"
 import AddDisc from "../pages/AddDisc"
-import ShowDiscs from "../pages/Discs"
+import Discs from "../pages/Discs"
 
 const Paths = () => {
     return (
@@ -11,8 +11,8 @@ const Paths = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/add-disc" element={<AddDisc />} />
                 <Route path="/discs" element={<Discs />} />
-                <Route path="/showdiscs/:id" element={<MovieDetails />} />
-                <Route path="*" element={<Error></Error>} />
+                {/*<Route path="/showdiscs/:id" element={<MovieDetails />} />*/}
+                {/*<Route path="*" element={<Error></Error>} />*/}
             </Routes>
         </>
     )

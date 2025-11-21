@@ -1,33 +1,33 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Roboto, sans-serif;
-}
-
-/* Fondo general */
-body {
-    background: #0f0f10;
-    color: #e5e5e5;
-    padding: 20px;
+/* Contenedor principal: centra todo vertical y horizontalmente */
+#form_container {
+    display: flex;
+    justify-content: center; /* centra horizontal */
+    align-items: center; /* centra vertical */
+    flex-direction: column; /* los elementos dentro se apilan */
+    min-height: 90vh; /* ocupa casi toda la altura de la pantalla */
+    gap: 20px; /* espacio entre form y botón */
 }
 
 /* Formulario */
-form {
+#form {
     background: #1a1a1d;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     max-width: 550px;
-    margin-bottom: 20px;
+    width: 100%;
     border: 1px solid #2a2a2e;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* espacio entre campos */
 }
 
+/* Campos */
 form div {
     margin-bottom: 15px;
 }
 
-/* Labels */
 label {
     display: block;
     font-weight: bold;
@@ -35,7 +35,6 @@ label {
     color: #cfcff9;
 }
 
-/* Inputs y selects */
 input,
 select {
     width: 100%;
@@ -46,17 +45,17 @@ select {
     border-radius: 7px;
     font-size: 15px;
     transition: 0.2s;
+    box-sizing: border-box;
 }
 
-/* Focus */
 input:focus,
 select:focus {
     border-color: #9d4edd;
     outline: none;
     box-shadow: 0 0 6px #9d4edd;
+    box-sizing: border-box;
 }
 
-/* Errores */
 .msg_error {
     color: #ff4c7a;
     font-size: 12px;
@@ -79,18 +78,20 @@ input[type="radio"] {
     accent-color: #c77dff;
 }
 
-/* Botón Save */
-button#save {
-    padding: 10px 20px;
+/* Botón Save: centrado y ancho completo del formulario */
+#save {
+    width: 100%;
+    padding: 10px;
     border: none;
+    border-radius: 7px;
+    background: #9d4edd;
     color: white;
     font-size: 15px;
-    border-radius: 7px;
+    font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
-    background: #9d4edd;
 }
 
-button#save:hover {
+#save:hover {
     background: #7b2cbf;
 }

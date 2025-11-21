@@ -1,0 +1,24 @@
+.start_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background: linear-gradient(135deg, #38bdf8, #0f172a);
+    flex-direction: column;
+    text-align: center;
+}
+
+.start_container h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.start_container h1:hover {
+    color: #e0f2fe;
+    transform: scale(1.05);
+}

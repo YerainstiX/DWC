@@ -1,10 +1,12 @@
 import React from 'react'
 import Menu from './Menu'
 
-export const Header = () => {
+const Header = () => {
   return (
     <>
     <Menu pageName="Ugly Discs"></Menu>
     </>
   )
 }
+
+export default Header
