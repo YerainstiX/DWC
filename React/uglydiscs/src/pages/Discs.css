@@ -1,0 +1,55 @@
+/* Contenedor principal */
+.discs_container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Arial", sans-serif;
+}
+
+/* Contenedor del buscador */
+.disc_search_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.disc_search_container p {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Input de búsqueda */
+.discs_search {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.discs_search:focus {
+    border-color: #9d4edd;
+    box-shadow: 0 0 5px #9d4edd;
+}
+
+/* Contenedor de la lista de discos */
+.discs_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+/* Mensajes de "No discs / No results" */
+.discs_noDiscs,
+.discs_notFound {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+}

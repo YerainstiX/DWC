@@ -95,3 +95,9 @@ input[type="radio"] {
 #save:hover {
     background: #7b2cbf;
 }
+
+.msg_status_ok {
+    color: #7b2cbf;
+    font-weight: 600;
+    margin-top: 10px;
+}

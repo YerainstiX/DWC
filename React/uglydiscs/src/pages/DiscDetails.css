@@ -1,0 +1,44 @@
+/* Contenedor principal */
+.discDetails_container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fefefe;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Arial", sans-serif;
+    text-align: center;
+}
+
+/* Imagen del disco */
+.discDetails_container img {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.discDetails_container img:hover {
+    transform: scale(1.05);
+}
+
+/* Cada detalle del disco */
+.discDetails_container p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Mensaje de “Borrowed” resaltado */
+.discDetails_container p:last-child {
+    color: #4caf50; /* verde si se quiere, puedes cambiarlo dinámicamente con JS */
+    font-weight: 600;
+}

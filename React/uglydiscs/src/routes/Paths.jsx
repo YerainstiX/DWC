@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom"
 import Home from "../pages/Home"
 import AddDisc from "../pages/AddDisc"
 import Discs from "../pages/Discs"
+import DiscDetails from "../pages/DiscDetails"
+import Error from "../pages/Error"
 
 const Paths = () => {
     return (
@@ -11,8 +13,8 @@ const Paths = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/add-disc" element={<AddDisc />} />
                 <Route path="/discs" element={<Discs />} />
-                {/*<Route path="/showdiscs/:id" element={<MovieDetails />} />*/}
-                {/*<Route path="*" element={<Error></Error>} />*/}
+                <Route path="/disc/:id" element={<DiscDetails />} />
+                <Route path="*" element={<Error></Error>} />
             </Routes>
         </>
     )

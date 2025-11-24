@@ -9,6 +9,7 @@ const AddDisc = () => {
         year: "",
         gender: "",
         localization: "",
+        status: "",
     })
 
     const [formData, setFormData] = useState({
@@ -74,26 +75,32 @@ const AddDisc = () => {
             year: validateYear(formData.year),
             gender: validateGender(formData.gender),
             localization: validateLocalization(formData.localization),
+            status: "",
         }
 
         setErrors(newErrors)
 
         if (
-            !newErrors.name  &&
-            !newErrors.singer  &&
-            !newErrors.gender  &&
-            !newErrors.year  &&
+            !newErrors.name &&
+            !newErrors.singer &&
+            !newErrors.gender &&
+            !newErrors.year &&
             !newErrors.localization
         ) {
-             return true
+            return true
         } else {
             return false
         }
-           
     }
 
     const save = () => {
-        if (!validateForm()) return
+        if (!validateForm()) {
+            setErrors((previous) => ({
+                ...previous,
+                status: "Cannot add disc, fix the errors above",
+            }))
+            return
+        }
 
         const updated = saveData(discs, formData)
         setDiscs(updated)
@@ -105,8 +112,12 @@ const AddDisc = () => {
             year: "",
             gender: "Pop",
             localization_code: "",
-            borrowed: ""
+            borrowed: "",
         })
+        setErrors((previous) => ({
+            ...previous,
+            status: "Disc added successfully!",
+        }))
     }
 
     return (
@@ -269,10 +280,16 @@ const AddDisc = () => {
                         id="save"
                         onClick={() => {
                             save()
+                            form.reset()
                         }}
                     >
                         Save
                     </button>
+                    {errors.status && (
+                        <p id="status_error" className="msg_status_ok">
+                            {errors.status}
+                        </p>
+                    )}
                 </form>
             </div>
         </>
