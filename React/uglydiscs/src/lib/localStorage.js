@@ -1,22 +1,23 @@
     "use strict"
 
-    import { validateForm } from "./validations.js"
+    
 
-    export const saveData = () => {
-        if (validateForm()) {
+    export const saveData = (discList, formData) => {
+        
             const newDisc = {
                 id: crypto.randomUUID(),
-                name: formData.get("name"),
-                cover: formData.get("cover") || "Without cover",
-                singer: formData.get("singer_group"),
-                year: formData.get("year") || "Without year",
-                gender: formData.get("gender"),
-                localization: formData.get("localization_code"),
-                borrowed: formData.get("borrowed") || "Missing",
+                name: formData.name,
+                cover: formData.cover || "Without cover",
+                singer: formData.singer_group,
+                year: formData.year || "Without year",
+                gender: formData.gender,
+                localization: formData.localization,
+                borrowed: formData.borrowed || "Missing",
             }
 
-            discs = [...discs, newDisc]
-            localStorage.setItem("discs", JSON.stringify(discs))
-            clearForm(form)
-        }
+            const newDiscs = [...discList, newDisc]
+            localStorage.setItem("discs", JSON.stringify(newDiscs))
+            
+            return newDiscs    
+        
     }

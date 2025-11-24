@@ -12,11 +12,18 @@ const AddDisc = () => {
     })
 
     const [formData, setFormData] = useState({
-        name : "",
+        name: "",
+        cover: "",
         singer: "",
+        year: "",
+        gender: "Pop",
+        localization: "",
+        borrowed: "",
     })
 
-    //All the logic of the validations is here
+    const [discs, setDiscs] = useState(
+        JSON.parse(localStorage.getItem("discs")) || []
+    )
 
     const validateName = (name) => {
         if (!name)
@@ -47,40 +54,59 @@ const AddDisc = () => {
     const validateGender = (gender) => {
         const validOptions = ["Pop", "Rock", "Indie", "Jazz"]
         if (!validOptions.includes(gender))
-            return "The gender must be one of the giving types, skill issue I guess\n"
+            return "The gender must be one of the giving types, skill issue I guess"
     }
 
     const validateLocalization = (localization) => {
         const re = /^ES-[0-9]{3}[A-Z]{2}$/
 
         if (!localization)
-            return "The localization can't be empty, as me after finishing Expeditions 33\n"
+            return "The localization can't be empty, as me after finishing Expeditions 33"
 
-        if (!re.test(localization.trim())) 
-            return "The localization must have ES- followed by 3 numbers and 2 capital letters, brain lag I guess\n"
-        
-    }
-
-    const clearErrors = () => {
-        document.querySelectorAll(".msg_error").forEach((element) => {
-            element.innerText = ""
-        })
-        document.querySelectorAll(".validation_error").forEach((element) => {
-            element.classList.remove("validation_error")
-        })
+        if (!re.test(localization.trim()))
+            return "The localization must have ES- followed by 3 numbers and 2 capital letters, brain lag I guess"
     }
 
     const validateForm = () => {
-       const validateForm = (formData) => {
-    const newErrors = {
-        name: validateName(formData.name),
-        singer: validateSinger(formData.singer_group),
-        year: validateYear(formData.year),
-        gender: validateGender(formData.gender),
-        localization: validateLocalization(formData.localization_code)
-    };
+        const newErrors = {
+            name: validateName(formData.name),
+            singer: validateSinger(formData.singer),
+            year: validateYear(formData.year),
+            gender: validateGender(formData.gender),
+            localization: validateLocalization(formData.localization),
+        }
 
-    setErrors(newErrors);
+        setErrors(newErrors)
+
+        if (
+            !newErrors.name  &&
+            !newErrors.singer  &&
+            !newErrors.gender  &&
+            !newErrors.year  &&
+            !newErrors.localization
+        ) {
+             return true
+        } else {
+            return false
+        }
+           
+    }
+
+    const save = () => {
+        if (!validateForm()) return
+
+        const updated = saveData(discs, formData)
+        setDiscs(updated)
+
+        setFormData({
+            name: "",
+            cover: "",
+            singer_group: "",
+            year: "",
+            gender: "Pop",
+            localization_code: "",
+            borrowed: ""
+        })
     }
 
     return (
@@ -94,8 +120,18 @@ const AddDisc = () => {
                             name="name"
                             id="name"
                             placeholder="The new Abnormal"
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    name: e.target.value,
+                                })
+                            }}
                         />
-                        <p id="name_error" className="msg_error"></p>
+                        {errors.name && (
+                            <p id="name_error" className="msg_error">
+                                {errors.name}
+                            </p>
+                        )}
                     </div>
                     <div id="cover_container">
                         <label htmlFor="cover">Cover(URL)</label>
@@ -104,6 +140,12 @@ const AddDisc = () => {
                             name="cover"
                             id="cover"
                             placeholder="url"
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    cover: e.target.value,
+                                })
+                            }}
                         />
                     </div>
                     <div id="singer_container">
@@ -113,8 +155,18 @@ const AddDisc = () => {
                             name="singer_group"
                             id="singer_group"
                             placeholder="The Strokes"
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    singer: e.target.value,
+                                })
+                            }}
                         />
-                        <p id="singer_error" className="msg_error"></p>
+                        {errors.singer && (
+                            <p id="singer_error" className="msg_error">
+                                {errors.singer}
+                            </p>
+                        )}
                     </div>
                     <div id="year_container">
                         <label htmlFor="year">Year of publication</label>
@@ -123,18 +175,41 @@ const AddDisc = () => {
                             name="year"
                             id="year"
                             placeholder="2020"
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    year: e.target.value,
+                                })
+                            }}
                         />
-                        <p id="year_error" className="msg_error"></p>
+                        {errors.year && (
+                            <p id="year_error" className="msg_error">
+                                {errors.year}
+                            </p>
+                        )}
                     </div>
                     <div id="gender_container">
                         <label htmlFor="gender">Gender</label>
-                        <select name="gender" id="gender">
+                        <select
+                            name="gender"
+                            id="gender"
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    gender: e.target.value,
+                                })
+                            }}
+                        >
                             <option value="Pop">Pop</option>
                             <option value="Rock">Rock</option>
                             <option value="Indie">Indie</option>
                             <option value="Jazz">Jazz</option>
                         </select>
-                        <p id="gender_error" className="msg_error"></p>
+                        {errors.gender && (
+                            <p id="gender_error" className="msg_error">
+                                {errors.gender}
+                            </p>
+                        )}
                     </div>
                     <div id="localization_container">
                         <label htmlFor="localization_code">Localization</label>
@@ -143,8 +218,18 @@ const AddDisc = () => {
                             name="localization_code"
                             id="localization_code"
                             placeholder="ES-001AA"
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    localization: e.target.value,
+                                })
+                            }}
                         />
-                        <p id="localization_error" className="msg_error"></p>
+                        {errors.localization && (
+                            <p id="localization_error" className="msg_error">
+                                {errors.localization}
+                            </p>
+                        )}
                     </div>
                     <div id="borrowed_container">
                         <label htmlFor="borrowed">Borrowed</label>
@@ -154,6 +239,13 @@ const AddDisc = () => {
                                 name="borrowed"
                                 id="borrowed_yes"
                                 value="true"
+                                checked={formData.borrowed === "true"}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        borrowed: e.target.value,
+                                    })
+                                }
                             />
                             <label htmlFor="borrowed_yes">Yes</label>
                             <input
@@ -161,6 +253,13 @@ const AddDisc = () => {
                                 name="borrowed"
                                 id="borrowed_no"
                                 value="false"
+                                checked={formData.borrowed === "false"}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        borrowed: e.target.value,
+                                    })
+                                }
                             />
                             <label htmlFor="borrowed_no">No</label>
                         </div>
@@ -169,7 +268,7 @@ const AddDisc = () => {
                         type="button"
                         id="save"
                         onClick={() => {
-                            saveData()
+                            save()
                         }}
                     >
                         Save
