@@ -1,4 +1,3 @@
-/* Contenedor principal: centra todo vertical y horizontalmente */
 #form_container {
     display: flex;
     justify-content: center; /* centra horizontal */
@@ -8,7 +7,6 @@
     gap: 20px; /* espacio entre form y botón */
 }
 
-/* Formulario */
 #form {
     background: #1a1a1d;
     padding: 20px;
@@ -20,10 +18,9 @@
 
     display: flex;
     flex-direction: column;
-    gap: 15px; /* espacio entre campos */
+    gap: 15px; 
 }
 
-/* Campos */
 form div {
     margin-bottom: 15px;
 }
@@ -65,7 +62,6 @@ select:focus {
     border: 2px solid #ff4c7a !important;
 }
 
-/* Radio buttons */
 .radio_container {
     display: flex;
     align-items: center;
@@ -78,7 +74,6 @@ input[type="radio"] {
     accent-color: #c77dff;
 }
 
-/* Botón Save: centrado y ancho completo del formulario */
 #save {
     width: 100%;
     padding: 10px;

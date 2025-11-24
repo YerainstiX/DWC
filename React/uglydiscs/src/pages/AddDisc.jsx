@@ -3,6 +3,7 @@ import "./AddDisc.css"
 import { saveData } from "../lib/localStorage.js"
 
 const AddDisc = () => {
+    //The states for all the logic in the page
     const [errors, setErrors] = useState({
         name: "",
         singer: "",
@@ -68,6 +69,7 @@ const AddDisc = () => {
             return "The localization must have ES- followed by 3 numbers and 2 capital letters, brain lag I guess"
     }
 
+    //The logic of the validation
     const validateForm = () => {
         const newErrors = {
             name: validateName(formData.name),
@@ -93,6 +95,7 @@ const AddDisc = () => {
         }
     }
 
+    //The logic to save the data into the localStorage, and show 
     const save = () => {
         if (!validateForm()) {
             setErrors((previous) => ({

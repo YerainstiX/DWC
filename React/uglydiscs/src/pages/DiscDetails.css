@@ -1,4 +1,3 @@
-/* Contenedor principal */
 .discDetails_container {
     max-width: 500px;
     margin: 40px auto;
@@ -13,7 +12,6 @@
     text-align: center;
 }
 
-/* Imagen del disco */
 .discDetails_container img {
     width: 100%;
     max-width: 300px;
@@ -29,7 +27,6 @@
     transform: scale(1.05);
 }
 
-/* Cada detalle del disco */
 .discDetails_container p {
     font-size: 16px;
     margin: 8px 0;
@@ -37,8 +34,7 @@
     font-weight: 500;
 }
 
-/* Mensaje de “Borrowed” resaltado */
 .discDetails_container p:last-child {
-    color: #4caf50; /* verde si se quiere, puedes cambiarlo dinámicamente con JS */
+    color: #4caf50; 
     font-weight: 600;
 }

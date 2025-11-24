@@ -16,7 +16,7 @@ const Disc = ({ id, name, cover, singer, gender, deleteDisc }) => {
                 <button
                     className="disc_delete"
                     onClick={() => {
-                        deleteDisc(id)
+                        deleteDisc(id) 
                     }}
                 >
                     Delete

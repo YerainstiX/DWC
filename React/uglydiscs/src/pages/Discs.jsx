@@ -30,6 +30,7 @@ const Discs = () => {
         setFilteredDiscs(filtered)
     }
 
+    //Function to delete a disc
     const deleteDisc = (id) => {
         if (confirm("Delete Disc?")) {
             const updated = discs.filter((disc) => disc.id !== id)
@@ -57,7 +58,7 @@ const Discs = () => {
             <div className="discs_list">
                 {discs.length === 0 ? (
                     <h1 className="discs_noDiscs">No disc Registered</h1>
-                ) : filteredDiscs.length === 0 ? (
+                ) : filteredDiscs.length === 0 ? (                          //This two conditions if the list or the filtered list is empty
                     <h1 className="discs_notFound">No Results Found</h1>
                 ) : (
                     filteredDiscs.map((disc) => (
@@ -68,7 +69,7 @@ const Discs = () => {
                             cover={disc.cover}
                             singer={disc.singer}
                             gender={disc.gender}
-                            deleteDisc={deleteDisc}
+                            deleteDisc={deleteDisc} //I send the function through the props, so I can use it on Disc
                         ></Disc>
                     ))
                 )}
