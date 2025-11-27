@@ -3,6 +3,6 @@
 export const getData = async (url) => {
     return fetch(url)
         .then((response) => response.json())
-        .then((data) => data)
+        .then((data) => data.results)
         .catch((e) => "No se han podido obtener los datos")
 }
