@@ -79,8 +79,6 @@ window.onload = () => {
     document.getElementById("search").addEventListener("input", (e) => {
         const text = e.target.value.toLowerCase()
 
-        
-
         const filtered = discs.filter(
             (disc) =>
                 disc.name.toLowerCase() === text ||
