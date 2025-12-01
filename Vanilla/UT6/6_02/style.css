@@ -1,0 +1,118 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #0b0d17; /* azul oscuro tipo Star Wars */
+    color: #f1f1f1;
+    padding: 20px;
+}
+
+.title {
+   font-family: "Star Jedi", Arial, sans-serif; /* Fuente tipo Star Wars */
+    font-size: 48px;
+    color: #ffe81f; /* Amarillo Star Wars */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 20px;
+
+    /* Efecto glow / neón */
+    text-shadow:
+        0 0 5px #ffe81f,
+        0 0 10px #ffe81f,
+        0 0 20px #ffda5c,
+        0 0 30px #ffda5c,
+        0 0 40px #ffd700;
+
+    /* Opcional: efecto ligeramente inclinado */
+    transform: perspective(400px) rotateX(5deg);
+} 
+
+
+/* CONTENEDOR PRINCIPAL */
+#main-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* LISTA DE PELÍCULAS */
+#aside-movies {
+    background: #1b1e29;
+    border-radius: 10px;
+    padding: 15px;
+    height: fit-content;
+}
+
+/* UL de películas */
+#movie-list {
+    list-style: none; /* quita los bullets */
+    padding: 0;
+    margin: 0;
+}
+
+/* LI de cada película */
+.movie {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background: #242837;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font-size: 15px;
+    display: block;
+}
+
+.movie:hover {
+    background: #2f3550;
+    transform: scale(1.03);
+}
+
+.movie:active {
+    transform: scale(0.98);
+}
+
+/* CONTENEDOR INFO */
+#info-container {
+    background: #1b1e29;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 300px;
+}
+
+/* TÍTULOS */
+#movie-data h1 {
+    margin-bottom: 10px;
+    color: white; 
+    text-shadow: 0 0 5px #ffe000aa;
+}
+
+#movie-data h2 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #c9c9c9;
+}
+
+#movie-data h3 {
+    margin-bottom: 15px;
+    color: #9cb3ff;
+}
+
+#movie-data p {
+    font-family: "Star Jedi", Arial, sans-serif;
+    text-transform: uppercase;
+    color: #ffe81f;            
+    letter-spacing: 1px;       
+    line-height: 1.6;          
+    font-size: 20px;
+    text-align: justify;
+}
+
+

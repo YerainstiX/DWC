@@ -1,24 +1,27 @@
 "use strict"
 
 import { getData } from "./lib/getData.js"
-import { showMovies } from "./lib/modifyDOM.js"
+import { showInfo, showMovies } from "./lib/dom.js"
 
 window.onload = () => {
     const url = "https://swapi.dev/api/films/"
+    const aside = document.getElementById("movie-list")
+    const info = document.getElementById("movie-data")
 
     const data = async () => {
         const movies = await getData(url)
-        console.log(movies)
         //SHOW MOVIES
-        document.getElementById("aside-movies").innerHTML = showMovies(movies)
+        aside.innerHTML = showMovies(movies)
         //SHOW INFO
-        document.getElementById("aside-movies").addEventListener("click", () => {
-        
-    }, false)
+        aside.addEventListener(
+            "click",
+            (e) => {
+                e.target.classList.contains("movie") &&
+                    (info.innerHTML = showInfo(movies, e.target.id))
+            },
+            false
+        )
     }
 
     data()
-
-    
-    
 } //THE END
