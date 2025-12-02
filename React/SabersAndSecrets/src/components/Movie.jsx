@@ -1,10 +1,14 @@
 import React from "react"
+import "./Movie.css"
+import { Link } from "react-router-dom"
 
 const Movie = ({ id, name }) => {
     return (
-        <div>
-            Episode: {id} | {name}
-        </div>
+        <Link className="movie-link" to={`/movie/${id}`}>
+            <div className="movie-container">
+                Episode {id} | {name}
+            </div>
+        </Link>
     )
 }
 

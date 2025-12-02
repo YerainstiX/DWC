@@ -13,8 +13,8 @@ const Menu = ({ pageName }) => {
                     <Link className="menu_element" to="/">
                         Home
                     </Link>
-                    <Link className="menu_element" to="/add-disc">
-                        Add Disc
+                    <Link className="menu_element" to="/movies">
+                        Movies
                     </Link>
                     <Link className="menu_element" to="/discs">
                         Discs
