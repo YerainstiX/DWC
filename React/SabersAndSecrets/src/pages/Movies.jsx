@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import "./Movies.css"
 import { useState } from "react"
-import { getData } from "../lib/getData"
+import { getDataResults } from "../lib/getData"
 import Movie from "../components/Movie"
 
 const Movies = () => {
@@ -9,7 +9,7 @@ const Movies = () => {
     const [movies, setMovies] = useState([])
 
     const getMovies = async () => {
-        const movies = await getData(url)
+        const movies = await getDataResults(url)
         setMovies(movies)
     }
 
@@ -18,17 +18,17 @@ const Movies = () => {
     }, [])
 
     return (
-        <div>
+        <div className="movies-container">
             <h1>Star Wars Movies</h1>
-            <div>
-                {movies.length ? (
-                    movies.map((movie) => 
+            <div className="movies-list">
+                {movies ? (
+                    movies.map((movie) => (
                         <Movie
                             key={movie.episode_id}
                             id={movie.episode_id}
                             name={movie.title}
                         />
-                    )
+                    ))
                 ) : (
                     <p>Loading Movies...</p>
                 )}

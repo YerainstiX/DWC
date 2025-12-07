@@ -16,8 +16,8 @@ const Menu = ({ pageName }) => {
                     <Link className="menu_element" to="/movies">
                         Movies
                     </Link>
-                    <Link className="menu_element" to="/discs">
-                        Discs
+                    <Link className="menu_element" to="/about">
+                        About
                     </Link>
                 </div>
             </nav>
