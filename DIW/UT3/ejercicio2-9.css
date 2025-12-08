@@ -1,0 +1,24 @@
+div.wrapper {
+    float: right;
+}
+
+div.grid {
+    color: white;
+    background: red;
+    padding: 5px;
+}
+
+#moveMe {
+    position: relative; /*Con posición relativa el elemento se mueve visualmente pero sigue ocupando su espacio original*/
+    /*
+        top: 5px;
+        left: -5px
+    a)
+        top: 10px;
+        left: -10px;
+    
+    b) Se ve un hueco porque elemento se ha movido visualmente pero su espacio sigue estando "reservado" por decirlo así*/
+    top: -10px;
+    left: -10px;
+    background: blue;
+}
