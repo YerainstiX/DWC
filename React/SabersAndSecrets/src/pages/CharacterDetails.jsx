@@ -5,7 +5,7 @@ import "./CharacterDetails.css"
 
 const CharacterDetails = () => {
     const { id } = useParams()
-    const url = `https://swapi.dev/api/people/${id}/`
+    const url = `https://swapi.dev/api/people/${id}/` //Through the id we get the data of the character we want
 
     const [character, serCharacter] = useState({})
 

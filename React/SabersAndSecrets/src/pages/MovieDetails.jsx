@@ -16,6 +16,7 @@ const MovieDetails = () => {
         setMovie(movies.find((movie) => movie.episode_id == id))
     }
 
+    //A method to get the characters and give them an id
     const getCharacters = async () => {
         const promiseCharacters = movie.characters
             .slice(0, 10)
@@ -35,7 +36,8 @@ const MovieDetails = () => {
 
         setCharacters(characterWithId)
     }
-
+    
+    //A method to get the id from the url
     const getCharacterId = (url) => {
         return url.split("/")[5]
     }
