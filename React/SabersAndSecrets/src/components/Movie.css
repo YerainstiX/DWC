@@ -8,19 +8,47 @@
     text-decoration: none;
     color: inherit;
 }
+
 .movie-container {
-    background-color: #1e1e2f;
+    background-color: #1a1a2e; /* Fondo más oscuro tipo espacio */
     padding: 12px 16px;
     margin: 8px 0;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 8px rgba(255, 232, 31, 0.2); /* Luz dorada sutil */
+    font-family: "Orbitron", sans-serif; /* Tipografía futurista estilo Star Wars */
     font-size: 16px;
-    transition: transform 0.2s, background-color 0.2s;
-    cursor: default;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #ffe81f; /* Texto dorado */
+    cursor: pointer;
 }
 
 .movie-container:hover {
-    background-color: #2a2a45;
+    background-color: #2a2a45; /* Hover más brillante */
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 232, 31, 0.6);
+}
+
+/* Imagen del póster */
+.movie-container img {
+    width: 70px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(255, 232, 31, 0.4); /* Brillo estilo Star Wars */
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-container:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 232, 31, 0.8);
+}
+
+/* Texto dentro de la tarjeta */
+.movie-container span {
+    font-weight: bold;
+    text-shadow: 0 0 4px #ffe81f;
 }

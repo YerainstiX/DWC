@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getData } from "../lib/getData.js"
+import { Link } from "react-router-dom"
 import "./CharacterDetails.css"
 
 const CharacterDetails = () => {
@@ -32,6 +33,9 @@ const CharacterDetails = () => {
                 <p>Mass: {character.mass}Kg</p>
                 <p>Hair Color: {capitalize(character.hair_color)}</p>
                 <p>Eye Color: {capitalize(character.eye_color)}</p>
+                <Link key={id}>
+                    <button>Pilota</button>
+                </Link>
             </div>
         </>
     )

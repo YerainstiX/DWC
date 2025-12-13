@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { getDataResults, getData } from "../lib/getData.js"
 import { Link } from "react-router-dom"
 import "./MovieDetails.css"
+import { getPosterByEpisode } from "../lib/utils.js"
 
 const MovieDetails = () => {
     const url = "https://swapi.dev/api/films/"
@@ -36,7 +37,7 @@ const MovieDetails = () => {
 
         setCharacters(characterWithId)
     }
-    
+
     //A method to get the id from the url
     const getCharacterId = (url) => {
         return url.split("/")[5]
@@ -55,19 +56,28 @@ const MovieDetails = () => {
             <div className="movieDetails-info">
                 {movie ? (
                     <>
-                        <h1>{movie.title}</h1>
-                        <h2>
-                            Director: {movie.director} | Producer{" "}
-                            {movie.producer}
-                        </h2>
-                        <h3>
-                            {
-                                new Date(movie.release_date)
-                                    .toLocaleString("es-ES")
-                                    .split(",")[0]
-                            }
-                        </h3>
-                        <p>{movie.opening_crawl}</p>
+                        <div className="movieDetails-img">
+                            <img
+                                src={getPosterByEpisode(movie.episode_id)}
+                                alt="img"
+                            />
+                        </div>
+                        <div className="movieDetails-movieInfo">
+                            <h1>{movie.title}</h1>
+
+                            <h2>
+                                Director: {movie.director} | Producer{" "}
+                                {movie.producer}
+                            </h2>
+                            <h3>
+                                {
+                                    new Date(movie.release_date)
+                                        .toLocaleString("es-ES")
+                                        .split(",")[0]
+                                }
+                            </h3>
+                            <p>{movie.opening_crawl}</p>
+                        </div>
                     </>
                 ) : (
                     <h1>Loading Movie Data...</h1>
