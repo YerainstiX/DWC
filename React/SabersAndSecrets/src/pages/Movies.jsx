@@ -1,22 +1,13 @@
-import React, { useEffect } from "react"
+import React, { useContext, useEffect } from "react"
 import "./Movies.css"
 import { useState } from "react"
-import { getDataResults } from "../lib/getData"
+
 import Movie from "../components/Movie"
 
+import { ContextMovies } from "../context/ProviderMovies"
+
 const Movies = () => {
-    const url = "https://swapi.dev/api/films/"
-    const [movies, setMovies] = useState([])
-
-    const getMovies = async () => {
-        const movies = await getDataResults(url)
-        setMovies(movies)
-    }
-
-    useEffect(() => {
-        getMovies()
-    }, [])
-
+    const { movies } = useContext(ContextMovies)
     return (
         <div className="movies-container">
             <h1>Star Wars Movies</h1>

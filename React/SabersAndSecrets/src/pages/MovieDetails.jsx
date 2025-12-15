@@ -1,24 +1,27 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getDataResults, getData } from "../lib/getData.js"
 import { Link } from "react-router-dom"
 import "./MovieDetails.css"
 import { getPosterByEpisode } from "../lib/utils.js"
+import { ContextMovies } from "../context/ProviderMovies.jsx"
+import { ContextCharacters } from "../context/ProviderCharacters.jsx"
 
 const MovieDetails = () => {
-    const url = "https://swapi.dev/api/films/"
     const { id } = useParams()
 
-    const [movie, setMovie] = useState({})
+    const { movies } = useContext(ContextMovies)
+
     const [characters, setCharacters] = useState()
 
-    const getMovie = async () => {
-        const movies = await getDataResults(url)
-        setMovie(movies.find((movie) => movie.episode_id == id))
-    }
+    //console.log(character)
+
+    const getMovie = () => movies.find((movie) => movie.episode_id == id)
+
+    const movie = getMovie()
 
     //A method to get the characters and give them an id
-    const getCharacters = async () => {
+    const getMovieCharacters = async () => {
         const promiseCharacters = movie.characters
             .slice(0, 10)
             .map((character, i) => {
@@ -44,11 +47,7 @@ const MovieDetails = () => {
     }
 
     useEffect(() => {
-        getMovie()
-    }, [])
-
-    useEffect(() => {
-        movie.characters && getCharacters()
+        movie.characters && getMovieCharacters()
     }, [movie])
 
     return (
