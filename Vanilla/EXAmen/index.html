@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form id="anime-form">
+            <!-- Nombre del anime -->
+            <div>
+                <label for="name">Nombre del anime</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Ej: Cowboy Bebop"
+                    required
+                />
+            </div>
+
+            <!-- URL de la portada -->
+            <div>
+                <label for="image">URL de la portada</label>
+                <input
+                    type="url"
+                    id="image"
+                    name="image"
+                    placeholder="https://..."
+                    required
+                />
+            </div>
+
+            <!-- Estado del anime -->
+
+            <legend>Estado del anime</legend>
+
+            <label>
+                <input type="radio" name="status" value="emision" required />
+                En emisión
+            </label>
+
+            <label>
+                <input type="radio" name="status" value="terminado" />
+                Terminado
+            </label>
+
+            <!-- Rank -->
+            <div>
+                <label for="rank">Rank</label>
+                <input
+                    type="number"
+                    id="rank"
+                    name="rank"
+                    min="1"
+                    step="1"
+                    required
+                />
+            </div>
+
+            <!-- Sinopsis -->
+            <div>
+                <label for="synopsis">Sinopsis</label>
+                <textarea
+                    id="synopsis"
+                    name="synopsis"
+                    rows="5"
+                    placeholder="Describe brevemente el anime..."
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit">Guardar anime</button>
+        </form>
+
+        <div id="animes"></div>
+        <button>RESET</button>
+        <script type="module" src="main.js"></script>
+    </body>
+</html>
