@@ -28,7 +28,6 @@
                     id="image"
                     name="image"
                     placeholder="https://..."
-                    required
                 />
             </div>
 
@@ -71,11 +70,13 @@
                 ></textarea>
             </div>
 
-            <button type="submit">Guardar anime</button>
+            <button type="button" id="save">Guardar anime</button>
         </form>
-        <button id="reset">RESET</button>
+        <button id="reset">RESET</button><br />
+        <p>Search:</p>
+        <input type="search" id="search" />
         <div id="animes"></div>
-        <button>RESET</button>
+
         <script type="module" src="main.js"></script>
     </body>
 </html>

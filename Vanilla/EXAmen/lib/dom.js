@@ -5,7 +5,7 @@ export const showAnime = (animes) => {
     Array.isArray(animes) && animes.length
         ? animes.map(
               (anime) =>
-                  (template += `<p><img src="${anime.image}" /> | ${anime.title} | ${anime.status} | Rank: ${anime.rank} </br>Synopsis</br> ${anime.synopsis}</p>`)
+                  (template += `<p><img src="${anime.image}" /> | ${anime.title} | ${anime.status} | Rank: ${anime.rank} </br>Synopsis</br> ${anime.synopsis}</br><button class="delete" id=${anime.id}>DELETE</button></p>`)
           )
         : "Missing"
 

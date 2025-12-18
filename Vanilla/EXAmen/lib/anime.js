@@ -1,12 +1,17 @@
 "use strict"
 
 import { showAnime } from "./dom.js"
-import { saveAPILocalData } from "./localData.js"
-import { localData } from "./localData.js"
+import { getLocalData, resetLocalData, saveAPILocalData } from "./localData.js"
 
 const divAnime = document.getElementById("animes")
 
 export const loadWeb = () => {
     saveAPILocalData()
-    divAnime.innerHTML = showAnime(localData)
+    console.log(getLocalData())
+    divAnime.innerHTML = showAnime(getLocalData())
+}
+
+export const resetWeb = async () => {
+    await resetLocalData()
+    divAnime.innerHTML = showAnime(getLocalData())
 }

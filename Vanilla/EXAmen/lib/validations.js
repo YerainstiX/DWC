@@ -1,9 +1,5 @@
 "use strict"
 
-import { createAnime } from "./utils"
-
-const form = document.getElementById("anime-form")
-const formData = new FormData(form)
 const divErrors = document.getElementById("errors")
 
 //This file manage all the validations and errors
@@ -48,18 +44,23 @@ const validateSinopsis = (sinopsis) => {
     return valid
 }
 
-const validateAnime = () => {
+const clearErrors = () => {
+    divErrors.innerText = ""
+}
+
+export const validateAnime = () => {
+    const form = document.getElementById("anime-form")
+    const formData = new FormData(form)
+    clearErrors()
     if (
         validateName(formData.get("name")) &&
         validateRank(formData.get("rank")) &&
         validateSinopsis(formData.get("synopsis"))
     ) {
-        return createAnime(
-            formData.get("name"),
-            formData.get("image"),
-            formData.get("status"),
-            formData.get("rank"),
-            formData.get("synopsis")
-        )
+        return true
     }
+    return false
 }
+/*
+
+            */

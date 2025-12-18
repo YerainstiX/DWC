@@ -1,9 +1,9 @@
 "use strict"
 
-export const createAnime = (name, image, status, rank, synopsis) => {
+export const createAnime = (title, image, status, rank, synopsis) => {
     const anime = {
         id: crypto.randomUUID(),
-        name: name,
+        title: title,
         image: image || "No image",
         status: status || "Unknown",
         rank: rank,
@@ -15,7 +15,7 @@ export const createAnime = (name, image, status, rank, synopsis) => {
 export const createAnimeFromApi = (anime) => {
     const apiAnime = {
         id: crypto.randomUUID(),
-        name: anime.title,
+        title: anime.title,
         image: anime.images.jpg.image_url,
         status: anime.status,
         rank: anime.rank,
