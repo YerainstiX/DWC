@@ -4,19 +4,29 @@ import { getDataResults } from "../lib/getData"
 const ContextCharacters = createContext()
 
 const ProviderCharacters = ({ children }) => {
-    const url = "https://swapi.dev/api/people/"
-    const [character, setCharacters] = useState()
+    const url = "https://swapi.py4e.com/api/people/"
+    const [characters, setCharacters] = useState()
 
     const getCharacters = async () => {
         const characters = await getDataResults(url)
-        setCharacters(characters)
+
+        const charactersWithId = characters.map((character) => {
+            const id = getCharacterId(character.url)
+            return { ...character, id }
+        })
+
+        setCharacters(charactersWithId)
+    }
+
+    const getCharacterId = (url) => {
+        return url.split("/")[5]
     }
 
     useEffect(() => {
         getCharacters()
     }, [])
 
-    const box = { character }
+    const box = { characters }
     return <ContextCharacters value={box}>{children}</ContextCharacters>
 }
 

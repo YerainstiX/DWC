@@ -1,0 +1,31 @@
+.starship-container {
+    background-color: #0b0c1a; /* fondo oscuro tipo espacio */
+    color: #f5f5f5;
+    border-radius: 14px;
+    padding: 22px;
+    margin: 12px 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s, box-shadow 0.25s;
+    max-width: 320px;
+    text-align: center;
+}
+
+.starship-container:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.starship-container h1 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-family: "Orbitron", sans-serif; /* opcional: fuente futurista */
+    letter-spacing: 1px;
+}
+
+.starship-container h2 {
+    font-size: 1.2rem;
+    margin: 6px 0;
+    font-weight: 400;
+    color: #c0c0c0;
+    letter-spacing: 0.5px;
+}

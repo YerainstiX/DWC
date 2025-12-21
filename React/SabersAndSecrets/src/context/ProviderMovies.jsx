@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 const ContextMovies = createContext()
 
 const ProviderMovies = ({ children }) => {
-    const url = "https://swapi.dev/api/films/"
+    const url = "https://swapi.py4e.com/api/films/"
     const [movies, setMovies] = useState([])
 
     const getMovies = async () => {

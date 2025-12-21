@@ -1,0 +1,27 @@
+.vehicle-container {
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    max-width: 300px;
+}
+
+.vehicle-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.vehicle-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.vehicle-container h2 {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    font-weight: 400;
+    color: #c0c0c0;
+}

@@ -8,6 +8,7 @@ import { ContextMovies } from "../context/ProviderMovies"
 
 const Movies = () => {
     const { movies } = useContext(ContextMovies)
+    console.log(movies)
     return (
         <div className="movies-container">
             <h1>Star Wars Movies</h1>

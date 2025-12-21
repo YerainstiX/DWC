@@ -11,8 +11,9 @@ const MovieDetails = () => {
     const { id } = useParams()
 
     const { movies } = useContext(ContextMovies)
+    const { characters } = useContext(ContextCharacters)
 
-    const [characters, setCharacters] = useState()
+    const [movieCharacters, setMovieCharacters] = useState()
 
     //console.log(character)
 
@@ -22,23 +23,15 @@ const MovieDetails = () => {
 
     //A method to get the characters and give them an id
     const getMovieCharacters = async () => {
-        const promiseCharacters = movie.characters
+        const movieCharactersID = movie.characters
             .slice(0, 10)
-            .map((character, i) => {
-                return getData(character)
-            })
+            .map((url) => getCharacterId(url))
 
-        const result = await Promise.allSettled(promiseCharacters)
+        const filteredCharacters = characters.filter((character) =>
+            movieCharactersID.includes(character.id)
+        )
 
-        const characterWithId = result
-            .filter((data) => data.status === "fulfilled")
-            .map((data, i) => {
-                const characterData = data.value
-                const id = getCharacterId(movie.characters[i])
-                return { ...characterData, id }
-            })
-
-        setCharacters(characterWithId)
+        setMovieCharacters(filteredCharacters)
     }
 
     //A method to get the id from the url
@@ -47,8 +40,10 @@ const MovieDetails = () => {
     }
 
     useEffect(() => {
-        movie.characters && getMovieCharacters()
-    }, [movie])
+        if (movie && characters) {
+            getMovieCharacters()
+        }
+    }, [movie, characters])
 
     return (
         <div className="movieDetails-container">
@@ -84,8 +79,8 @@ const MovieDetails = () => {
             </div>
             <div className="movieDetails-Characters">
                 <h1>Characters:</h1>
-                {characters ? (
-                    characters.map((character) => (
+                {movieCharacters ? (
+                    movieCharacters.map((character) => (
                         <Link
                             key={character.id}
                             className="movieDetails-CharactersList"

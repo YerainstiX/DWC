@@ -33,3 +33,57 @@
     margin: 5px 0;
     line-height: 1.5;
 }
+
+/* Botón Pilota */
+.characterDetails-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 8px;
+    color: #1e1e2f;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.characterDetails-container button:hover {
+    background-color: #ffd700;
+    transform: scale(1.05);
+}
+
+/* Contenedor de vehículos y starships */
+#vehicles_starship {
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+/* Ocultar/mostrar sección */
+.characterDetails-hidden {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.characterDetails-Vehicles,
+.characterDetails-Starship {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Mensajes de info cuando no hay vehículos o starships */
+#vehicles_starship h1 {
+    font-size: 1.2rem;
+    color: #ff6b6b;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}

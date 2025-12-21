@@ -2,8 +2,8 @@ import React from "react"
 import "./Movie.css"
 import { Link } from "react-router-dom"
 import { getPosterByEpisode } from "../lib/utils.js"
-//The individual component to show a movie
 
+//The individual component to show a movie
 const Movie = ({ id, name }) => {
     return (
         <Link className="movie-link" to={`/movie/${id}`}>
