@@ -14,13 +14,13 @@ const CharacterDetails = () => {
     const { vehicles } = useContext(ContextVehicles)
     const { starship } = useContext(ContextStarship)
 
-    const [character, setCharacter] = useState(null) // Cambiado a null para validar mejor
+    const [character, setCharacter] = useState(null)
     const [characterVehicles, setCharacterVehicles] = useState([])
     const [characterStarship, setCharacterStarship] = useState([])
 
     const [showVehicleStarship, setShowVehicleStarship] = useState(false)
 
-    // Funciones auxiliares (ID split)
+    
     const getVehicleId = (url) => url.split("/")[5]
     const getStarshipId = (url) => url.split("/")[5]
     const capitalize = (str) =>
@@ -63,7 +63,7 @@ const CharacterDetails = () => {
         }
     }
 
-    // Efectos encadenados (Manteniendo tu lógica original)
+    
     useEffect(() => {
         if (characters && characters.length > 0) getCharacterInfo()
     }, [characters, id])

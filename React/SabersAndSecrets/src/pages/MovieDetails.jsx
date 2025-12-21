@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getDataResults, getData } from "../lib/getData.js"
 import { Link } from "react-router-dom"
 import "./MovieDetails.css"
 import { getPosterByEpisode } from "../lib/utils.js"
