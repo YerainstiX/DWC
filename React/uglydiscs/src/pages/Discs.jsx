@@ -8,6 +8,7 @@ const Discs = () => {
 
     useEffect(() => {
         const storedDiscs = JSON.parse(localStorage.getItem("discs")) || []
+        console.log(storedDiscs)
         setDiscs(storedDiscs)
         setFilteredDiscs(storedDiscs)
     }, [])
@@ -58,7 +59,7 @@ const Discs = () => {
             <div className="discs_list">
                 {discs.length === 0 ? (
                     <h1 className="discs_noDiscs">No disc Registered</h1>
-                ) : filteredDiscs.length === 0 ? (                          //This two conditions if the list or the filtered list is empty
+                ) : filteredDiscs.length === 0 ? ( //This two conditions if the list or the filtered list is empty
                     <h1 className="discs_notFound">No Results Found</h1>
                 ) : (
                     filteredDiscs.map((disc) => (

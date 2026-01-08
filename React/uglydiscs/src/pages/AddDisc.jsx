@@ -18,7 +18,7 @@ const AddDisc = () => {
         cover: "",
         singer: "",
         year: "",
-        gender: "Pop",
+        gender: "",
         localization: "",
         borrowed: "",
     })
@@ -55,6 +55,7 @@ const AddDisc = () => {
 
     const validateGender = (gender) => {
         const validOptions = ["Pop", "Rock", "Indie", "Jazz"]
+        if (!gender) return ""
         if (!validOptions.includes(gender))
             return "The gender must be one of the giving types, skill issue I guess"
     }
@@ -95,7 +96,7 @@ const AddDisc = () => {
         }
     }
 
-    //The logic to save the data into the localStorage, and show 
+    //The logic to save the data into the localStorage, and show
     const save = () => {
         if (!validateForm()) {
             setErrors((previous) => ({
@@ -111,7 +112,7 @@ const AddDisc = () => {
         setFormData({
             name: "",
             cover: "",
-            singer_group: "",
+            singer: "",
             year: "",
             gender: "Pop",
             localization_code: "",
@@ -123,6 +124,14 @@ const AddDisc = () => {
         }))
     }
 
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setFormData({
+            ...formData,
+            [name]: value,
+        })
+    }
+
     return (
         <>
             <div id="form_container">
@@ -132,14 +141,10 @@ const AddDisc = () => {
                         <input
                             type="text"
                             name="name"
+                            value={formData.name}
                             id="name"
                             placeholder="The new Abnormal"
-                            onChange={(e) => {
-                                setFormData({
-                                    ...formData,
-                                    name: e.target.value,
-                                })
-                            }}
+                            onChange={handleChange()}
                         />
                         {errors.name && (
                             <p id="name_error" className="msg_error">
@@ -152,29 +157,21 @@ const AddDisc = () => {
                         <input
                             type="URL"
                             name="cover"
+                            value={formData.cover}
                             id="cover"
                             placeholder="url"
-                            onChange={(e) => {
-                                setFormData({
-                                    ...formData,
-                                    cover: e.target.value,
-                                })
-                            }}
+                            onChange={handleChange()}
                         />
                     </div>
                     <div id="singer_container">
                         <label htmlFor="singer_group">Singer/Group</label>
                         <input
                             type="text"
-                            name="singer_group"
+                            name="singer"
+                            value={formData.singer}
                             id="singer_group"
                             placeholder="The Strokes"
-                            onChange={(e) => {
-                                setFormData({
-                                    ...formData,
-                                    singer: e.target.value,
-                                })
-                            }}
+                            onChange={handleChange()}
                         />
                         {errors.singer && (
                             <p id="singer_error" className="msg_error">
@@ -187,14 +184,10 @@ const AddDisc = () => {
                         <input
                             type="number"
                             name="year"
+                            value={formData.year}
                             id="year"
                             placeholder="2020"
-                            onChange={(e) => {
-                                setFormData({
-                                    ...formData,
-                                    year: e.target.value,
-                                })
-                            }}
+                            onChange={handleChange()}
                         />
                         {errors.year && (
                             <p id="year_error" className="msg_error">
@@ -206,6 +199,7 @@ const AddDisc = () => {
                         <label htmlFor="gender">Gender</label>
                         <select
                             name="gender"
+                            value={formData.gender}
                             id="gender"
                             onChange={(e) => {
                                 setFormData({
@@ -214,6 +208,7 @@ const AddDisc = () => {
                                 })
                             }}
                         >
+                            <option value=""></option>
                             <option value="Pop">Pop</option>
                             <option value="Rock">Rock</option>
                             <option value="Indie">Indie</option>

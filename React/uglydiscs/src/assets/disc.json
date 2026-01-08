@@ -1,0 +1,54 @@
+{
+  "discs": [
+    {
+      "id": "3e07dd60-da73-4efc-88ab-d8ee49559817",
+      "name": "The New Abnormal",
+      "singer": "The Strokes",
+      "gender": "Rock",
+      "year": "2020",
+      "borrowed": true,
+      "localization": "ES-033AC",
+      "cover": "https://www.mondosonoro.com/wp-content/uploads/2020/04/strokes-new-abnormal.jpg"
+    },
+    {
+      "id": "a1c2b3d4-1111-4aaa-bbbb-123456789000",
+      "name": "AM",
+      "singer": "Arctic Monkeys",
+      "gender": "Rock",
+      "year": "2013",
+      "borrowed": false,
+      "localization": "ES-041BC",
+      "cover": "https://upload.wikimedia.org/wikipedia/en/0/04/AM_Arctic_Monkeys.jpg"
+    },
+    {
+      "id": "b2d3e4f5-2222-4bbb-cccc-098765432111",
+      "name": "Random Access Memories",
+      "singer": "Daft Punk",
+      "gender": "Electronic",
+      "year": "2013",
+      "borrowed": true,
+      "localization": "FR-75001",
+      "cover": "https://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg"
+    },
+    {
+      "id": "c3e4f5g6-3333-4ccc-dddd-112233445566",
+      "name": "Back to Black",
+      "singer": "Amy Winehouse",
+      "gender": "Soul",
+      "year": "2006",
+      "borrowed": false,
+      "localization": "UK-LON01",
+      "cover": "https://upload.wikimedia.org/wikipedia/en/1/15/Amy_Winehouse_-_Back_to_Black.png"
+    },
+    {
+      "id": "d4f5g6h7-4444-4ddd-eeee-667788990011",
+      "name": "Nevermind",
+      "singer": "Nirvana",
+      "gender": "Grunge",
+      "year": "1991",
+      "borrowed": true,
+      "localization": "US-SEA91",
+      "cover": "https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg"
+    }
+  ]
+}
