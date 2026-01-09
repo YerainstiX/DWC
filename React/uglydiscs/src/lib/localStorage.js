@@ -7,7 +7,7 @@ export const saveData = (discList, formData) => {
         cover: formData.cover || "Without cover",
         singer: formData.singer,
         year: formData.year || "Without year",
-        gender: formData.gender,
+        gender: formData.gender || "Without gender",
         localization: formData.localization,
         borrowed: formData.borrowed || "Missing",
     }

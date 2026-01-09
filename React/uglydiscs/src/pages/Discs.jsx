@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import Disc from "../components/Disc"
 import "./Discs.css"
 
+import { ContextDisc } from "../context/ProviderDiscs"
+
 const Discs = () => {
-    const [discs, setDiscs] = useState([])
+    const { discs } = useContext(ContextDisc)
+
+    //const [discs, setDiscs] = useState([])
     const [filteredDiscs, setFilteredDiscs] = useState([])
 
     useEffect(() => {
-        const storedDiscs = JSON.parse(localStorage.getItem("discs")) || []
-        console.log(storedDiscs)
-        setDiscs(storedDiscs)
-        setFilteredDiscs(storedDiscs)
-    }, [])
+        setFilteredDiscs(discs)
+    }, [discs])
 
     const filterDisc = (e) => {
         const text = e.target.value.toLowerCase()
@@ -31,6 +32,7 @@ const Discs = () => {
         setFilteredDiscs(filtered)
     }
 
+    /*
     //Function to delete a disc
     const deleteDisc = (id) => {
         if (confirm("Delete Disc?")) {
@@ -40,7 +42,7 @@ const Discs = () => {
             localStorage.setItem("discs", JSON.stringify(updated))
         }
     }
-
+    */
     return (
         <div className="discs_container">
             <div className="disc_search_container">
@@ -70,7 +72,7 @@ const Discs = () => {
                             cover={disc.cover}
                             singer={disc.singer}
                             gender={disc.gender}
-                            deleteDisc={deleteDisc} //I send the function through the props, so I can use it on Disc
+                            //deleteDisc={deleteDisc} //I send the function through the props, so I can use it on Disc
                         ></Disc>
                     ))
                 )}

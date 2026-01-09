@@ -20,7 +20,7 @@ const AddDisc = () => {
         year: "",
         gender: "",
         localization: "",
-        borrowed: "",
+        borrowed: false,
     })
 
     const [discs, setDiscs] = useState(
@@ -46,7 +46,7 @@ const AddDisc = () => {
     const validateYear = (year) => {
         if (!year) return ""
 
-        if (year.length !== 4)
+        if (year.toString().length !== 4)
             return "The year length must be 4 numbers, you good?"
 
         if (isNaN(Number(year)))
@@ -114,9 +114,9 @@ const AddDisc = () => {
             cover: "",
             singer: "",
             year: "",
-            gender: "Pop",
-            localization_code: "",
-            borrowed: "",
+            gender: "",
+            localization: "",
+            borrowed: false,
         })
         setErrors((previous) => ({
             ...previous,
@@ -144,7 +144,7 @@ const AddDisc = () => {
                             value={formData.name}
                             id="name"
                             placeholder="The new Abnormal"
-                            onChange={handleChange()}
+                            onChange={handleChange}
                         />
                         {errors.name && (
                             <p id="name_error" className="msg_error">
@@ -160,7 +160,7 @@ const AddDisc = () => {
                             value={formData.cover}
                             id="cover"
                             placeholder="url"
-                            onChange={handleChange()}
+                            onChange={handleChange}
                         />
                     </div>
                     <div id="singer_container">
@@ -171,7 +171,7 @@ const AddDisc = () => {
                             value={formData.singer}
                             id="singer_group"
                             placeholder="The Strokes"
-                            onChange={handleChange()}
+                            onChange={handleChange}
                         />
                         {errors.singer && (
                             <p id="singer_error" className="msg_error">
@@ -187,7 +187,7 @@ const AddDisc = () => {
                             value={formData.year}
                             id="year"
                             placeholder="2020"
-                            onChange={handleChange()}
+                            onChange={handleChange}
                         />
                         {errors.year && (
                             <p id="year_error" className="msg_error">
@@ -201,12 +201,7 @@ const AddDisc = () => {
                             name="gender"
                             value={formData.gender}
                             id="gender"
-                            onChange={(e) => {
-                                setFormData({
-                                    ...formData,
-                                    gender: e.target.value,
-                                })
-                            }}
+                            onChange={handleChange}
                         >
                             <option value=""></option>
                             <option value="Pop">Pop</option>
@@ -221,18 +216,14 @@ const AddDisc = () => {
                         )}
                     </div>
                     <div id="localization_container">
-                        <label htmlFor="localization_code">Localization</label>
+                        <label htmlFor="localization">Localization</label>
                         <input
                             type="text"
-                            name="localization_code"
+                            name="localization"
+                            value={formData.localization}
                             id="localization_code"
                             placeholder="ES-001AA"
-                            onChange={(e) => {
-                                setFormData({
-                                    ...formData,
-                                    localization: e.target.value,
-                                })
-                            }}
+                            onChange={handleChange}
                         />
                         {errors.localization && (
                             <p id="localization_error" className="msg_error">
@@ -247,12 +238,11 @@ const AddDisc = () => {
                                 type="radio"
                                 name="borrowed"
                                 id="borrowed_yes"
-                                value="true"
-                                checked={formData.borrowed === "true"}
-                                onChange={(e) =>
+                                checked={formData.borrowed === true}
+                                onChange={() =>
                                     setFormData({
                                         ...formData,
-                                        borrowed: e.target.value,
+                                        borrowed: true,
                                     })
                                 }
                             />
@@ -261,12 +251,11 @@ const AddDisc = () => {
                                 type="radio"
                                 name="borrowed"
                                 id="borrowed_no"
-                                value="false"
-                                checked={formData.borrowed === "false"}
-                                onChange={(e) =>
+                                checked={formData.borrowed === false}
+                                onChange={() =>
                                     setFormData({
                                         ...formData,
-                                        borrowed: e.target.value,
+                                        borrowed: false,
                                     })
                                 }
                             />
@@ -278,7 +267,6 @@ const AddDisc = () => {
                         id="save"
                         onClick={() => {
                             save()
-                            form.reset()
                         }}
                     >
                         Save
