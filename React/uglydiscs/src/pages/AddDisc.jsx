@@ -1,8 +1,10 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import "./AddDisc.css"
-import { saveData } from "../lib/localStorage.js"
+import { saveData } from "../lib/utils.js"
+import { ContextDisc } from "../context/ProviderDiscs"
 
 const AddDisc = () => {
+    const { saveDisc, loadDiscs } = useContext(ContextDisc)
     //The states for all the logic in the page
     const [errors, setErrors] = useState({
         name: "",
@@ -22,10 +24,6 @@ const AddDisc = () => {
         localization: "",
         borrowed: false,
     })
-
-    const [discs, setDiscs] = useState(
-        JSON.parse(localStorage.getItem("discs")) || []
-    )
 
     const validateName = (name) => {
         if (!name)
@@ -96,7 +94,7 @@ const AddDisc = () => {
         }
     }
 
-    //The logic to save the data into the localStorage, and show
+    //The logic to save the data into the api or show a message if there is a problem
     const save = () => {
         if (!validateForm()) {
             setErrors((previous) => ({
@@ -106,8 +104,9 @@ const AddDisc = () => {
             return
         }
 
-        const updated = saveData(discs, formData)
-        setDiscs(updated)
+        const newDisc = saveData(formData)
+        saveDisc(newDisc)
+        loadDiscs()
 
         setFormData({
             name: "",

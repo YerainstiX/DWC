@@ -5,7 +5,7 @@ import "./Discs.css"
 import { ContextDisc } from "../context/ProviderDiscs"
 
 const Discs = () => {
-    const { discs } = useContext(ContextDisc)
+    const { discs, deleteDisc, loadDiscs } = useContext(ContextDisc)
 
     //const [discs, setDiscs] = useState([])
     const [filteredDiscs, setFilteredDiscs] = useState([])
@@ -32,17 +32,16 @@ const Discs = () => {
         setFilteredDiscs(filtered)
     }
 
-    /*
+    
     //Function to delete a disc
-    const deleteDisc = (id) => {
+    const deleteDiscById = async (id) => {
         if (confirm("Delete Disc?")) {
-            const updated = discs.filter((disc) => disc.id !== id)
-            setDiscs(updated)
-            setFilteredDiscs(updated)
-            localStorage.setItem("discs", JSON.stringify(updated))
+            await deleteDisc(id)
+            await loadDiscs()
         }
     }
-    */
+
+
     return (
         <div className="discs_container">
             <div className="disc_search_container">
@@ -72,7 +71,7 @@ const Discs = () => {
                             cover={disc.cover}
                             singer={disc.singer}
                             gender={disc.gender}
-                            //deleteDisc={deleteDisc} //I send the function through the props, so I can use it on Disc
+                            deleteDisc={deleteDiscById} //I send the function through the props, so I can use it on Disc
                         ></Disc>
                     ))
                 )}

@@ -13,6 +13,10 @@ const Disc = ({ id, name, cover, singer, gender, deleteDisc }) => {
                 <Link to={`/disc/${id}`}>
                     <button className="disc_details">DETAILS</button>
                 </Link>
+                //TODO: Do the edit thing :D
+                <Link to={`/disc/edit/${id}`}>
+                    <button>EDIT</button>
+                </Link>
                 <button
                     className="disc_delete"
                     onClick={() => {
