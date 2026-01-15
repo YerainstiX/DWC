@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react"
+import useAPI from "../hooks/useAPI"
 
 const ContextDisc = createContext()
 
@@ -6,68 +7,12 @@ const ProviderDiscs = ({ children }) => {
     const url = "http://localhost:3000/discs"
     const [discs, setDiscs] = useState([])
 
-    const getDiscs = async () => {
-        try {
-            const response = await fetch(url)
-            if (!response.ok) {
-                throw new Error(
-                    `Error on getDisc: ${response.status} | ${response.statusText}`
-                )
-            }
-            const data = await response.json()
-            return data
-        } catch (e) {
-            throw e
-        }
-    }
+    const { get, post, put, destroy } = useAPI()
 
-    const saveDisc = async (data) => {
-        try {
-            const response = await fetch(url, {
-                method: "POST",
-                body: JSON.stringify(data),
-            })
-            if (!response.ok) {
-                throw new Error(
-                    `Error on saveDisc: ${response.status} | ${response.statusText}`
-                )
-            }
-        } catch (error) {
-            throw error
-        }
-    }
-
-    const deleteDisc = async (id) => {
-        try {
-            const response = await fetch(`${url}/${id}`, {
-                method: "DELETE",
-            })
-            if (!response.ok) {
-                throw new Error(
-                    `Error on deleteDisc: ${response.status} | ${response.statusText}`
-                )
-            }
-        } catch (error) {
-            throw error
-        }
-    }
-
-    const editDisc = async (id, data) => {
-        try {
-            const response = await fetch(`${url}/${id}`, {
-                method: "PUT",
-                body: JSON.stringify(data),
-            })
-
-            if (!response.ok) {
-                throw new Error(
-                    `Error on editDisc: ${response.status} | ${response.statusText}`
-                )
-            }
-        } catch (error) {
-            throw error
-        }
-    }
+    const getDiscs = async () => setDiscs(await get(url))
+    const saveDisc = async (body) => await post(url, body)
+    const deleteDisc = async (id) => await destroy(`${url}/${id}`)
+    const editDisc = async (id, body) => await put(`${url}/${id}`, body)
 
     const loadDiscs = async () => {
         let data = await getDiscs()
