@@ -37,7 +37,6 @@
     margin-bottom: 5px;
 }
 
-
 .disc_gender {
     font-size: 12px;
     color: #888;
@@ -84,4 +83,82 @@
     gap: 20px;
     justify-content: flex-start;
     padding: 10px;
+}
+
+/* ===== EDIT BUTTON ===== */
+.disc_edit {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 5px 0;
+    cursor: pointer;
+    font-size: 13px;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.disc_edit:hover {
+    background-color: #2980b9;
+}
+
+.disc_confirmDelete {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+    text-align: center;
+    z-index: 10;
+}
+
+.disc_confirmDelete h1 {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.disc_confirmDelete_btn {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.disc_confirmDelete_btn button:first-child {
+    flex: 1;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.disc_confirmDelete_btn button:first-child:hover {
+    background-color: #c0392b;
+}
+
+.disc_confirmDelete_btn button:last-child {
+    flex: 1;
+    background-color: #bdc3c7;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.disc_confirmDelete_btn button:last-child:hover {
+    background-color: #95a5a6;
 }

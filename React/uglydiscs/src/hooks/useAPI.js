@@ -33,17 +33,20 @@ const useAPI = () => {
         }
     }
 
-    const get = async () => await request(url, { method: "GET" })
+    const get = async (url) => await request(url, { method: "GET" })
 
-    const post = async () => await request(url, { method: "POST", body: body })
+    const post = async (url, body) =>
+        await request(url, { method: "POST", body: body })
 
-    const put = async () => await request(url, { method: "PUT", body: body })
+    const put = async (url, body) =>
+        await request(url, { method: "PUT", body: body })
 
-    const patch = async () => await request(url, {method: "PATCH", body: body})
+    const patch = async (url, body) =>
+        await request(url, { method: "PATCH", body: body })
 
-    const destroy = async () => await request(url, {method: "DELETE"} )
+    const destroy = async (url) => await request(url, { method: "DELETE" })
 
-    return {get, post, put, patch, destroy, loading, error}
+    return { get, post, put, patch, destroy, loading, error }
 }
 
 export default useAPI

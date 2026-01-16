@@ -1,11 +1,24 @@
-import React, { useContext, useState } from "react"
-import "./AddDisc.css"
+import React, { useEffect } from "react"
 import { saveData } from "../lib/utils.js"
 import { ContextDisc } from "../context/ProviderDiscs"
+import { useParams } from "react-router-dom"
+import { useContext } from "react"
+import { useState } from "react"
 
-const AddDisc = () => {
-    const { saveDisc, getDiscs } = useContext(ContextDisc)
+import "./EditDisc.css"
+
+const EditDisc = () => {
+    const { id } = useParams()
+
+    const { editDisc, discs, getDiscs } = useContext(ContextDisc)
+
     //The states for all the logic in the page
+    const [disc, setDisc] = useState()
+
+    useEffect(() => {
+        setDisc(discs.find((disc) => disc.id === id))
+    }, [id, discs])
+
     const [errors, setErrors] = useState({
         name: "",
         singer: "",
@@ -24,6 +37,20 @@ const AddDisc = () => {
         localization: "",
         borrowed: false,
     })
+
+    useEffect(() => {
+        if (disc) {
+            setFormData({
+                name: disc.name,
+                cover: disc.cover,
+                singer: disc.singer,
+                year: disc.year,
+                gender: disc.gender,
+                localization: disc.localization,
+                borrowed: disc.borrowed,
+            })
+        }
+    }, [disc])
 
     const validateName = (name) => {
         if (!name)
@@ -95,7 +122,7 @@ const AddDisc = () => {
     }
 
     //The logic to save the data into the api or show a message if there is a problem
-    const save = () => {
+    const edit = () => {
         if (!validateForm()) {
             setErrors((previous) => ({
                 ...previous,
@@ -105,7 +132,7 @@ const AddDisc = () => {
         }
 
         const newDisc = saveData(formData)
-        saveDisc(newDisc)
+        editDisc(id, newDisc)
         getDiscs()
 
         setFormData({
@@ -119,7 +146,7 @@ const AddDisc = () => {
         })
         setErrors((previous) => ({
             ...previous,
-            status: "Disc added successfully!",
+            status: "Disc edited successfully!",
         }))
     }
 
@@ -132,9 +159,11 @@ const AddDisc = () => {
     }
 
     return (
-        <>
-            <div className="AddDisc_form_container">
-                <form className="AddDisc_form">
+        <div className="EditDisc_form_container">
+            {!disc ? (
+                <h1>Loading... </h1>
+            ) : (
+                <form className="EditDisc_form">
                     <div id="name_container">
                         <label htmlFor="name">Disc Name</label>
                         <input
@@ -142,11 +171,10 @@ const AddDisc = () => {
                             name="name"
                             value={formData.name}
                             id="name"
-                            placeholder="The new Abnormal"
                             onChange={handleChange}
                         />
                         {errors.name && (
-                            <p id="name_error" className="AddDisc_msg_error">
+                            <p id="name_error" className="EditDisc_msg_error">
                                 {errors.name}
                             </p>
                         )}
@@ -158,7 +186,6 @@ const AddDisc = () => {
                             name="cover"
                             value={formData.cover}
                             id="cover"
-                            placeholder="url"
                             onChange={handleChange}
                         />
                     </div>
@@ -169,11 +196,10 @@ const AddDisc = () => {
                             name="singer"
                             value={formData.singer}
                             id="singer_group"
-                            placeholder="The Strokes"
                             onChange={handleChange}
                         />
                         {errors.singer && (
-                            <p id="singer_error" className="AddDisc_msg_error">
+                            <p id="singer_error" className="EditDisc_msg_error">
                                 {errors.singer}
                             </p>
                         )}
@@ -185,11 +211,10 @@ const AddDisc = () => {
                             name="year"
                             value={formData.year}
                             id="year"
-                            placeholder="2020"
                             onChange={handleChange}
                         />
                         {errors.year && (
-                            <p id="year_error" className="AddDisc_msg_error">
+                            <p id="year_error" className="EditDisc_msg_error">
                                 {errors.year}
                             </p>
                         )}
@@ -209,7 +234,7 @@ const AddDisc = () => {
                             <option value="Jazz">Jazz</option>
                         </select>
                         {errors.gender && (
-                            <p id="gender_error" className="AddDisc_msg_error">
+                            <p id="gender_error" className="EditDisc_msg_error">
                                 {errors.gender}
                             </p>
                         )}
@@ -221,13 +246,12 @@ const AddDisc = () => {
                             name="localization"
                             value={formData.localization}
                             id="localization_code"
-                            placeholder="ES-001AA"
                             onChange={handleChange}
                         />
                         {errors.localization && (
                             <p
                                 id="localization_error"
-                                className="AddDisc_msg_error"
+                                className="EditDisc_msg_error"
                             >
                                 {errors.localization}
                             </p>
@@ -235,7 +259,7 @@ const AddDisc = () => {
                     </div>
                     <div id="borrowed_container">
                         <label htmlFor="borrowed">Borrowed</label>
-                        <div className="AddDisc_radio_container">
+                        <div className="EditDisc_radio_container">
                             <input
                                 type="radio"
                                 name="borrowed"
@@ -266,22 +290,22 @@ const AddDisc = () => {
                     </div>
                     <button
                         type="button"
-                        className="AddDisc_save"
+                        className="EditDisc_save"
                         onClick={() => {
-                            save()
+                            edit()
                         }}
                     >
-                        Save
+                        Confirm Edit
                     </button>
                     {errors.status && (
-                        <p id="status_error" className="AddDisc_msg_status_ok">
+                        <p id="status_error" className="EditDisc_msg_status_ok">
                             {errors.status}
                         </p>
                     )}
                 </form>
-            </div>
-        </>
+            )}
+        </div>
     )
 }
 
-export default AddDisc
+export default EditDisc

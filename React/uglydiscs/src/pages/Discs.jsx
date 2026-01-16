@@ -5,7 +5,7 @@ import "./Discs.css"
 import { ContextDisc } from "../context/ProviderDiscs"
 
 const Discs = () => {
-    const { discs, deleteDisc, loadDiscs } = useContext(ContextDisc)
+    const { discs, deleteDisc, getDiscs } = useContext(ContextDisc)
 
     //const [discs, setDiscs] = useState([])
     const [filteredDiscs, setFilteredDiscs] = useState([])
@@ -14,7 +14,7 @@ const Discs = () => {
         setFilteredDiscs(discs)
     }, [discs])
 
-    const filterDisc = (e) => {
+    const filterDiscs = (e) => {
         const text = e.target.value.toLowerCase()
 
         if (text.trim() === "") {
@@ -33,14 +33,6 @@ const Discs = () => {
     }
 
     
-    //Function to delete a disc
-    const deleteDiscById = async (id) => {
-        if (confirm("Delete Disc?")) {
-            await deleteDisc(id)
-            await loadDiscs()
-        }
-    }
-
 
     return (
         <div className="discs_container">
@@ -52,13 +44,15 @@ const Discs = () => {
                         className="discs_search"
                         placeholder="Search by name, singer/group or gender"
                         onChange={(e) => {
-                            filterDisc(e)
+                            filterDiscs(e)
                         }}
                     />
                 }
             </div>
             <div className="discs_list">
-                {discs.length === 0 ? (
+                {!discs ? (
+                    <h1>Loading...</h1>
+                ) : discs.length === 0 ? (
                     <h1 className="discs_noDiscs">No disc Registered</h1>
                 ) : filteredDiscs.length === 0 ? ( //This two conditions if the list or the filtered list is empty
                     <h1 className="discs_notFound">No Results Found</h1>
@@ -71,7 +65,6 @@ const Discs = () => {
                             cover={disc.cover}
                             singer={disc.singer}
                             gender={disc.gender}
-                            deleteDisc={deleteDiscById} //I send the function through the props, so I can use it on Disc
                         ></Disc>
                     ))
                 )}

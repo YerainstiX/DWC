@@ -10,25 +10,22 @@ const ProviderDiscs = ({ children }) => {
     const { get, post, put, destroy } = useAPI()
 
     const getDiscs = async () => setDiscs(await get(url))
+    const getDiscById = async (id) => await get(`${url}/${id}`)
     const saveDisc = async (body) => await post(url, body)
     const deleteDisc = async (id) => await destroy(`${url}/${id}`)
     const editDisc = async (id, body) => await put(`${url}/${id}`, body)
 
-    const loadDiscs = async () => {
-        let data = await getDiscs()
-        setDiscs(data)
-    }
-
     useEffect(() => {
-        loadDiscs()
+        getDiscs()
     }, [])
 
     const box = {
         discs,
-        loadDiscs,
+        getDiscs,
         saveDisc,
         deleteDisc,
         editDisc,
+        getDiscById,
     }
     return <ContextDisc value={box}>{children}</ContextDisc>
 }
