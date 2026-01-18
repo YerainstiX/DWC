@@ -5,6 +5,7 @@ import { ContextDisc } from "../context/ProviderDiscs"
 
 const AddDisc = () => {
     const { saveDisc, getDiscs } = useContext(ContextDisc)
+    
     //The states for all the logic in the page
     const [errors, setErrors] = useState({
         name: "",

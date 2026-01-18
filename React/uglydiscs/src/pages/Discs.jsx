@@ -5,9 +5,8 @@ import "./Discs.css"
 import { ContextDisc } from "../context/ProviderDiscs"
 
 const Discs = () => {
-    const { discs, deleteDisc, getDiscs } = useContext(ContextDisc)
+    const { discs } = useContext(ContextDisc)
 
-    //const [discs, setDiscs] = useState([])
     const [filteredDiscs, setFilteredDiscs] = useState([])
 
     useEffect(() => {
