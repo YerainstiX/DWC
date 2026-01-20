@@ -13,11 +13,14 @@ const Menu = ({ pageName }) => {
                     <Link className="menu_element" to="/">
                         Home
                     </Link>
-                    <Link className="menu_element" to="/add-disc">
-                        Add Disc
+                    <Link className="menu_element" to="/login">
+                        Login
                     </Link>
-                    <Link className="menu_element" to="/discs">
-                        Discs
+                    <Link className="menu_element" to="/register">
+                        Register
+                    </Link>
+                    <Link className="menu_element" to="/products">
+                        Products
                     </Link>
                 </div>
             </nav>
