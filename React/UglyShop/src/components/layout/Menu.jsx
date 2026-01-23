@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import "./Menu.css"
 import useSession from "../../hooks/useSession"
-//The menu component to navigate the application
+//The menu component to navigate the application.
 const Menu = ({ pageName }) => {
     const { singed, signOut, sessionData } = useSession()
+
+    const [showConfirm, setShowConfirm] = useState(false)
 
     return (
         <>
@@ -17,27 +19,56 @@ const Menu = ({ pageName }) => {
                         Home
                     </Link>
                     {!singed && (
-                        <Link className="menu_element" to="/login">
-                            Login
-                        </Link>
+                        <>
+                            <Link className="menu_element" to="/login">
+                                Login
+                            </Link>
+                            <Link className="menu_element" to="/register">
+                                Register
+                            </Link>
+                        </>
                     )}
-                    {!singed && (
-                        <Link className="menu_element" to="/register">
-                            Register
-                        </Link>
-                    )}
+
                     {singed && (
-                        <Link className="menu_element" to="/products">
-                            Products
-                        </Link>
+                        <>
+                            <Link className="menu_element" to="/products">
+                                Products
+                            </Link>
+                            <button
+                                className="menu_logout"
+                                onClick={() => setShowConfirm(true)}
+                            >
+                                Sing Out
+                            </button>
+                        </>
                     )}
-                    {singed && (
-                        <button onClick={() => signOut()}>Sing Out</button>
+                    {showConfirm && (
+                        <>
+                            <div className="menu_confirm_overlay"></div>
+                            <div className="menu_confirm">
+                                <h1>Sing Out?</h1>
+                                <div className="menu_confirm_btn">
+                                    <button
+                                        onClick={() => {
+                                            signOut()
+                                            setShowConfirm(false)
+                                        }}
+                                    >
+                                        Yes
+                                    </button>
+                                    <button
+                                        onClick={() => setShowConfirm(false)}
+                                    >
+                                        No
+                                    </button>
+                                </div>
+                            </div>
+                        </>
                     )}
                     {!singed ? (
-                        <button>Guest</button>
+                        <button className="menu_guest">Guest</button>
                     ) : (
-                        <button>
+                        <button className="menu_sessionStarted">
                             {sessionData.user.user_metadata.display_name}
                         </button>
                     )}

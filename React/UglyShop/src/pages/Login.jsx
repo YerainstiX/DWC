@@ -3,6 +3,7 @@ import useSession from "../hooks/useSession"
 import "./Login.css"
 
 const Login = () => {
+    //States for the logic of the page.
     const [formdata, setFormData] = useState({
         email: "",
         password: "",
@@ -15,6 +16,7 @@ const Login = () => {
 
     const { passwdLogin, infoMessage } = useSession()
 
+    //All the logic of validations.
     const validateEmail = (email) => {
         const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
         if (!email) return "The email can't be empty"
@@ -41,15 +43,14 @@ const Login = () => {
         return false
     }
 
+    //The method to login.
     const login = async () => {
-        console.log("object")
         if (!validateForm()) {
             setError((prev) => ({
                 ...prev,
                 infoMessage: "Fix the error above",
             }))
         } else {
-            console.log("aqui?")
             await passwdLogin(formdata)
             setError((prev) => ({
                 ...prev,
@@ -58,6 +59,7 @@ const Login = () => {
         }
     }
 
+    //The method for the controlled form.
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formdata, [name]: value })
@@ -70,7 +72,7 @@ const Login = () => {
                 <label htmlFor="email">Email</label>
                 <input
                     type="text"
-                    placeholder="chikito@gmail.com"
+                    placeholder="kirawalker@gmail.com"
                     name="email"
                     value={formdata.email}
                     onChange={handleChange}

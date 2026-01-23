@@ -1,9 +1,7 @@
-import React from 'react'
-
+import React from "react"
+import "./Products.css"
 const Products = () => {
-  return (
-    <div>Products</div>
-  )
+    return <div className="products_container">WORK IN PROGRESS</div>
 }
 
 export default Products

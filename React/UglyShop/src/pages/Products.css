@@ -1,0 +1,13 @@
+.products_container {
+    width: 97,5%;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #222;
+    background: #fff3cd;
+    border: 2px dashed #f0ad4e;
+    position: relative;
+    overflow: hidden;
+}

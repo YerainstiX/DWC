@@ -3,6 +3,7 @@ import useSession from "../hooks/useSession"
 import "./Register.css"
 
 const Register = () => {
+    //States for the logic of the page.
     const [formdata, setFormData] = useState({
         email: "",
         password: "",
@@ -16,6 +17,7 @@ const Register = () => {
 
     const { register, infoMessage } = useSession()
 
+    //All the logic of validations.
     const validateEmail = (email) => {
         const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
         if (!email) return "The email can't be empty"
@@ -40,6 +42,7 @@ const Register = () => {
         return false
     }
 
+    //The method to register.
     const sendRegister = async () => {
         if (!validateForm()) {
             setError((prev) => ({
@@ -55,6 +58,7 @@ const Register = () => {
         }
     }
 
+    //The method for the controlled form.
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formdata, [name]: value })

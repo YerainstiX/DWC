@@ -29,7 +29,9 @@ nav .menu {
     font-size: 1.1rem;
     font-weight: 500;
     position: relative;
-    transition: color 0.25s ease, transform 0.25s ease;
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
 }
 
 .menu_element::after {
@@ -55,6 +57,125 @@ nav .menu {
 .menu_element.active {
     color: #38bdf8;
     font-weight: 600;
+}
+
+.menu_logout {
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: #b91c1c;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.menu_logout:hover {
+    background: #7f1d1d;
+    transform: translateY(-1px);
+}
+
+.menu_guest {
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: transparent;
+    color: #1f2937;
+    border: 2px solid #9ca3af;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.menu_guest:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.menu_sessionStarted {
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: #10b981;
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.menu_sessionStarted:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.menu_confirm {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 9999;
+}
+
+.menu_confirm h1 {
+    margin: 0 0 16px 0;
+    font-size: 20px;
+    color: #111827;
+}
+
+.menu_confirm_btn {
+    display: flex;
+    gap: 10px;
+}
+
+.menu_confirm_btn button:first-child {
+    flex: 1;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.menu_confirm_btn button:first-child:hover {
+    background-color: #c0392b;
+}
+
+.menu_confirm_btn button:last-child {
+    flex: 1;
+    background-color: #bdc3c7;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.menu_confirm_btn button:last-child:hover {
+    background-color: #95a5a6;
+}
+
+.menu_confirm_overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 9998;
 }
 
 @media (max-width: 768px) {
