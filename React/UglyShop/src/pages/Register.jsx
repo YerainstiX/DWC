@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 import useSession from "../hooks/useSession"
+import "./Register.css"
 
 const Register = () => {
     const [formdata, setFormData] = useState({
         email: "",
         password: "",
+        username: "",
     })
     const [error, setError] = useState({
         email: "",
@@ -12,18 +14,17 @@ const Register = () => {
         infoMessage: "",
     })
 
-    const { register } = useSession()
+    const { register, infoMessage } = useSession()
 
     const validateEmail = (email) => {
         const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-
         if (!email) return "The email can't be empty"
         if (!re.test(email.trim())) return "Please enter a valid email"
     }
 
     const validatePasswd = (pass) => {
         if (!pass) return "The password can't be empty"
-        if (pass.length() < 6) return "The pass must have six or over six chars"
+        if (pass.length < 6) return "The pass must have six or over six chars"
     }
 
     const validateForm = () => {
@@ -39,19 +40,19 @@ const Register = () => {
         return false
     }
 
-    const sendRegister = () => {
-        if (!validateForm) {
+    const sendRegister = async () => {
+        if (!validateForm()) {
             setError((prev) => ({
                 ...prev,
                 infoMessage: "Fix the error above",
             }))
+        } else {
+            await register(formdata)
+            setError((prev) => ({
+                ...prev,
+                infoMessage: "",
+            }))
         }
-        register(formdata)
-        setError((prev) => ({
-            ...prev,
-            infoMessage:
-                "You will receive a confirmation email, this may take a few minutes",
-        }))
     }
 
     const handleChange = (e) => {
@@ -62,11 +63,22 @@ const Register = () => {
     return (
         <div className="register_container">
             <h1 className="register_title">Register</h1>
+            <div className="register_username">
+                <label htmlFor="username">Username</label>
+                <input
+                    type="text"
+                    placeholder="CarlosTV"
+                    name="username"
+                    value={formdata.username}
+                    onChange={handleChange}
+                />
+            </div>
             <div className="register_email">
                 <label htmlFor="email">Email</label>
                 <input
                     type="text"
-                    placeholder="chikito@gmail.com"
+                    placeholder="carlostv@gmail.com"
+                    name="email"
                     value={formdata.email}
                     onChange={handleChange}
                 />
@@ -75,8 +87,9 @@ const Register = () => {
             <div className="register_passwd">
                 <label htmlFor="passwd">Password</label>
                 <input
-                    type="text"
+                    type="password"
                     placeholder="*********"
+                    name="password"
                     value={formdata.password}
                     onChange={handleChange}
                 />
@@ -86,7 +99,6 @@ const Register = () => {
             </div>
             <button
                 className="register_button"
-                type="button"
                 onClick={() => {
                     sendRegister()
                 }}
@@ -96,6 +108,7 @@ const Register = () => {
             {error.infoMessage && (
                 <p className="register_error">{error.infoMessage}</p>
             )}
+            {infoMessage && <p className="register_success">{infoMessage}</p>}
         </div>
     )
 }

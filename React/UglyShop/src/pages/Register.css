@@ -1,0 +1,93 @@
+.register_container {
+    width: 100%;
+    max-width: 420px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.register_title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.register_username,
+.register_email,
+.register_passwd {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.register_username label,
+.register_email label,
+.register_passwd label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.register_username input,
+.register_email input,
+.register_passwd input {
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    font-size: 15px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.register_username input:focus,
+.register_email input:focus,
+.register_passwd input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.register_button {
+    height: 46px;
+    border: none;
+    border-radius: 14px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.register_button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.register_button:active {
+    transform: translateY(0px);
+}
+
+.register_error {
+    margin: 0;
+    font-size: 13px;
+    color: #b91c1c;
+}
+
+.register_success {
+    margin: 0;
+    font-size: 13px;
+    color: #15803d;
+}
+    

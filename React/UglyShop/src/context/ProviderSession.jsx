@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useEffect, useState } from "react"
 import { supabaseConnection } from "../supabase/supabase"
 import { useNavigate } from "react-router-dom"
 
@@ -7,7 +7,11 @@ const sessionContext = createContext()
 const ProviderSession = ({ children }) => {
     const navigate = useNavigate()
 
-    const [sessionData, setSessionData] = useState({ email: "", password: "" })
+    const [sessionData, setSessionData] = useState({
+        email: "",
+        password: "",
+        username: "",
+    })
     const [user, setUser] = useState({})
     const [infoMessage, setInfoMessage] = useState("")
     const [singed, setSinged] = useState(false)
@@ -19,7 +23,9 @@ const ProviderSession = ({ children }) => {
                 email: userData.email,
                 password: userData.password,
                 options: {
-                    data: userData.username,
+                    data: {
+                        display_name: userData.username,
+                    },
                 },
             })
 
@@ -57,12 +63,23 @@ const ProviderSession = ({ children }) => {
             setInfoMessage("")
             setSinged(false)
             setUser({})
-            setSessionData({ email: "", password: "" })
+            setSessionData({ email: "", password: "", username: "" })
             navigate("/")
         } catch (error) {
             setInfoMessage(error.message)
         }
     }
+
+    useEffect(() => {
+        supabaseConnection.auth.onAuthStateChange((e, session) => {
+            if (!session) return navigate("/register")
+
+            setSessionData(session)
+            setUser(session.user)
+            setSinged(true)
+            navigate("/")
+        })
+    }, [])
 
     const box = {
         register,
@@ -75,7 +92,9 @@ const ProviderSession = ({ children }) => {
     }
 
     return (
-        <sessionContext.Provider value={box}>children</sessionContext.Provider>
+        <sessionContext.Provider value={box}>
+            {children}
+        </sessionContext.Provider>
     )
 }
 
