@@ -1,27 +1,10 @@
 import { useContext, useEffect, useState } from "react"
-import { SupaBaseContext } from "../context/ProviderSupaBase"
+import { ProductsContext } from "../context/ProviderProducts"
 
 const useProducts = () => {
-    const TABLE = "products"
-    const [products, setProducts] = useState([])
-    const { getData, getSortedData, loading, error } =
-        useContext(SupaBaseContext)
-
-    const getProducts = async () => {
-        const products = await getData(TABLE)
-        setProducts(products)
-    }
-
-    const getSortedProductsByField = async (column, ascending = true) => {
-        const products = await getSortedData(TABLE, { column, ascending })
-        setProducts(products)
-    }
-
-    useEffect(() => {
-        getProducts()
-    }, [])
-
-    return { products, getProducts, getSortedProductsByField, loading, error }
+    const ctx = useContext(ProductsContext)
+    if (!ctx) throw new Error("Error")
+    return ctx
 }
 
 export default useProducts

@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 import useSession from "../hooks/useSession"
 import "./Login.css"
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
+    const navigate = useNavigate()
+
     //States for the logic of the page.
     const [formdata, setFormData] = useState({
         email: "",
@@ -56,6 +59,7 @@ const Login = () => {
                 ...prev,
                 infoMessage: "",
             }))
+            navigate("/")
         }
     }
 

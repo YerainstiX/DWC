@@ -69,15 +69,17 @@ const ProviderSession = ({ children }) => {
             setInfoMessage(error.message)
         }
     }
+
     //The subscription to get notified when something changes and update the states that manage the logic of the page.
     useEffect(() => {
-        supabaseConnection.auth.onAuthStateChange((e, session) => {
+        supabaseConnection.auth.onAuthStateChange((event, session) => {
             if (!session) return navigate("/")
 
-            setSessionData(session)
-            setUser(session.user)
-            setSinged(true)
-            navigate("/")
+            if (event === "SIGNED_IN") {
+                setSessionData(session)
+                setUser(session.user)
+                setSinged(true)
+            }
         })
     }, [])
 

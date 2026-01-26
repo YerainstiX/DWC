@@ -1,13 +1,52 @@
 .products_container {
-    width: 97,5%;
-    padding: 40px 20px;
-    text-align: center;
-    font-family: "Arial", sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    color: #222;
-    background: #fff3cd;
-    border: 2px dashed #f0ad4e;
-    position: relative;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 32px;
+    padding: 32px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.products_title {
+    font-size: 2.5rem; /* Grande y llamativo */
+    font-weight: 700; /* Negrita */
+    text-transform: uppercase; /* Todo en mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    color: #1f2937; /* Gris oscuro elegante */
+    text-align: center; /* Centrado */
+    margin: 40px 0 20px; /* Espaciado arriba y abajo */
+    position: relative; /* Para pseudo-elementos */
+}
+
+/* Línea decorativa debajo del título */
+.products_title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #3b82f6; /* Azul bonito */
+    margin: 12px auto 0; /* Centrado debajo del texto */
+    border-radius: 2px; /* Bordes suaves */
+    transition: width 0.3s ease;
+}
+
+/* Efecto hover opcional */
+.products_title:hover::after {
+    width: 120px; /* Se extiende al pasar el mouse */
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .Products_container {
+        gap: 20px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Products_container {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
 }
