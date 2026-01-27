@@ -4,15 +4,15 @@ import "./index.css"
 import App from "./App.jsx"
 import { BrowserRouter } from "react-router-dom"
 import ProviderSession from "./context/ProviderSession.jsx"
-import ProviderSupaBase from "./context/ProviderSupaBase.jsx"
+import ProviderProducts from "./context/ProviderProducts.jsx"
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         <BrowserRouter>
             <ProviderSession>
-                <ProviderSupaBase>
+                <ProviderProducts>
                     <App />
-                </ProviderSupaBase>
+                </ProviderProducts>
             </ProviderSession>
         </BrowserRouter>
     </StrictMode>,

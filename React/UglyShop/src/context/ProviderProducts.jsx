@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useState, useEffect } from "react"
 import useSupaBase from "../hooks/useSupaBase"
 
 const ProductsContext = createContext()

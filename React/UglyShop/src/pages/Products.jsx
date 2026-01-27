@@ -2,108 +2,65 @@ import React, { useEffect, useState } from "react"
 import "./Products.css"
 import useProducts from "../hooks/useProducts"
 import Product from "../components/Product"
+import Filters from "../components/Filters"
+import useSession from "../hooks/useSession"
 
 const Products = () => {
     const { products, getProducts, error, loading } = useProducts()
+    const { singed } = useSession()
 
     const [filteredProducts, setFilteredProducts] = useState([])
-    const [showFilters, setShowFilters] = useState(false)
 
     useEffect(() => {
         setFilteredProducts(products)
     }, [products])
 
-    const filterByName = (e) => {
-        const text = e.target.value.toLowerCase()
-
-        if (text.trim === "") return setFilteredProducts(products)
-
-        const filtered = products.filter((product) =>
-            product.name.toLowerCase().includes(text),
-        )
-
-        setFilteredProducts(filtered)
-    }
+    const averagePrice =
+        filteredProducts.reduce((sum, p) => sum + p.price, 0) /
+        (filteredProducts.length || 1)
 
     return (
         <div className="product_layout">
             {loading ? (
-                <h1>Loading...</h1>
+                <h1 className="products_loading">Loading...</h1>
             ) : !products ? (
-                <h1>Empty</h1>
+                <h1 className="products_error">Empty</h1>
             ) : (
                 <>
                     <h1 className="products_title">PRODUCTS</h1>
-                    <input
-                        type="search"
-                        placeholder="Search by name"
-                        onChange={filterByName}
-                    />
-                    <button onClick={setShowFilters(true)}>FILTERS</button>
-                    {showFilters && (
-                        <div className="products_filters">
-                            <div className="products_order_name">
-                                NAME
-                                <button
-                                    className="products_order_ascending"
-                                    onClick={() => {
-                                        filteredProducts.sort((a, b) => {
-                                            a.name - b.name
-                                        })
-                                    }}
-                                >
-                                    Ascending
-                                </button>
-                                <button
-                                    className="products_order_descending"
-                                    onClick={() => {
-                                        filteredProducts.sort((a, b) => {
-                                            b.name - a.name
-                                        })
-                                    }}
-                                >
-                                    Descending
-                                </button>
-                            </div>
-                            <div className="products_order_price">
-                                PRICE
-                                <button
-                                    className="products_order_ascending"
-                                    onClick={() => {
-                                        filteredProducts.sort((a, b) => {
-                                            a.price - b.price
-                                        })
-                                    }}
-                                >
-                                    Ascending
-                                </button>
-                                <button
-                                    className="products_order_descending"
-                                    onClick={() => {
-                                        filteredProducts.sort((a, b) => {
-                                            b.price - a.price
-                                        })
-                                    }}
-                                >
-                                    Descending
-                                </button>
-                            </div>
-                        </div>
+                    {singed ? (
+                        <Filters
+                            filteredProducts={filteredProducts}
+                            setFilteredProducts={setFilteredProducts}
+                            products={products}
+                        ></Filters>
+                    ) : (
+                        <h1 className="products_session">
+                            Log in to use the filters
+                        </h1>
                     )}
                     <div className="products_container">
-                        {filteredProducts.map((product) => (
-                            <Product
-                                key={product.id}
-                                name={product.name}
-                                price={product.price}
-                                weight={product.weight}
-                                img={product.image_url}
-                                description={product.description}
-                            ></Product>
-                        ))}
+                        {filteredProducts.length !== 0 ? (
+                            filteredProducts.map((product) => (
+                                <Product
+                                    key={product.id}
+                                    name={product.name}
+                                    price={product.price}
+                                    weight={product.weight}
+                                    img={product.image_url}
+                                    description={product.description}
+                                ></Product>
+                            ))
+                        ) : (
+                            <h1 className="products_error">EMPTY</h1>
+                        )}
                     </div>
                 </>
             )}
+            <div className="products_info">
+                Products: {filteredProducts.length} | Average price:{" "}
+                {averagePrice.toFixed(2)}€
+            </div>
         </div>
     )
 }

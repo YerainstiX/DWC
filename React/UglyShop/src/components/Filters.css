@@ -1,0 +1,123 @@
+/* CONTENEDOR PRINCIPAL */
+.products_filters {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* INPUT DE BUSQUEDA */
+.products_filters input[type="search"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.products_filters input[type="search"]:focus {
+    border-color: #6b46c1;
+    box-shadow: 0 0 0 4px rgba(107, 70, 193, 0.12);
+}
+
+/* BOTON FILTERS */
+.products_filters > button {
+    align-self: flex-start;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 12px;
+    background: #6b46c1;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* PANEL DE FILTROS */
+.filters_dropdown {
+    display: grid;
+    gap: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* GRUPOS ORDEN Y RANGO */
+.filters_sort,
+.filters_range {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+/* SELECTS E INPUTS */
+.filters_sort select,
+.filters_range select,
+.filters_range input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.filters_sort select:focus,
+.filters_range select:focus,
+.filters_range input:focus {
+    border-color: #6b46c1;
+    box-shadow: 0 0 0 4px rgba(107, 70, 193, 0.12);
+}
+
+/* BOTONES ORDEN / APPLY */
+.filters_sort button,
+.filters_range button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 12px;
+    background: #2d3748;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* RESET */
+.filters_reset {
+    width: 120px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 12px;
+    background: #e53e3e;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (min-width: 760px) {
+    .filters_dropdown {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .filters_sort,
+    .filters_range {
+        grid-template-columns: 1fr;
+    }
+
+    .filters_reset {
+        justify-self: start;
+    }
+}

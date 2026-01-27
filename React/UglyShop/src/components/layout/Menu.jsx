@@ -28,12 +28,11 @@ const Menu = ({ pageName }) => {
                             </Link>
                         </>
                     )}
-
+                    <Link className="menu_element" to="/products">
+                        Products
+                    </Link>
                     {singed && (
                         <>
-                            <Link className="menu_element" to="/products">
-                                Products
-                            </Link>
                             <button
                                 className="menu_logout"
                                 onClick={() => setShowConfirm(true)}
