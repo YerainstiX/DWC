@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "./Filters.css"
 
+//The component that manages al the logic of the filters
 const Filters = ({ filteredProducts, setFilteredProducts, products }) => {
     const [showFilters, setShowFilters] = useState(false)
     const [sortField, setSortField] = useState("")
@@ -41,6 +42,7 @@ const Filters = ({ filteredProducts, setFilteredProducts, products }) => {
         setFilteredProducts(sorted)
     }
 
+    //I decided to upgrade the range filter because it is very easy
     const applyRangeFilter = () => {
         if (!rangeField) return
 

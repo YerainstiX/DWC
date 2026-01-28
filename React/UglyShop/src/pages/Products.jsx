@@ -5,8 +5,9 @@ import Product from "../components/Product"
 import Filters from "../components/Filters"
 import useSession from "../hooks/useSession"
 
+//The page that shows all the products in the store and the filters for them
 const Products = () => {
-    const { products, getProducts, error, loading } = useProducts()
+    const { products, loading } = useProducts()
     const { singed } = useSession()
 
     const [filteredProducts, setFilteredProducts] = useState([])

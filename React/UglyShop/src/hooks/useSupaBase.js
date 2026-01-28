@@ -5,10 +5,9 @@ const useSupaBase = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
-
     //I decided to only use the getData function, because I don't want to make petitions when I want to sort something 
     //or get a certain product info, but this function take a lot of hours and I don't want to delete it, it's my masterpiece.
-    //(also I let this branch open if I want to use it on other section of the app)
+    //(also I let this branch open if I want to use it on other section of the app later)
     const fetchTable = async (
         table,
         { column, ascending, filteredColumn, filteredValue } = {},
