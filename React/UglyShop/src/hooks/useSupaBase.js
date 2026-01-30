@@ -5,7 +5,7 @@ const useSupaBase = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
-    //I decided to only use the getData function, because I don't want to make petitions when I want to sort something 
+    //I decided to only use the getData function, because I don't want to make petitions when I want to sort something
     //or get a certain product info, but this function take a lot of hours and I don't want to delete it, it's my masterpiece.
     //(also I let this branch open if I want to use it on other section of the app later)
     const fetchTable = async (
@@ -25,9 +25,58 @@ const useSupaBase = () => {
             if (!data) throw error
             return data
         } catch (error) {
-            throw error
+            setError(error.message)
         } finally {
             setLoading(false)
+        }
+    }
+
+    const insertIntoTable = async (table, input) => {
+        try {
+            const { data, error } = await supabaseConnection
+                .from(table)
+                .insert(input)
+                .select()
+                .single()
+
+            if (error) throw error
+
+            return data
+        } catch (error) {
+            setError(error.message)
+        }
+    }
+
+    const editTable = async (table, input, id) => {
+        try {
+            const { data, error } = await supabaseConnection
+                .from(table)
+                .update(input)
+                .eq("id", id)
+                .select()
+                .single()
+
+            if (error) throw error
+            return data
+        } catch (error) {
+            setError(error.message)
+        }
+    }
+
+    const destroyTable = async (table, id) => {
+        try {
+            const { data, error } = await supabaseConnection
+                .from(table)
+                .delete()
+                .eq("id", id)
+                .select()
+                .single()
+
+            if (error) throw error
+
+            return data
+        } catch (error) {
+            setError(error.message)
         }
     }
 
@@ -39,7 +88,16 @@ const useSupaBase = () => {
     const getSortedData = async (table, { column, ascending = true }) =>
         await fetchTable(table, { column, ascending })
 
-    return { getData, getSortedData, getItem, loading, error }
+    return {
+        getData,
+        getSortedData,
+        getItem,
+        insertIntoTable,
+        editTable,
+        destroyTable,
+        loading,
+        error,
+    }
 }
 
 export default useSupaBase

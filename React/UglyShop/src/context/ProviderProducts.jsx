@@ -4,7 +4,16 @@ import useSupaBase from "../hooks/useSupaBase"
 const ProductsContext = createContext()
 
 const ProviderProducts = ({ children }) => {
-    const { getData, getSortedData, loading, error } = useSupaBase()
+    const {
+        getData,
+        getSortedData,
+        insertIntoTable,
+        editTable,
+        destroyTable,
+        loading,
+        error,
+    } = useSupaBase()
+    
     const TABLE = "products"
     const [products, setProducts] = useState([])
 
@@ -18,6 +27,30 @@ const ProviderProducts = ({ children }) => {
         setProducts(products)
     }
 
+    const insertProduct = async (data) => {
+        const product = await insertIntoTable(TABLE, data)
+        setProducts([...products, product])
+    }
+
+    const editProduct = async (data, id) => {
+        const updatedProduct = await editTable(TABLE, data, id)
+
+        const newProducts = products.map((product) =>
+            product.id === updatedProduct.id ? updatedProduct : product,
+        )
+        setProducts(newProducts)
+    }
+
+    const destroyProduct = async (id) => {
+        const deletedProduct = await destroyTable(TABLE, id)
+
+        const newProducts = products.filter((product) => {
+            deletedProduct.id === product.id
+        })
+
+        setProducts(newProducts)
+    }
+
     useEffect(() => {
         getProducts()
     }, [])
@@ -26,6 +59,9 @@ const ProviderProducts = ({ children }) => {
         products,
         getProducts,
         getSortedProductsByField,
+        insertProduct,
+        editProduct,
+        destroyProduct,
         loading,
         error,
     }

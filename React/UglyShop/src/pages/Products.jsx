@@ -37,7 +37,7 @@ const Products = () => {
                         ></Filters>
                     ) : (
                         <h1 className="products_session">
-                            Log in to use the filters
+                            Log in to use the filters and add products
                         </h1>
                     )}
                     <div className="products_container">
