@@ -21,7 +21,8 @@ const Product = ({ id, name, price, weight, img, description }) => {
                 </p>
                 <p className="product_description">{description}</p>
             </div>
-            {singed && (
+            
+            {singed && ( // I've decided to only let the user edit and delete the products if is registered
                 <div className="product_options">
                     <button
                         onClick={() => {

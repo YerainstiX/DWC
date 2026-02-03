@@ -1,5 +1,4 @@
-
-.AddProduct_container {
+.EditProduct_container {
     max-width: 500px;
     margin: 40px auto;
     padding: 30px;
@@ -9,30 +8,28 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-.AddProduct_container h1 {
+.EditProduct_container h1 {
     text-align: center;
     margin-bottom: 25px;
     color: #333;
     font-size: 28px;
 }
 
-
-.AddProduct_username,
-.AddProduct_weight,
-.AddProduct_price,
-.AddProduct_img,
-.AddProduct_description {
+.EditProduct_username,
+.EditProduct_weight,
+.EditProduct_price,
+.EditProduct_img,
+.EditProduct_description {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
 
-.AddProduct_username input,
-.AddProduct_weight input,
-.AddProduct_price input,
-.AddProduct_img input,
-.AddProduct_description textarea {
+.EditProduct_username input,
+.EditProduct_weight input,
+.EditProduct_price input,
+.EditProduct_img input,
+.EditProduct_description textarea {
     padding: 12px 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -40,30 +37,28 @@
     transition: all 0.2s ease-in-out;
 }
 
-.AddProduct_username input:focus,
-.AddProduct_weight input:focus,
-.AddProduct_price input:focus,
-.AddProduct_img input:focus,
-.AddProduct_description textarea:focus {
+.EditProduct_username input:focus,
+.EditProduct_weight input:focus,
+.EditProduct_price input:focus,
+.EditProduct_img input:focus,
+.EditProduct_description textarea:focus {
     border-color: #4a90e2;
     outline: none;
     box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
 }
 
-
-.AddProduct_description textarea {
+.EditProduct_description textarea {
     min-height: 100px;
     resize: vertical;
 }
 
-.AddProduct_msg_error {
+.EditProduct_msg_error {
     color: #e74c3c;
     font-size: 14px;
     margin-top: 5px;
 }
 
-
-.AddProduct_submit_btn {
+.EditProduct_submit_btn {
     width: 100%;
     padding: 12px;
     background-color: #4a90e2;
@@ -76,7 +71,7 @@
     transition: all 0.2s ease-in-out;
 }
 
-.AddProduct_submit_btn:hover {
+.EditProduct_submit_btn:hover {
     background-color: #357abd;
 }
 
@@ -87,7 +82,7 @@
 }
 
 @media (max-width: 600px) {
-    .AddProduct_container {
+    .EditProduct_container {
         padding: 20px;
         margin: 20px;
     }

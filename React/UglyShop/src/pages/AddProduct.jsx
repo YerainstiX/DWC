@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom"
 
 import "./AddProduct.css"
 
+
+//The component that handles all the logic to add a new product
 const AddProduct = () => {
     const { insertProduct } = useProducts()
 

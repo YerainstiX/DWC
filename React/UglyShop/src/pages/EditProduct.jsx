@@ -3,9 +3,12 @@ import { useNavigate, useParams } from "react-router-dom"
 import useProducts from "../hooks/useProducts"
 import { validateForm } from "../lib/validations"
 import { saveData } from "../lib/utils"
+import "./EditProduct.css"
 
+//The component that handles al the logic to edit a product
 const EditProduct = () => {
     const navigate = useNavigate()
+    
     const { id } = useParams()
     const { products, editProduct } = useProducts()
     const [product, setProduct] = useState()
@@ -89,10 +92,10 @@ const EditProduct = () => {
     }
 
     return (
-        <div className="AddProduct_container">
-            <h1 className="AddProduct_container">Ugly Product</h1>
+        <div className="EditProduct_container">
+            <h1 className="EditProduct_container">Ugly Product</h1>
             <form onSubmit={handleSubmit}>
-                <div className="AddProduct_username">
+                <div className="EditProduct_username">
                     <input
                         type="text"
                         name="name"
@@ -101,12 +104,12 @@ const EditProduct = () => {
                         onChange={handleChange}
                     />
                     {errors.name && (
-                        <p id="name_error" className="AddProduct_msg_error">
+                        <p id="name_error" className="EditProduct_msg_error">
                             {errors.name}
                         </p>
                     )}
                 </div>
-                <div className="AddProduct_weight">
+                <div className="EditProduct_weight">
                     <input
                         type="text"
                         name="weight"
@@ -115,12 +118,12 @@ const EditProduct = () => {
                         onChange={handleChange}
                     />
                     {errors.weight && (
-                        <p id="weight_error" className="AddProduct_msg_error">
+                        <p id="weight_error" className="EditProduct_msg_error">
                             {errors.weight}
                         </p>
                     )}
                 </div>
-                <div className="AddProduct_price">
+                <div className="EditProduct_price">
                     <input
                         type="number"
                         name="price"
@@ -129,12 +132,12 @@ const EditProduct = () => {
                         onChange={handleChange}
                     />
                     {errors.price && (
-                        <p id="price_error" className="AddProduct_msg_error">
+                        <p id="price_error" className="EditProduct_msg_error">
                             {errors.price}
                         </p>
                     )}
                 </div>
-                <div className="AddProduct_img">
+                <div className="EditProduct_img">
                     <input
                         type="text"
                         name="image_url"
@@ -143,7 +146,7 @@ const EditProduct = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="AddProduct_description">
+                <div className="EditProduct_description">
                     <textarea
                         name="description"
                         placeholder="Description"
@@ -153,17 +156,17 @@ const EditProduct = () => {
                     {errors.description && (
                         <p
                             id="description_error"
-                            className="AddProduct_msg_error"
+                            className="EditProduct_msg_error"
                         >
                             {errors.description}
                         </p>
                     )}
                 </div>
-                <button className="AddProduct_submit_btn" type="submit">
+                <button className="EditProduct_submit_btn" type="submit">
                     Edit Product
                 </button>
                 {errors.status && (
-                    <p id="status_error" className="AddProduct_msg_error">
+                    <p id="status_error" className="EditProduct_msg_error">
                         {errors.status}
                     </p>
                 )}
