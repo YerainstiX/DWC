@@ -7,11 +7,13 @@ const Register = () => {
     const [formdata, setFormData] = useState({
         email: "",
         password: "",
+        confirmPassword: "",
         username: "",
     })
     const [error, setError] = useState({
         email: "",
         password: "",
+        confirmPassword: "",
         infoMessage: "",
     })
 
@@ -29,15 +31,25 @@ const Register = () => {
         if (pass.length < 6) return "The pass must have six or over six chars"
     }
 
+    const validateConfirmPassword = (pass, confirmPass) => {
+        if (!confirmPass) return "Please confirm your password"
+        if (pass !== confirmPass) return "Passwords do not match"
+    }
+
     const validateForm = () => {
         const errors = {
             email: validateEmail(formdata.email),
             password: validatePasswd(formdata.password),
+            confirmPassword: validateConfirmPassword(
+                formdata.password,
+                formdata.confirmPassword,
+            ),
         }
 
         setError(errors)
 
-        if (!errors.email && !errors.password) return true
+        if (!errors.email && !errors.password && !errors.confirmPassword)
+            return true
 
         return false
     }
@@ -71,7 +83,7 @@ const Register = () => {
                 <label htmlFor="username">Username</label>
                 <input
                     type="text"
-                    placeholder="CarlosTV"
+                    placeholder="CarlosEditTV"
                     name="username"
                     value={formdata.username}
                     onChange={handleChange}
@@ -81,7 +93,7 @@ const Register = () => {
                 <label htmlFor="email">Email</label>
                 <input
                     type="text"
-                    placeholder="carlostv@gmail.com"
+                    placeholder="carlosedittv@gmail.com"
                     name="email"
                     value={formdata.email}
                     onChange={handleChange}
@@ -99,6 +111,19 @@ const Register = () => {
                 />
                 {error.password && (
                     <p className="register_error">{error.password}</p>
+                )}
+            </div>
+            <div className="register_confirm_passwd">
+                <label htmlFor="confirmPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    placeholder="*********"
+                    name="confirmPassword"
+                    value={formdata.confirmPassword}
+                    onChange={handleChange}
+                />
+                {error.confirmPassword && (
+                    <p className="register_error">{error.confirmPassword}</p>
                 )}
             </div>
             <button

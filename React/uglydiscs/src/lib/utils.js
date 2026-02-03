@@ -1,7 +1,5 @@
 "use strict"
 
-
-
 export const saveData = (formData) => {
     const newDisc = {
         id: crypto.randomUUID(),

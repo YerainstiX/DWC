@@ -13,7 +13,7 @@ const ProviderProducts = ({ children }) => {
         loading,
         error,
     } = useSupaBase()
-    
+
     const TABLE = "products"
     const [products, setProducts] = useState([])
 
@@ -29,7 +29,7 @@ const ProviderProducts = ({ children }) => {
 
     const insertProduct = async (data) => {
         const product = await insertIntoTable(TABLE, data)
-        setProducts([...products, product])
+        if (product) setProducts([...products, product])
     }
 
     const editProduct = async (data, id) => {
@@ -44,9 +44,7 @@ const ProviderProducts = ({ children }) => {
     const destroyProduct = async (id) => {
         const deletedProduct = await destroyTable(TABLE, id)
 
-        const newProducts = products.filter((product) => {
-            deletedProduct.id === product.id
-        })
+        const newProducts = products.filter((product) => product.id !== id)
 
         setProducts(newProducts)
     }

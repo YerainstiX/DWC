@@ -1,0 +1,99 @@
+/* AddProduct.css */
+
+/* Contenedor principal */
+.AddProduct_container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f7f7f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título */
+.AddProduct_container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 28px;
+}
+
+/* Estilos para cada input y textarea */
+.AddProduct_username,
+.AddProduct_weight,
+.AddProduct_price,
+.AddProduct_img,
+.AddProduct_description {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.AddProduct_username input,
+.AddProduct_weight input,
+.AddProduct_price input,
+.AddProduct_img input,
+.AddProduct_description textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+}
+
+.AddProduct_username input:focus,
+.AddProduct_weight input:focus,
+.AddProduct_price input:focus,
+.AddProduct_img input:focus,
+.AddProduct_description textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+/* Textarea específico */
+.AddProduct_description textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Mensajes de error */
+.AddProduct_msg_error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Botón */
+.AddProduct_submit_btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.AddProduct_submit_btn:hover {
+    background-color: #357abd;
+}
+
+/* Mensaje de estado general */
+#status_error {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .AddProduct_container {
+        padding: 20px;
+        margin: 20px;
+    }
+}

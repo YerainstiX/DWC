@@ -21,7 +21,8 @@
 
 .register_username,
 .register_email,
-.register_passwd {
+.register_passwd,
+.register_confirm_passwd {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -29,7 +30,8 @@
 
 .register_username label,
 .register_email label,
-.register_passwd label {
+.register_passwd label,
+.register_confirm_passwd label {
     font-size: 14px;
     font-weight: 600;
     color: #374151;
@@ -37,7 +39,8 @@
 
 .register_username input,
 .register_email input,
-.register_passwd input {
+.register_passwd input,
+.register_confirm_passwd input {
     height: 44px;
     padding: 0 14px;
     border-radius: 12px;
@@ -51,7 +54,8 @@
 
 .register_username input:focus,
 .register_email input:focus,
-.register_passwd input:focus {
+.register_passwd input:focus,
+.register_confirm_passwd input:focus {
     border-color: #2563eb;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
@@ -90,4 +94,3 @@
     font-size: 13px;
     color: #15803d;
 }
-    

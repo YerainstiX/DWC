@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+
 import "./Products.css"
 import useProducts from "../hooks/useProducts"
 import Product from "../components/Product"
@@ -30,11 +32,16 @@ const Products = () => {
                 <>
                     <h1 className="products_title">PRODUCTS</h1>
                     {singed ? (
-                        <Filters
-                            filteredProducts={filteredProducts}
-                            setFilteredProducts={setFilteredProducts}
-                            products={products}
-                        ></Filters>
+                        <>
+                            <button className="products_btn">
+                                <Link to="/products/add">Add Product +</Link>
+                            </button>
+                            <Filters
+                                filteredProducts={filteredProducts}
+                                setFilteredProducts={setFilteredProducts}
+                                products={products}
+                            ></Filters>
+                        </>
                     ) : (
                         <h1 className="products_session">
                             Log in to use the filters and add products
@@ -45,6 +52,7 @@ const Products = () => {
                             filteredProducts.map((product) => (
                                 <Product
                                     key={product.id}
+                                    id={product.id}
                                     name={product.name}
                                     price={product.price}
                                     weight={product.weight}

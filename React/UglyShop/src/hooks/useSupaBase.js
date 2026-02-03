@@ -35,7 +35,7 @@ const useSupaBase = () => {
         try {
             const { data, error } = await supabaseConnection
                 .from(table)
-                .insert(input)
+                .insert([input])
                 .select()
                 .single()
 
