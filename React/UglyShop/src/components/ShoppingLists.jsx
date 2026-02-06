@@ -38,7 +38,7 @@ const ShoppingLists = () => {
         getUserLists((id = sessionData.user.id))
     }, [])
 
-    //TODO: Do the insertList thing and all the other stuff I have headache
+    //TODO: Do the insertList thing and all the other stuff I have headache CAMBIA LA LOGICA CHAVAL, LAS LISTAS SE GESTIONAN DE UNA PAGINA APARTE, ELIGES UNA LISTA Y TE LLEVA A UNA ESPECIE PAGINA DE PRODUCTOS EN LA QUE PUEDES EDITAR Y HACER LO QUE QUIERAS
     return (
         <>
             <div>
