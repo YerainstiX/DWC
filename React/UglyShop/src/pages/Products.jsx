@@ -11,7 +11,8 @@ import useSession from "../hooks/useSession"
 const Products = () => {
     const { products, loading } = useProducts()
     const { singed } = useSession()
-
+    
+    const [showList, setShowList] = useState(false)
     const [filteredProducts, setFilteredProducts] = useState([])
 
     useEffect(() => {

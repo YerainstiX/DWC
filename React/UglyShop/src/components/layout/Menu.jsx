@@ -7,7 +7,7 @@ const Menu = ({ pageName }) => {
     const { singed, signOut, sessionData } = useSession()
 
     const [showConfirm, setShowConfirm] = useState(false)
-
+    console.log(sessionData)
     return (
         <>
             <nav>

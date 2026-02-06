@@ -10,12 +10,12 @@ const useSupaBase = () => {
     //(also I let this branch open if I want to use it on other section of the app later)
     const fetchTable = async (
         table,
-        { column, ascending, filteredColumn, filteredValue } = {},
+        { select = "*", column, ascending, filteredColumn, filteredValue } = {},
     ) => {
         setLoading(true)
         setError(null)
         try {
-            let query = supabaseConnection.from(table).select("*")
+            let query = supabaseConnection.from(table).select(select)
 
             if (column) query = query.order(column, { ascending })
             if (filteredColumn && filteredValue !== undefined)
@@ -63,6 +63,21 @@ const useSupaBase = () => {
         }
     }
 
+    const upsertTable = async (table, input, conflict) => {
+        try {
+            const { data, error } = await supabaseConnection
+                .from(table)
+                .upsert(input, conflict)
+                .select()
+                .single()
+
+            if (error) throw error
+            return data
+        } catch (error) {
+            setError(error.message)
+        }
+    }
+
     const destroyTable = async (table, id) => {
         try {
             const { data, error } = await supabaseConnection
@@ -82,19 +97,28 @@ const useSupaBase = () => {
 
     const getData = async (table) => await fetchTable(table)
 
-    const getItem = async (table, id) =>
-        await fetchTable(table, { filteredColumn: "id", filteredValue: id })
+    const getMultiData = async (table, select, column, row) =>
+        await fetchTable(table, {
+            select: select,
+            filteredColumn: column,
+            filteredValue: row,
+        })
+
+    const getItem = async (table, column, row) =>
+        await fetchTable(table, { filteredColumn: column, filteredValue: row })
 
     const getSortedData = async (table, { column, ascending = true }) =>
         await fetchTable(table, { column, ascending })
 
     return {
         getData,
+        getMultiData,
         getSortedData,
         getItem,
         insertIntoTable,
         editTable,
         destroyTable,
+        upsertTable,
         loading,
         error,
     }
