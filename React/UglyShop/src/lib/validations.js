@@ -28,7 +28,7 @@ const validatePrice = (price) => {
     if (isNaN(p)) return "The price must be a number, you good?"
 }
 
-export const validateForm = (data) => {
+export const validateProductForm = (data) => {
     const newErrors = {
         name: validateName(data.name),
         weight: validateWeight(data.weight),
@@ -37,6 +37,17 @@ export const validateForm = (data) => {
     }
 
     if (!newErrors.name && !newErrors.weight && !newErrors.price) {
+        return { newErrors, valid: true }
+    } else {
+        return { newErrors, valid: false }
+    }
+}
+
+export const validateListForm = (data) => {
+    const newErrors = {
+        name: validateName(data.name),
+    }
+    if (!newErrors.name) {
         return { newErrors, valid: true }
     } else {
         return { newErrors, valid: false }

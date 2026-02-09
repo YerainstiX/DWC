@@ -23,6 +23,10 @@ const ShoppingLists = () => {
         ownerId: sessionData.user.id,
     })
 
+    const [errors, setErrors] = useState({
+        name: "",
+    })
+
     const [showCreate, setShowCreate] = useState(false)
 
     const handleChange = (e) => {
@@ -34,11 +38,12 @@ const ShoppingLists = () => {
         }))
     }
 
+    const handleSubmit = () => {}
+
     useEffect(() => {
-        getUserLists((id = sessionData.user.id))
+        getUserLists()
     }, [])
 
-    //TODO: Do the insertList thing and all the other stuff I have headache CAMBIA LA LOGICA CHAVAL, LAS LISTAS SE GESTIONAN DE UNA PAGINA APARTE, ELIGES UNA LISTA Y TE LLEVA A UNA ESPECIE PAGINA DE PRODUCTOS EN LA QUE PUEDES EDITAR Y HACER LO QUE QUIERAS
     return (
         <>
             <div>
@@ -56,7 +61,7 @@ const ShoppingLists = () => {
                     )}
                 </div>
                 <h1>Lists of {sessionData.user.user_metadata.display_name}</h1>
-                {currentList.map((list) => (
+                {lists.map((list) => (
                     <List
                         key={list.id}
                         id={list.id}
@@ -65,7 +70,9 @@ const ShoppingLists = () => {
                         createdAt={list.createdAt}
                     ></List>
                 ))}
-                <button onClick={setShowCreate(true)}>CREATE NEW LIST</button>
+                <button onClick={() => setShowCreate(true)}>
+                    CREATE NEW LIST
+                </button>
             </div>
         </>
     )

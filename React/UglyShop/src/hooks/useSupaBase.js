@@ -22,7 +22,7 @@ const useSupaBase = () => {
                 query = query.eq(filteredColumn, filteredValue)
 
             const { data, error } = await query
-            if (!data) throw error
+            if (error) throw error
             return data
         } catch (error) {
             setError(error.message)

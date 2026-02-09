@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import useProducts from "../hooks/useProducts"
-import { validateForm } from "../lib/validations"
+import { validateProductForm } from "../lib/validations"
 import { saveData } from "../lib/utils"
 import "./EditProduct.css"
 
 //The component that handles al the logic to edit a product
 const EditProduct = () => {
     const navigate = useNavigate()
-    
+
     const { id } = useParams()
     const { products, editProduct } = useProducts()
     const [product, setProduct] = useState()
@@ -56,7 +56,7 @@ const EditProduct = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const { newErrors, valid } = validateForm(formData)
+        const { newErrors, valid } = validateProductForm(formData)
         if (!valid) {
             setErrors(newErrors)
             setErrors((previous) => ({

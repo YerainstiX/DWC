@@ -7,7 +7,7 @@ const ProviderLists = ({ children }) => {
     const {
         insertIntoTable,
         destroyTable,
-        getItem,
+        getData,
         getMultiData,
         upsertTable,
         loading,
@@ -19,8 +19,8 @@ const ProviderLists = ({ children }) => {
     const [lists, setLists] = useState([])
     const [currentList, setCurrentList] = useState(null)
 
-    const getUserLists = async (field = "owner_id", id) => {
-        setLists(await getItem(TABLE_LIST, field, id))
+    const getUserLists = async () => {
+        setLists(await getData(TABLE_LIST))
     }
 
     const insertList = async (data) => {
@@ -55,6 +55,8 @@ const ProviderLists = ({ children }) => {
 
         setCurrentList(await getListWithProducts("id", list.shopping_list_id))
     }
+
+    
 
     const box = {
         getUserLists,

@@ -1,11 +1,10 @@
 import React, { useState } from "react"
 import useProducts from "../hooks/useProducts"
-import { validateForm } from "../lib/validations"
+import { validateProductForm } from "../lib/validations"
 import { saveData } from "../lib/utils"
 import { useNavigate } from "react-router-dom"
 
 import "./AddProduct.css"
-
 
 //The component that handles all the logic to add a new product
 const AddProduct = () => {
@@ -39,7 +38,7 @@ const AddProduct = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const { newErrors, valid } = validateForm(formData)
+        const { newErrors, valid } = validateProductForm(formData)
         if (!valid) {
             setErrors(newErrors)
             setErrors((previous) => ({

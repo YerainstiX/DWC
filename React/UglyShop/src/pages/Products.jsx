@@ -6,12 +6,13 @@ import useProducts from "../hooks/useProducts"
 import Product from "../components/Product"
 import Filters from "../components/Filters"
 import useSession from "../hooks/useSession"
+import ShoppingLists from "../components/ShoppingLists"
 
 //The page that shows all the products in the store and the filters for them
 const Products = () => {
     const { products, loading } = useProducts()
     const { singed } = useSession()
-    
+
     const [showList, setShowList] = useState(false)
     const [filteredProducts, setFilteredProducts] = useState([])
 
@@ -42,6 +43,7 @@ const Products = () => {
                                 setFilteredProducts={setFilteredProducts}
                                 products={products}
                             ></Filters>
+                            {<ShoppingLists></ShoppingLists>}
                         </>
                     ) : (
                         <h1 className="products_session">
