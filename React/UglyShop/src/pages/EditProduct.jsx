@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import useProducts from "../hooks/useProducts"
 import { validateProductForm } from "../lib/validations"
-import { saveData } from "../lib/utils"
+import { saveProduct } from "../lib/utils"
 import "./EditProduct.css"
 
 //The component that handles al the logic to edit a product
@@ -66,7 +66,7 @@ const EditProduct = () => {
             return
         }
 
-        const newProduct = saveData(formData)
+        const newProduct = saveProduct(formData)
         editProduct(newProduct, product.id)
         setErrors({
             name: "",

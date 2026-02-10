@@ -1,6 +1,6 @@
 "use strict"
 
-export const saveData = (formData) => {
+export const saveProduct = (formData) => {
     const newData = {
         name: formData.name,
         weight: Number(formData.weight),
@@ -9,4 +9,11 @@ export const saveData = (formData) => {
         description: formData.description,
     }
     return newData
+}
+
+export const saveList = (formData) => {
+    const newData = {
+        name: formData.name,
+    }
+    return me
 }

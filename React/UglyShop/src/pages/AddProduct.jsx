@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import useProducts from "../hooks/useProducts"
 import { validateProductForm } from "../lib/validations"
-import { saveData } from "../lib/utils"
+import { saveProduct } from "../lib/utils"
 import { useNavigate } from "react-router-dom"
 
 import "./AddProduct.css"
@@ -48,7 +48,7 @@ const AddProduct = () => {
             return
         }
 
-        const newProduct = saveData(formData)
+        const newProduct = saveProduct(formData)
         insertProduct(newProduct)
         setErrors({
             name: "",

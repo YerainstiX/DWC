@@ -33,7 +33,7 @@ const ProviderLists = ({ children }) => {
         setLists(lists.filter((list) => list.id !== id))
     }
 
-    const getListWithProducts = async (column = "id", listId) => {
+    const getListWithProducts = async (listId, column = "id") => {
         const list = await getMultiData(
             TABLE_LIST,
             `*,
@@ -44,8 +44,21 @@ const ProviderLists = ({ children }) => {
             column,
             listId,
         )
-
         setCurrentList(list[0])
+        return list[0]
+    }
+
+    const getAllListsWithProducts = async () => {
+        const allLists = await getMultiData(
+            TABLE_LIST,
+            `*,
+        cart (
+            quantity,
+            products (*)
+        )`,
+        )
+        setLists(allLists)
+        return allLists
     }
 
     const addProductToList = async (data) => {
@@ -53,16 +66,15 @@ const ProviderLists = ({ children }) => {
             onConflict: "shopping_list_id,product_id",
         })
 
-        setCurrentList(await getListWithProducts("id", list.shopping_list_id))
+        setCurrentList(await getListWithProducts(list.shopping_list_id, "id"))
     }
-
-    
 
     const box = {
         getUserLists,
         insertList,
         destroyList,
         getListWithProducts,
+        getAllListsWithProducts,
         addProductToList,
         lists,
         currentList,

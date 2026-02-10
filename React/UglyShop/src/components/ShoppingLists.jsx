@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react"
 import useLists from "../hooks/useLists"
 import useSession from "../hooks/useSession"
 import List from "./List"
+import { validateListForm } from "../lib/validations"
 
-const ShoppingLists = () => {
+const ShoppingLists = ({}) => {
     const { sessionData } = useSession()
 
     const {
@@ -11,6 +12,7 @@ const ShoppingLists = () => {
         insertList,
         destroyList,
         getListWithProducts,
+        getAllListsWithProducts,
         addProductToList,
         lists,
         currentList,
@@ -20,11 +22,12 @@ const ShoppingLists = () => {
 
     const [formData, setFormData] = useState({
         name: "",
-        ownerId: sessionData.user.id,
+        owner_id: sessionData.user.id,
     })
 
     const [errors, setErrors] = useState({
         name: "",
+        status: "",
     })
 
     const [showCreate, setShowCreate] = useState(false)
@@ -38,10 +41,30 @@ const ShoppingLists = () => {
         }))
     }
 
-    const handleSubmit = () => {}
+    const handleSubmit = () => {
+        const { newErrors, valid } = validateListForm(formData)
+
+        if (!valid) {
+            setErrors(newErrors)
+            setErrors((prev) => ({
+                ...prev,
+                status: "Cannot add the list fix the errors above",
+            }))
+            return
+        }
+
+        const newList = formData
+        insertList(formData)
+        setErrors({ name: "", status: "" })
+        setFormData({ name: "", owner_id: sessionData.user.id })
+        setErrors((prev) => ({ ...prev, status: "List added successfully" }))
+        setTimeout(() => {
+            setShowCreate(false)
+        }, 1500)
+    }
 
     useEffect(() => {
-        getUserLists()
+        getAllListsWithProducts()
     }, [])
 
     return (
@@ -56,7 +79,7 @@ const ShoppingLists = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                             />
-                            <button>CREATE</button>
+                            <button onClick={handleSubmit}>CREATE</button>
                         </>
                     )}
                 </div>
@@ -67,7 +90,8 @@ const ShoppingLists = () => {
                         id={list.id}
                         name={list.name}
                         ownerId={list.ownerId}
-                        createdAt={list.createdAt}
+                        created_at={list.created_at}
+                        cart={list.cart}
                     ></List>
                 ))}
                 <button onClick={() => setShowCreate(true)}>

@@ -43,7 +43,7 @@ const Products = () => {
                                 setFilteredProducts={setFilteredProducts}
                                 products={products}
                             ></Filters>
-                            {<ShoppingLists></ShoppingLists>}
+                            <ShoppingLists></ShoppingLists>
                         </>
                     ) : (
                         <h1 className="products_session">
