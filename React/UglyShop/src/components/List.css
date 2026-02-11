@@ -1,0 +1,182 @@
+/* Contenedor general de la lista */
+.list_info {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.list_info:hover {
+    transform: translateY(-2px);
+}
+
+/* Nombre y fecha de la lista */
+.list_name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1c1c1c;
+    margin-bottom: 5px;
+}
+
+.list_date {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Resumen de productos */
+.list_summary {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Botones principales de la lista */
+.list_deleteList,
+.list_openList,
+.list_closeList {
+    padding: 8px 14px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.list_deleteList {
+    background: #ff4d4f;
+    color: white;
+}
+
+.list_deleteList:hover {
+    background: #e04344;
+}
+
+.list_openList,
+.list_closeList {
+    background: #007bff;
+    color: white;
+}
+
+.list_openList:hover,
+.list_closeList:hover {
+    background: #0056b3;
+}
+
+/* Contenedor de productos dentro de la lista */
+.list_productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Tarjeta de cada producto */
+.list_productList > div {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s;
+}
+
+.list_productList > div:hover {
+    transform: translateY(-3px);
+}
+
+/* Imagen del producto */
+.list_productList_img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    border-radius: 10px;
+}
+
+/* Nombre y cantidad del producto */
+.list_productList p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Botones + y - de los productos */
+.list_productList_add,
+.list_productList_remove {
+    padding: 4px 10px;
+    margin: 3px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.list_productList_add {
+    background: #28a745;
+    color: white;
+}
+
+.list_productList_add:hover {
+    background: #218838;
+}
+
+.list_productList_remove {
+    background: #ffc107;
+    color: #1c1c1c;
+}
+
+.list_productList_remove:hover {
+    background: #e0a800;
+}
+
+/* Popup de confirmación */
+.list_confirmDelete {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    text-align: center;
+}
+
+.list_confirmDelete h1 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.list_confirmDelete_btn button {
+    padding: 8px 14px;
+    margin: 0 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.list_confirmDelete_btn button:first-child {
+    background: #ff4d4f;
+    color: white;
+}
+
+.list_confirmDelete_btn button:first-child:hover {
+    background: #e04344;
+}
+
+.list_confirmDelete_btn button:last-child {
+    background: #6c757d;
+    color: white;
+}
+
+.list_confirmDelete_btn button:last-child:hover {
+    background: #5a6268;
+}

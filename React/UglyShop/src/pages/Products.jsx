@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-
+import { changeFormat } from "../lib/utils"
 import "./Products.css"
 import useProducts from "../hooks/useProducts"
 import Product from "../components/Product"
@@ -15,6 +15,8 @@ const Products = () => {
 
     const [showList, setShowList] = useState(false)
     const [filteredProducts, setFilteredProducts] = useState([])
+    //This state is to add products to the list directly from the products page
+    const [editingList, setEditingList] = useState(false)
 
     useEffect(() => {
         setFilteredProducts(products)
@@ -43,7 +45,10 @@ const Products = () => {
                                 setFilteredProducts={setFilteredProducts}
                                 products={products}
                             ></Filters>
-                            <ShoppingLists></ShoppingLists>
+                            <ShoppingLists
+                                setEditingList={setEditingList}
+                                editingList={editingList}
+                            ></ShoppingLists>
                         </>
                     ) : (
                         <h1 className="products_session">
@@ -61,6 +66,7 @@ const Products = () => {
                                     weight={product.weight}
                                     img={product.image_url}
                                     description={product.description}
+                                    editingList={editingList}
                                 ></Product>
                             ))
                         ) : (
@@ -71,7 +77,7 @@ const Products = () => {
             )}
             <div className="products_info">
                 Products: {filteredProducts.length} | Average price:{" "}
-                {averagePrice.toFixed(2)}€
+                {changeFormat(averagePrice)}€
             </div>
         </div>
     )

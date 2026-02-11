@@ -78,6 +78,7 @@ const ProviderLists = ({ children }) => {
         addProductToList,
         lists,
         currentList,
+        setCurrentList,
         loading,
         error,
     }

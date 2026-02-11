@@ -3,12 +3,28 @@ import { Link } from "react-router-dom"
 import "./Product.css"
 import useProducts from "../hooks/useProducts"
 import useSession from "../hooks/useSession"
+import useLists from "../hooks/useLists"
+import { changeFormat } from "../lib/utils"
 
 //The individual component to show a product
-const Product = ({ id, name, price, weight, img, description }) => {
+const Product = ({
+    id,
+    name,
+    price,
+    weight,
+    img,
+    description,
+    editingList,
+}) => {
     const { destroyProduct } = useProducts()
     const { singed } = useSession()
+    const { currentList, addProductToList, getAllListsWithProducts } =
+        useLists()
     const [showConfirm, setShowConfirm] = useState(false)
+
+    console.log(currentList)
+
+    const existing = currentList?.cart?.find((item) => item.products.id === id)
 
     return (
         <div className="productContainer">
@@ -16,12 +32,28 @@ const Product = ({ id, name, price, weight, img, description }) => {
             <h1 className="product_name">{name}</h1>
             <div className="product_info">
                 <p className="product_characteristics">
-                    Price: {price.toString().replace(".", ",")}€ | Weight:{" "}
-                    {weight.toString().replace(".", ",")}Kg
+                    Price: {changeFormat(price)}€ | Weight:{" "}
+                    {changeFormat(weight)}Kg
                 </p>
                 <p className="product_description">{description}</p>
+                {editingList && (
+                    <button
+                        onClick={() => {
+                            if (!existing) {
+                                addProductToList({
+                                    shopping_list_id: currentList.id,
+                                    product_id: id,
+                                    quantity: 1,
+                                })
+                                getAllListsWithProducts()
+                            }
+                        }}
+                    >
+                        +
+                    </button>
+                )}
             </div>
-            
+
             {singed && ( // I've decided to only let the user edit and delete the products if is registered
                 <div className="product_options">
                     <button

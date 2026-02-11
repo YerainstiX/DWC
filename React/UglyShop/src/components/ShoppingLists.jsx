@@ -4,14 +4,12 @@ import useSession from "../hooks/useSession"
 import List from "./List"
 import { validateListForm } from "../lib/validations"
 
-const ShoppingLists = ({}) => {
+const ShoppingLists = ({ setEditingList }) => {
     const { sessionData } = useSession()
 
     const {
         getUserLists,
         insertList,
-        destroyList,
-        getListWithProducts,
         getAllListsWithProducts,
         addProductToList,
         lists,
@@ -19,6 +17,8 @@ const ShoppingLists = ({}) => {
         loading,
         error,
     } = useLists()
+
+    const [showList, setShowList] = useState(false)
 
     const [formData, setFormData] = useState({
         name: "",
@@ -92,6 +92,9 @@ const ShoppingLists = ({}) => {
                         ownerId={list.ownerId}
                         created_at={list.created_at}
                         cart={list.cart}
+                        setEditingList={setEditingList}
+                        showList={showList}
+                        setShowList={setShowList}
                     ></List>
                 ))}
                 <button onClick={() => setShowCreate(true)}>

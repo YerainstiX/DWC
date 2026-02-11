@@ -11,9 +11,6 @@ export const saveProduct = (formData) => {
     return newData
 }
 
-export const saveList = (formData) => {
-    const newData = {
-        name: formData.name,
-    }
-    return me
+export const changeFormat = (input) => {
+    return input?.toFixed(2).toString().replace(".", ",")
 }
