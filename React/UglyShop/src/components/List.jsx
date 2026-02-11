@@ -11,8 +11,6 @@ const List = ({
     cart,
     setEditingList,
     editingList,
-    showList,
-    setShowList,
 }) => {
     const {
         getListWithProducts,
@@ -21,11 +19,13 @@ const List = ({
         setCurrentList,
         destroyList,
         addProductToList,
+        destroyProductFromList,
     } = useLists()
 
     const [confirmDelete, setConfirmDelete] = useState(false)
 
-    const activeCart = showList ? currentList?.cart : cart
+    const isOpen = currentList?.id === id
+    const activeCart = isOpen ? currentList?.cart : cart
 
     const summary = activeCart?.reduce(
         (accumulator, item) => {
@@ -42,18 +42,15 @@ const List = ({
     )
 
     const handleViewList = async () => {
-        // Si hay otra lista abierta, ciérrala
-        if (currentList !== null && editingList) {
+        if (currentList?.id === id) {
             setCurrentList(null)
-            setShowList(false)
             setEditingList(false)
+            return
         }
 
         const list = await getListWithProducts(id)
         setCurrentList(list)
-        setShowList(true)
         setEditingList(true)
-        cart = currentList
     }
 
     return (
@@ -69,48 +66,40 @@ const List = ({
                     </div>
                 </div>
             )}
+
             <div className="list_info">
                 <h1 className="list_name">{name}</h1>
-                <p className="list_date">Data: {created_at}</p>
-                {showList ? (
-                    <p className="list_summary">
-                        Products: {summary?.totalQuantity} | Price:{" "}
-                        {changeFormat(summary?.totalPrice)}€ | Weight:{" "}
-                        {changeFormat(summary?.totalWeight)}Kg
-                    </p>
-                ) : (
-                    <p className="list_summary">
-                        Products: {summary?.totalQuantity} | Price:{" "}
-                        {changeFormat(summary?.totalPrice)}€ | Weight:{" "}
-                        {changeFormat(summary?.totalWeight)}Kg
-                    </p>
-                )}
+                <p>
+                    CREATED: {new Date(created_at).toLocaleDateString("es-ES")}
+                </p>
+                <p className="list_summary">
+                    Products: {summary?.totalQuantity || 0} | Price:{" "}
+                    {changeFormat(summary?.totalPrice || 0)}€ | Weight:{" "}
+                    {changeFormat(summary?.totalWeight || 0)}Kg
+                </p>
                 <button
                     className="list_deleteList"
                     onClick={() => setConfirmDelete(true)}
                 >
                     DELETE
                 </button>
-                {!showList || currentList?.id === id ? (
-                    <button
-                        className="list_openList"
-                        onClick={() => handleViewList()}
-                    >
-                        VIEW LIST
-                    </button>
-                ) : (
+                {isOpen ? (
                     <button
                         className="list_closeList"
                         onClick={() => {
-                            setShowList(false)
                             setCurrentList(null)
                             setEditingList(false)
                         }}
                     >
                         CLOSE LIST
                     </button>
+                ) : (
+                    <button className="list_openList" onClick={handleViewList}>
+                        EDIT LIST
+                    </button>
                 )}
-                {currentList?.id === id && showList && (
+
+                {currentList?.id === id && (
                     <>
                         <div className="list_productList">
                             {currentList?.cart?.map((item) => (
@@ -139,13 +128,20 @@ const List = ({
                                     <button
                                         className="list_productList_remove"
                                         onClick={() => {
-                                            addProductToList({
-                                                shopping_list_id:
+                                            if (item.quantity !== 1) {
+                                                addProductToList({
+                                                    shopping_list_id:
+                                                        currentList.id,
+                                                    product_id:
+                                                        item.products.id,
+                                                    quantity: item.quantity - 1,
+                                                })
+                                            } else {
+                                                destroyProductFromList(
                                                     currentList.id,
-                                                product_id: item.products.id,
-                                                quantity: item.quantity - 1,
-                                            })
-                                            getAllListsWithProducts()
+                                                    item.products.id,
+                                                )
+                                            }
                                         }}
                                     >
                                         -

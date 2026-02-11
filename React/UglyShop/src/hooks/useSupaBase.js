@@ -78,14 +78,15 @@ const useSupaBase = () => {
         }
     }
 
-    const destroyTable = async (table, id) => {
+    const destroyTable = async (table, filters = {}) => {
         try {
-            const { data, error } = await supabaseConnection
-                .from(table)
-                .delete()
-                .eq("id", id)
-                .select()
-                .single()
+            let query = supabaseConnection.from(table).delete()
+
+            Object.entries(filters).forEach(([column, value]) => { //I need this to be an array to use the forEach
+                query = query.eq(column, value)
+            })
+
+            const { data, error } = await query.select()
 
             if (error) throw error
 

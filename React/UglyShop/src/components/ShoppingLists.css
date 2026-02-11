@@ -1,0 +1,86 @@
+/* CONTENEDOR PRINCIPAL */
+.ShoppingList_container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
+}
+
+/* POPUP CREAR LISTA */
+.ShoppingList_popups {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.ShoppingList_popups input {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.ShoppingList_popups input:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.ShoppingList_popups button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.ShoppingList_popups button:hover {
+    background-color: #43a047;
+}
+
+/* SECCIÓN LISTAS */
+.ShoppingList_lists {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* TITULO USUARIO */
+.ShoppingList_username {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* BOTÓN CREAR NUEVA LISTA */
+.ShoppingList_newList {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 2px dashed #4caf50;
+    background: transparent;
+    color: #4caf50;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.ShoppingList_newList:hover {
+    background-color: #4caf50;
+    color: white;
+    border-style: solid;
+}
+

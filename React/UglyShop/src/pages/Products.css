@@ -97,3 +97,34 @@
     transform: translateY(-2px);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
+
+.products_main {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 32px;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0 32px;
+    align-items: start;
+}
+
+.products_lists {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Ajuste del grid de productos */
+.products_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 32px;
+    padding: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}

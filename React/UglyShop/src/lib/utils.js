@@ -14,3 +14,11 @@ export const saveProduct = (formData) => {
 export const changeFormat = (input) => {
     return input?.toFixed(2).toString().replace(".", ",")
 }
+
+const formatPrettyDate = (date) => {
+    return new Intl.DateTimeFormat("es-ES", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+    }).format(new Date(date))
+}

@@ -42,7 +42,7 @@ const ProviderProducts = ({ children }) => {
     }
 
     const destroyProduct = async (id) => {
-        const deletedProduct = await destroyTable(TABLE, id)
+        const deletedProduct = await destroyTable(TABLE, { id: id })
 
         const newProducts = products.filter((product) => product.id !== id)
 

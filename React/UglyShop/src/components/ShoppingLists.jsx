@@ -3,6 +3,7 @@ import useLists from "../hooks/useLists"
 import useSession from "../hooks/useSession"
 import List from "./List"
 import { validateListForm } from "../lib/validations"
+import "./ShoppingLists.css"
 
 const ShoppingLists = ({ setEditingList }) => {
     const { sessionData } = useSession()
@@ -17,8 +18,6 @@ const ShoppingLists = ({ setEditingList }) => {
         loading,
         error,
     } = useLists()
-
-    const [showList, setShowList] = useState(false)
 
     const [formData, setFormData] = useState({
         name: "",
@@ -69,7 +68,7 @@ const ShoppingLists = ({ setEditingList }) => {
 
     return (
         <>
-            <div>
+            <div className="ShoppingList_container">
                 <div className="ShoppingList_popups">
                     {showCreate && (
                         <>
@@ -83,23 +82,28 @@ const ShoppingLists = ({ setEditingList }) => {
                         </>
                     )}
                 </div>
-                <h1>Lists of {sessionData.user.user_metadata.display_name}</h1>
-                {lists.map((list) => (
-                    <List
-                        key={list.id}
-                        id={list.id}
-                        name={list.name}
-                        ownerId={list.ownerId}
-                        created_at={list.created_at}
-                        cart={list.cart}
-                        setEditingList={setEditingList}
-                        showList={showList}
-                        setShowList={setShowList}
-                    ></List>
-                ))}
-                <button onClick={() => setShowCreate(true)}>
-                    CREATE NEW LIST
-                </button>
+                <div className="ShoppingList_lists">
+                    <h1 className="ShoppingList_username">
+                        Lists of {sessionData.user.user_metadata.display_name}
+                    </h1>
+                    {lists.map((list) => (
+                        <List
+                            key={list.id}
+                            id={list.id}
+                            name={list.name}
+                            ownerId={list.ownerId}
+                            created_at={list.created_at}
+                            cart={list.cart}
+                            setEditingList={setEditingList}
+                        ></List>
+                    ))}
+                    <button
+                        className="ShoppingList_newList"
+                        onClick={() => setShowCreate(true)}
+                    >
+                        CREATE NEW LIST +
+                    </button>
+                </div>
             </div>
         </>
     )

@@ -29,7 +29,7 @@ const ProviderLists = ({ children }) => {
     }
 
     const destroyList = async (id) => {
-        const deletedList = await destroyTable(TABLE_LIST, id)
+        const deletedList = await destroyTable(TABLE_LIST, { id: id })
         setLists(lists.filter((list) => list.id !== id))
     }
 
@@ -69,6 +69,16 @@ const ProviderLists = ({ children }) => {
         setCurrentList(await getListWithProducts(list.shopping_list_id, "id"))
     }
 
+    const destroyProductFromList = async (shoppingListId, productId) => {
+        await destroyTable(TABLE_CART, {
+            shopping_list_id: shoppingListId,
+            product_id: productId,
+        })
+
+        await getListWithProducts(shoppingListId)
+        await getAllListsWithProducts()
+    }
+
     const box = {
         getUserLists,
         insertList,
@@ -76,6 +86,7 @@ const ProviderLists = ({ children }) => {
         getListWithProducts,
         getAllListsWithProducts,
         addProductToList,
+        destroyProductFromList,
         lists,
         currentList,
         setCurrentList,

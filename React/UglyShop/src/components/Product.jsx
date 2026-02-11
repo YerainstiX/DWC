@@ -22,8 +22,6 @@ const Product = ({
         useLists()
     const [showConfirm, setShowConfirm] = useState(false)
 
-    console.log(currentList)
-
     const existing = currentList?.cart?.find((item) => item.products.id === id)
 
     return (

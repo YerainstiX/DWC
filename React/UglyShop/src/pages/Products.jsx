@@ -45,32 +45,38 @@ const Products = () => {
                                 setFilteredProducts={setFilteredProducts}
                                 products={products}
                             ></Filters>
-                            <ShoppingLists
-                                setEditingList={setEditingList}
-                                editingList={editingList}
-                            ></ShoppingLists>
                         </>
                     ) : (
                         <h1 className="products_session">
                             Log in to use the filters and add products
                         </h1>
                     )}
-                    <div className="products_container">
-                        {filteredProducts.length !== 0 ? (
-                            filteredProducts.map((product) => (
-                                <Product
-                                    key={product.id}
-                                    id={product.id}
-                                    name={product.name}
-                                    price={product.price}
-                                    weight={product.weight}
-                                    img={product.image_url}
-                                    description={product.description}
+                    <div className="products_main">
+                        <div className="products_container">
+                            {filteredProducts.length !== 0 ? (
+                                filteredProducts.map((product) => (
+                                    <Product
+                                        key={product.id}
+                                        id={product.id}
+                                        name={product.name}
+                                        price={product.price}
+                                        weight={product.weight}
+                                        img={product.image_url}
+                                        description={product.description}
+                                        editingList={editingList}
+                                    ></Product>
+                                ))
+                            ) : (
+                                <h1 className="products_error">EMPTY</h1>
+                            )}
+                        </div>
+                        {singed && (
+                            <div className="products_lists">
+                                <ShoppingLists
+                                    setEditingList={setEditingList}
                                     editingList={editingList}
-                                ></Product>
-                            ))
-                        ) : (
-                            <h1 className="products_error">EMPTY</h1>
+                                ></ShoppingLists>
+                            </div>
                         )}
                     </div>
                 </>
