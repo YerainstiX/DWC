@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mapa de imagen CSS</title>
+        <link rel="stylesheet" href="mapa.css" />
+        <style>
+            #imap {
+                position: relative;
+                width: 600px;
+                height: 400px;
+                background: url("chabola.jpg") no-repeat;
+                background-size: cover;
+                margin: 20px auto;
+            }
+
+            #imap dd {
+                position: absolute;
+                margin: 0;
+                padding: 0;
+            }
+
+            #imap a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+            }
+
+            #imap a span {
+                display: none;
+            }
+
+            #imap a:hover span {
+                display: block;
+                position: absolute;
+                background: white;
+                color: black;
+                border: 1px solid black;
+                padding: 6px;
+                width: 220px;
+                font-size: 13px;
+                top: 100%;
+                left: 0;
+                z-index: 10;
+            }
+
+            #door {
+                left: 190px;
+                top: 170px;
+                width: 90px;
+                height: 190px;
+            }
+
+            #roof {
+                left: 100px;
+                top: 30px;
+                width: 320px;
+                height: 120px;
+            }
+
+            #wheelbarrow {
+                left: 20px;
+                top: 250px;
+                width: 100px;
+                height: 120px;
+            }
+
+            #imap dd:hover {
+                outline: 2px solid rgba(255, 0, 0, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+        <h2>CHABOLA MUY GUAPA</h2>
+
+        <dl id="imap">
+            <dd id="door">
+                <a href="#door">
+                    <span
+                        >Puerta de la cabaña<br /><br />
+                        Sistema antirrobos de ultima generacion</span
+                    >
+                </a>
+            </dd>
+
+            <dd id="roof">
+                <a href="#roof">
+                    <span
+                        >Tejado<br /><br />
+                        Transpirable para no pasar calor en verano</span
+                    >
+                </a>
+            </dd>
+            <dd id="wheelbarrow">
+                <a href="#wheelbarrow">
+                    <span
+                        >Carretilla<br /><br />
+                        Se la dejo el albañil</span
+                    >
+                </a>
+            </dd>
+        </dl>
+    </body>
+</html>

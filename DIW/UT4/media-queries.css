@@ -1,0 +1,61 @@
+@media screen and (max-width: 1024px) {
+    #pagewrap {
+        width: 95%;
+    }
+
+    #content {
+        width: 60%;
+    }
+
+    #sidebar {
+        width: 30%;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #header {
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    nav {
+        position: static;
+        height: auto;
+        margin-top: 20px;
+        overflow: hidden;
+    }
+
+    ul#main-nav {
+        width: 100%;
+    }
+
+    #searchform {
+        position: static;
+        margin: 10px 0;
+        text-align: right;
+    }
+    #searchform input {
+        width: 100%;
+    }
+
+    #content {
+        width: auto;
+        float: none;
+        margin-bottom: 20px;
+    }
+
+    #sidebar {
+        width: auto;
+        float: none;
+    }
+
+    body {
+        background-position: center top;
+        background-size: cover;
+    }
+}
