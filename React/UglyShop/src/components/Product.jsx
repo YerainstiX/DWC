@@ -36,6 +36,7 @@ const Product = ({
                 <p className="product_description">{description}</p>
                 {editingList && (
                     <button
+                        className="product_add_btn"
                         onClick={() => {
                             if (!existing) {
                                 addProductToList({

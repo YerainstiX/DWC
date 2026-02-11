@@ -78,6 +78,7 @@ const AddProduct = () => {
             <h1 className="AddProduct_container">New Product</h1>
             <form onSubmit={handleSubmit}>
                 <div className="AddProduct_username">
+                    <label htmlFor="name">Name</label>
                     <input
                         type="text"
                         name="name"
@@ -92,6 +93,7 @@ const AddProduct = () => {
                     )}
                 </div>
                 <div className="AddProduct_weight">
+                    <label htmlFor="weight">Weight</label>
                     <input
                         type="text"
                         name="weight"
@@ -106,6 +108,7 @@ const AddProduct = () => {
                     )}
                 </div>
                 <div className="AddProduct_price">
+                    <label htmlFor="price">Price</label>
                     <input
                         type="number"
                         name="price"
@@ -119,6 +122,7 @@ const AddProduct = () => {
                         </p>
                     )}
                 </div>
+                <label htmlFor="image_url">Image</label>
                 <div className="AddProduct_img">
                     <input
                         type="text"
@@ -129,6 +133,7 @@ const AddProduct = () => {
                     />
                 </div>
                 <div className="AddProduct_description">
+                    <label htmlFor="description">Description</label>
                     <textarea
                         name="description"
                         placeholder="Description"

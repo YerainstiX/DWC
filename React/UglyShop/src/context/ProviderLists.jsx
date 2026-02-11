@@ -67,6 +67,7 @@ const ProviderLists = ({ children }) => {
         })
 
         setCurrentList(await getListWithProducts(list.shopping_list_id, "id"))
+        await getAllListsWithProducts()
     }
 
     const destroyProductFromList = async (shoppingListId, productId) => {

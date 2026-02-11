@@ -93,7 +93,6 @@ const ShoppingLists = ({ setEditingList }) => {
                             name={list.name}
                             ownerId={list.ownerId}
                             created_at={list.created_at}
-                            cart={list.cart}
                             setEditingList={setEditingList}
                         ></List>
                     ))}

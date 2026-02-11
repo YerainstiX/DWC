@@ -36,7 +36,7 @@ const Products = () => {
                 <>
                     <h1 className="products_title">PRODUCTS</h1>
                     {singed ? (
-                        <>
+                        <div className="products_actions">
                             <button className="products_btn">
                                 <Link to="/products/add">Add Product +</Link>
                             </button>
@@ -45,13 +45,29 @@ const Products = () => {
                                 setFilteredProducts={setFilteredProducts}
                                 products={products}
                             ></Filters>
-                        </>
+                            <img
+                                className="products_btn_img"
+                                src="https://cdn-icons-png.freepik.com/512/107/107831.png"
+                                alt="img"
+                                onClick={() =>
+                                    showList
+                                        ? setShowList(false)
+                                        : setShowList(true)
+                                }
+                            />{" "}
+                            LISTS
+                        </div>
                     ) : (
                         <h1 className="products_session">
                             Log in to use the filters and add products
                         </h1>
                     )}
-                    <div className="products_main">
+                    <div
+                        className="products_main"
+                        style={{
+                            gridTemplateColumns: showList ? "3fr 2fr" : "1fr",
+                        }}
+                    >
                         <div className="products_container">
                             {filteredProducts.length !== 0 ? (
                                 filteredProducts.map((product) => (
@@ -70,7 +86,7 @@ const Products = () => {
                                 <h1 className="products_error">EMPTY</h1>
                             )}
                         </div>
-                        {singed && (
+                        {singed && showList && (
                             <div className="products_lists">
                                 <ShoppingLists
                                     setEditingList={setEditingList}

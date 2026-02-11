@@ -1,13 +1,13 @@
-.products_container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 32px;
-    padding: 32px;
+/* Layout principal */
+.product_layout {
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+    min-height: 100vh;
+    background: #f9fafb;
+    padding: 32px;
+    box-sizing: border-box;
 }
 
+/* Título principal */
 .products_title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -15,7 +15,7 @@
     letter-spacing: 2px;
     color: #1f2937;
     text-align: center;
-    margin: 40px 0 20px;
+    margin-bottom: 32px;
     position: relative;
 }
 
@@ -34,13 +34,53 @@
     width: 120px;
 }
 
-.product_layout {
-    width: 100%;
-    min-height: 100vh;
-    background: #f9fafb;
-    padding-bottom: 40px;
+/* Botones */
+.products_btn {
+    display: inline-block;
+    margin: 12px 12px 32px 0;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(90deg, #3b82f6, #0ea5e9);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
 }
 
+.products_btn:hover {
+    background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* Contenedor de productos y sidebar */
+.products_main {
+    display: grid;
+
+    gap: 32px;
+    margin-top: 16px;
+}
+
+/* Contenedor de productos */
+.products_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* Sidebar de listas */
+.products_lists {
+    width: 100%;
+    min-width: 300px; /* tamaño mínimo */
+}
+
+/* Mensajes de estado */
 .products_loading,
 .products_error,
 .products_session {
@@ -57,10 +97,11 @@
     border: 1px solid #e5e7eb;
 }
 
+/* Info de productos */
 .products_info {
     width: 100%;
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 32px auto 0;
     padding: 16px 32px;
     border-radius: 16px;
     background: linear-gradient(135deg, #0ea5e9, #7c3aed);
@@ -74,57 +115,39 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.products_btn {
-    display: block;
-    margin: 16px 32px 32px auto;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #fff;
-    background: linear-gradient(90deg, #3b82f6, #0ea5e9);
-    border: none;
-    border-radius: 12px;
+.products_actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* filtros y add a la izquierda */
+    gap: 16px;
+    margin: 16px 32px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.products_btn_img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    margin-left: auto; /* empuja el carrito a la derecha */
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
 
-.products_btn:hover {
-    background: linear-gradient(90deg, #0ea5e9, #3b82f6);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+.products_btn_img:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
 }
 
-.products_main {
-    display: grid;
-    grid-template-columns: 1fr 400px;
-    gap: 32px;
-    max-width: 1700px;
-    margin: 0 auto;
-    padding: 0 32px;
-    align-items: start;
-}
+/* Ajustes responsive */
+@media (max-width: 1200px) {
+    .products_main {
+        grid-template-columns: 1fr; /* sidebar debajo de productos */
+    }
 
-.products_lists {
-    position: sticky;
-    top: 20px;
-    height: fit-content;
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-/* Ajuste del grid de productos */
-.products_container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 32px;
-    padding: 0;
-    width: 100%;
-    max-width: none;
-    margin: 0;
+    .products_lists {
+        margin-top: 24px;
+    }
 }

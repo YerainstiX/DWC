@@ -8,7 +8,6 @@ const List = ({
     name,
     ownerId,
     created_at,
-    cart,
     setEditingList,
     editingList,
 }) => {
@@ -16,6 +15,7 @@ const List = ({
         getListWithProducts,
         getAllListsWithProducts,
         currentList,
+        lists,
         setCurrentList,
         destroyList,
         addProductToList,
@@ -23,24 +23,31 @@ const List = ({
     } = useLists()
 
     const [confirmDelete, setConfirmDelete] = useState(false)
-
+    //To know if the list is open or not, with this if the list if changed the old one is closed
     const isOpen = currentList?.id === id
-    const activeCart = isOpen ? currentList?.cart : cart
 
-    const summary = activeCart?.reduce(
-        (accumulator, item) => {
-            accumulator.totalQuantity += item.quantity
-            accumulator.totalPrice += item.products.price * item.quantity
-            accumulator.totalWeight += item.products.weight * item.quantity
-            return accumulator
+    const activeList =
+        currentList?.id === id
+            ? currentList
+            : lists.find((l) => l.id === id) || { cart: [] }
+
+    //I use reduce with a acc with the structure I want to calculate all the stats of the list
+    const summary = activeList.cart?.reduce(
+        (acc, item) => {
+            acc.totalQuantity += item.quantity
+            acc.totalPrice += item.products.price * item.quantity
+            acc.totalWeight += item.products.weight * item.quantity
+            return acc
         },
-        {
-            totalQuantity: 0,
-            totalPrice: 0,
-            totalWeight: 0,
-        },
+        { totalQuantity: 0, totalPrice: 0, totalWeight: 0 },
     )
 
+    //To prevent that the list moves after adding or removing a product I've decided to sort it before doing anything
+    const sortedCart = [...(currentList?.cart || [])].sort((a, b) =>
+        a.products.name.localeCompare(b.products.name),
+    )
+
+    //This method is to enter the edit mode of the list and if the user is editing another list it first close that list
     const handleViewList = async () => {
         if (currentList?.id === id) {
             setCurrentList(null)
@@ -77,6 +84,7 @@ const List = ({
                     {changeFormat(summary?.totalPrice || 0)}€ | Weight:{" "}
                     {changeFormat(summary?.totalWeight || 0)}Kg
                 </p>
+                {summary?.totalWeight > 15 && <p>Car needed</p>} <br />
                 <button
                     className="list_deleteList"
                     onClick={() => setConfirmDelete(true)}
@@ -98,11 +106,10 @@ const List = ({
                         EDIT LIST
                     </button>
                 )}
-
                 {currentList?.id === id && (
                     <>
                         <div className="list_productList">
-                            {currentList?.cart?.map((item) => (
+                            {sortedCart.map((item) => (
                                 <div key={item.products.id}>
                                     <img
                                         className="list_productList_img"
@@ -120,7 +127,6 @@ const List = ({
                                                 product_id: item.products.id,
                                                 quantity: item.quantity + 1,
                                             })
-                                            getAllListsWithProducts()
                                         }}
                                     >
                                         +
