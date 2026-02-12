@@ -5,19 +5,11 @@ import List from "./List"
 import { validateListForm } from "../lib/validations"
 import "./ShoppingLists.css"
 
+//The component to show all the list of the user
 const ShoppingLists = ({ setEditingList }) => {
     const { sessionData } = useSession()
 
-    const {
-        getUserLists,
-        insertList,
-        getAllListsWithProducts,
-        addProductToList,
-        lists,
-        currentList,
-        loading,
-        error,
-    } = useLists()
+    const { insertList, getAllListsWithProducts, lists } = useLists()
 
     const [formData, setFormData] = useState({
         name: "",
@@ -69,19 +61,6 @@ const ShoppingLists = ({ setEditingList }) => {
     return (
         <>
             <div className="ShoppingList_container">
-                <div className="ShoppingList_popups">
-                    {showCreate && (
-                        <>
-                            <input
-                                type="text"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                            />
-                            <button onClick={handleSubmit}>CREATE</button>
-                        </>
-                    )}
-                </div>
                 <div className="ShoppingList_lists">
                     <h1 className="ShoppingList_username">
                         Lists of {sessionData.user.user_metadata.display_name}
@@ -98,10 +77,39 @@ const ShoppingLists = ({ setEditingList }) => {
                     ))}
                     <button
                         className="ShoppingList_newList"
-                        onClick={() => setShowCreate(true)}
+                        onClick={() => {
+                            showCreate
+                                ? setShowCreate(false)
+                                : setShowCreate(true)
+                            setErrors({ name: "", status: "" })
+                        }}
                     >
                         CREATE NEW LIST +
                     </button>
+                    <div className="ShoppingList_popups">
+                        {showCreate && (
+                            <div className="ShoppingList_addList">
+                                <label htmlFor="name">List Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                />
+                                <button onClick={handleSubmit}>CREATE</button>
+                                {errors.name && (
+                                    <p className="ShoppingList_errors">
+                                        {errors.name}
+                                    </p>
+                                )}
+                                {errors.status && (
+                                    <p className="ShoppingList_errors">
+                                        {errors.status}
+                                    </p>
+                                )}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </>

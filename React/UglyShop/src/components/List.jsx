@@ -3,17 +3,15 @@ import useLists from "../hooks/useLists"
 import { changeFormat } from "../lib/utils"
 import "./List.css"
 
+//The individual component for each list of the user
 const List = ({
     id,
     name,
-    ownerId,
     created_at,
     setEditingList,
-    editingList,
 }) => {
     const {
         getListWithProducts,
-        getAllListsWithProducts,
         currentList,
         lists,
         setCurrentList,
@@ -26,10 +24,11 @@ const List = ({
     //To know if the list is open or not, with this if the list if changed the old one is closed
     const isOpen = currentList?.id === id
 
+    //I have headache please send help
     const activeList =
         currentList?.id === id
             ? currentList
-            : lists.find((l) => l.id === id) || { cart: [] }
+            : lists.find((list) => list.id === id) || { cart: [] }
 
     //I use reduce with a acc with the structure I want to calculate all the stats of the list
     const summary = activeList.cart?.reduce(
