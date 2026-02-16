@@ -17,7 +17,7 @@ const Product = ({
     editingList,
 }) => {
     const { destroyProduct } = useProducts()
-    const { singed } = useSession()
+    const { singed, isAdmin } = useSession()
     const { currentList, addProductToList, getAllListsWithProducts } =
         useLists()
     const [showConfirm, setShowConfirm] = useState(false)
@@ -53,20 +53,21 @@ const Product = ({
                 )}
             </div>
 
-            {singed && ( // I've decided to only let the user edit and delete the products if is registered
-                <div className="product_options">
-                    <button
-                        onClick={() => {
-                            setShowConfirm(true)
-                        }}
-                    >
-                        DELETE
-                    </button>
-                    <Link to={`/products/edit/${id}`}>
-                        <button>EDIT</button>
-                    </Link>
-                </div>
-            )}
+            {singed &&
+                isAdmin && ( // I've decided to only let the user edit and delete the products if is registered
+                    <div className="product_options">
+                        <button
+                            onClick={() => {
+                                setShowConfirm(true)
+                            }}
+                        >
+                            DELETE
+                        </button>
+                        <Link to={`/products/edit/${id}`}>
+                            <button>EDIT</button>
+                        </Link>
+                    </div>
+                )}
             {showConfirm && (
                 <div className="product_confirmDelete">
                     <h1>Are you sure you want to delete the product?</h1>

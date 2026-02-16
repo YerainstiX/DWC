@@ -2,14 +2,10 @@ import React, { useState } from "react"
 import useLists from "../hooks/useLists"
 import { changeFormat } from "../lib/utils"
 import "./List.css"
+import useSession from "../hooks/useSession"
 
 //The individual component for each list of the user
-const List = ({
-    id,
-    name,
-    created_at,
-    setEditingList,
-}) => {
+const List = ({ id, name, created_at, owner_id, setEditingList }) => {
     const {
         getListWithProducts,
         currentList,
@@ -19,6 +15,10 @@ const List = ({
         addProductToList,
         destroyProductFromList,
     } = useLists()
+
+    const { sessionData } = useSession()
+
+    const isOwnList = sessionData.user.id === owner_id
 
     const [confirmDelete, setConfirmDelete] = useState(false)
     //To know if the list is open or not, with this if the list if changed the old one is closed
@@ -84,12 +84,14 @@ const List = ({
                     {changeFormat(summary?.totalWeight || 0)}Kg
                 </p>
                 {summary?.totalWeight > 15 && <p>Car needed</p>} <br />
-                <button
-                    className="list_deleteList"
-                    onClick={() => setConfirmDelete(true)}
-                >
-                    DELETE
-                </button>
+                {isOwnList && (
+                    <button
+                        className="list_deleteList"
+                        onClick={() => setConfirmDelete(true)}
+                    >
+                        DELETE
+                    </button>
+                )}
                 {isOpen ? (
                     <button
                         className="list_closeList"
@@ -101,9 +103,23 @@ const List = ({
                         CLOSE LIST
                     </button>
                 ) : (
-                    <button className="list_openList" onClick={handleViewList}>
-                        EDIT LIST
-                    </button>
+                    <>
+                        {isOwnList ? (
+                            <button
+                                className="list_openList"
+                                onClick={handleViewList}
+                            >
+                                EDIT LIST
+                            </button>
+                        ) : (
+                            <button
+                                className="list_openList"
+                                onClick={handleViewList}
+                            >
+                                VIEW LIST
+                            </button>
+                        )}
+                    </>
                 )}
                 {currentList?.id === id && (
                     <>
@@ -117,40 +133,49 @@ const List = ({
                                     />
                                     <p>{item.products.name}</p>
                                     <p>Quantity: {item.quantity}</p>
-                                    <button
-                                        className="list_productList_add"
-                                        onClick={() => {
-                                            addProductToList({
-                                                shopping_list_id:
-                                                    currentList.id,
-                                                product_id: item.products.id,
-                                                quantity: item.quantity + 1,
-                                            })
-                                        }}
-                                    >
-                                        +
-                                    </button>
-                                    <button
-                                        className="list_productList_remove"
-                                        onClick={() => {
-                                            if (item.quantity !== 1) {
-                                                addProductToList({
-                                                    shopping_list_id:
-                                                        currentList.id,
-                                                    product_id:
-                                                        item.products.id,
-                                                    quantity: item.quantity - 1,
-                                                })
-                                            } else {
-                                                destroyProductFromList(
-                                                    currentList.id,
-                                                    item.products.id,
-                                                )
-                                            }
-                                        }}
-                                    >
-                                        -
-                                    </button>
+                                    {isOwnList && (
+                                        <>
+                                            <button
+                                                className="list_productList_add"
+                                                onClick={() => {
+                                                    addProductToList({
+                                                        shopping_list_id:
+                                                            currentList.id,
+                                                        product_id:
+                                                            item.products.id,
+                                                        quantity:
+                                                            item.quantity + 1,
+                                                    })
+                                                }}
+                                            >
+                                                +
+                                            </button>
+                                            <button
+                                                className="list_productList_remove"
+                                                onClick={() => {
+                                                    if (item.quantity !== 1) {
+                                                        addProductToList({
+                                                            shopping_list_id:
+                                                                currentList.id,
+                                                            product_id:
+                                                                item.products
+                                                                    .id,
+                                                            quantity:
+                                                                item.quantity -
+                                                                1,
+                                                        })
+                                                    } else {
+                                                        destroyProductFromList(
+                                                            currentList.id,
+                                                            item.products.id,
+                                                        )
+                                                    }
+                                                }}
+                                            >
+                                                -
+                                            </button>
+                                        </>
+                                    )}
                                 </div>
                             ))}
                         </div>

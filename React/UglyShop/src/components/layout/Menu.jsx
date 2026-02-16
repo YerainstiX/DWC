@@ -4,10 +4,10 @@ import "./Menu.css"
 import useSession from "../../hooks/useSession"
 //The menu component to navigate the application.
 const Menu = ({ pageName }) => {
-    const { singed, signOut, sessionData } = useSession()
+    const { singed, signOut, sessionData, isAdmin } = useSession()
 
     const [showConfirm, setShowConfirm] = useState(false)
-    console.log(sessionData)
+
     return (
         <>
             <nav>
@@ -31,6 +31,16 @@ const Menu = ({ pageName }) => {
                     <Link className="menu_element" to="/products">
                         Products
                     </Link>
+                    {singed && isAdmin && (
+                        <>
+                            <div>
+                                <h1>Lists</h1>
+                            </div>
+                            <div>
+                                <h1>Roles</h1>
+                            </div>
+                        </>
+                    )}
                     {singed && (
                         <>
                             <button
@@ -41,6 +51,7 @@ const Menu = ({ pageName }) => {
                             </button>
                         </>
                     )}
+
                     {showConfirm && (
                         <>
                             <div className="menu_confirm_overlay"></div>

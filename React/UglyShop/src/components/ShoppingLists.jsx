@@ -11,6 +11,8 @@ const ShoppingLists = ({ setEditingList }) => {
 
     const { insertList, getAllListsWithProducts, lists } = useLists()
 
+    const { isAdmin } = useSession()
+
     const [formData, setFormData] = useState({
         name: "",
         owner_id: sessionData.user.id,
@@ -65,12 +67,21 @@ const ShoppingLists = ({ setEditingList }) => {
                     <h1 className="ShoppingList_username">
                         Lists of {sessionData.user.user_metadata.display_name}
                     </h1>
+                    {isAdmin && (
+                        <div className="ShoppingList_disclaimer">
+                            <h1>DISCLAIMER</h1>
+                            <p>
+                                You are an admin user, you can see all list but
+                                only edit your own lists
+                            </p>
+                        </div>
+                    )}
                     {lists.map((list) => (
                         <List
                             key={list.id}
                             id={list.id}
                             name={list.name}
-                            ownerId={list.ownerId}
+                            owner_id={list.owner_id}
                             created_at={list.created_at}
                             setEditingList={setEditingList}
                         ></List>

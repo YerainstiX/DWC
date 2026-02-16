@@ -11,7 +11,7 @@ import ShoppingLists from "../components/ShoppingLists"
 //The page that shows all the products in the store and the filters for them
 const Products = () => {
     const { products, loading } = useProducts()
-    const { singed } = useSession()
+    const { singed, isAdmin } = useSession()
 
     const [showList, setShowList] = useState(false)
     const [filteredProducts, setFilteredProducts] = useState([])
@@ -37,9 +37,15 @@ const Products = () => {
                     <h1 className="products_title">PRODUCTS</h1>
                     {singed ? (
                         <div className="products_actions">
-                            <button className="products_btn">
-                                <Link to="/products/add">Add Product +</Link>
-                            </button>
+                            {isAdmin && (
+                                <>
+                                    <button className="products_btn">
+                                        <Link to="/products/add">
+                                            Add Product +
+                                        </Link>
+                                    </button>
+                                </>
+                            )}
                             <Filters
                                 filteredProducts={filteredProducts}
                                 setFilteredProducts={setFilteredProducts}
