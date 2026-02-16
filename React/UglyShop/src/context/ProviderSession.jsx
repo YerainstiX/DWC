@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react"
 import { supabaseConnection } from "../supabase/supabase"
 import { useNavigate } from "react-router-dom"
+import useSupaBase from "../hooks/useSupaBase"
 
 const sessionContext = createContext()
 
@@ -12,6 +13,10 @@ const ProviderSession = ({ children }) => {
         password: "",
         username: "",
     })
+
+    const { fetchTable } = useSupaBase()
+    const TABLE_ROLES = "user_roles"
+
     const [user, setUser] = useState({})
     const [infoMessage, setInfoMessage] = useState("")
     const [singed, setSinged] = useState(false)
@@ -67,6 +72,14 @@ const ProviderSession = ({ children }) => {
             navigate("/")
         } catch (error) {
             setInfoMessage(error.message)
+        }
+    }
+
+    const isAdmin = async (id) => {
+        try {
+            await fetchTable(TABLE_ROLES, sessionData.user.id )
+        } catch () {
+            
         }
     }
 
