@@ -14,8 +14,9 @@ const ProviderSession = ({ children }) => {
         username: "",
     })
 
-    const { editTable, getData, getItem } = useSupaBase()
+    const { editTable, getData, getItem, getMultiData } = useSupaBase()
     const TABLE_ROLES = "user_roles"
+    const TABLE_PROFILES = "profiles"
 
     const [user, setUser] = useState({})
     const [infoMessage, setInfoMessage] = useState("")
@@ -24,6 +25,7 @@ const ProviderSession = ({ children }) => {
 
     const [userRoles, setUserRoles] = useState([])
 
+    //SESSION
     const register = async (userData) => {
         setInfoMessage("")
         try {
@@ -78,6 +80,7 @@ const ProviderSession = ({ children }) => {
         }
     }
 
+    //ROLES
     const loadRole = async () => {
         if (!sessionData?.user?.id) return
 
@@ -94,7 +97,7 @@ const ProviderSession = ({ children }) => {
     const changeRole = async (data, id) => {
         if (!isAdmin) return
 
-        const editedRole = await editTable(TABLE_ROLES, data, id)
+        const editedRole = await editTable(TABLE_ROLES, data, id, "user_id")
 
         const newUserRoles = userRoles.map((user) =>
             user.user_id === editedRole.user_id ? editedRole : user,
@@ -103,6 +106,20 @@ const ProviderSession = ({ children }) => {
     }
 
     const isAdmin = role === "admin"
+
+    const getUserWithRoles = async () => {
+        const users = await getMultiData(
+            TABLE_PROFILES,
+            `user_id,
+            email,
+            user_roles (
+                role
+            )
+            `,
+        )
+
+        setUserRoles(users)
+    }
 
     //The subscription to get notified when something changes and update the states that manage the logic of the page.
     useEffect(() => {
@@ -130,6 +147,7 @@ const ProviderSession = ({ children }) => {
         isAdmin,
         changeRole,
         getRoles,
+        getUserWithRoles,
         singed,
         user,
         sessionData,

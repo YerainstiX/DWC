@@ -7,6 +7,7 @@ import Products from "../pages/Products"
 import Error from "../pages/Error"
 import AddProduct from "../pages/AddProduct"
 import EditProduct from "../pages/EditProduct"
+import AdminRoles from "../pages/AdminRoles"
 
 const Paths = () => {
     return (
@@ -17,6 +18,7 @@ const Paths = () => {
             <Route path="/products" element={<Products />} />
             <Route path="/products/add" element={<AddProduct />} />
             <Route path="/products/edit/:id" element={<EditProduct />} />
+            <Route path="/roles/admin" element={<AdminRoles />} />
             <Route path="*" element={<Error></Error>} />
         </Routes>
     )

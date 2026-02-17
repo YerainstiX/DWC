@@ -56,7 +56,8 @@ const List = ({ id, name, created_at, owner_id, setEditingList }) => {
 
         const list = await getListWithProducts(id)
         setCurrentList(list)
-        setEditingList(true)
+        if (isOwnList) setEditingList(true)
+        else setEditingList(false)
     }
 
     return (

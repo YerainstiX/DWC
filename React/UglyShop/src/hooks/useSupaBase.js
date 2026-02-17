@@ -47,12 +47,12 @@ const useSupaBase = () => {
         }
     }
 
-    const editTable = async (table, input, id) => {
+    const editTable = async (table, input, value, column = "id") => {
         try {
             const { data, error } = await supabaseConnection
                 .from(table)
                 .update(input)
-                .eq("id", id)
+                .eq(column, value)
                 .select()
                 .single()
 
@@ -82,7 +82,8 @@ const useSupaBase = () => {
         try {
             let query = supabaseConnection.from(table).delete()
 
-            Object.entries(filters).forEach(([column, value]) => { //I need this to be an array to use the forEach
+            Object.entries(filters).forEach(([column, value]) => {
+                //I need this to be an array to use the forEach
                 query = query.eq(column, value)
             })
 

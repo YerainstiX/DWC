@@ -32,14 +32,9 @@ const Menu = ({ pageName }) => {
                         Products
                     </Link>
                     {singed && isAdmin && (
-                        <>
-                            <div>
-                                <h1>Lists</h1>
-                            </div>
-                            <div>
-                                <h1>Roles</h1>
-                            </div>
-                        </>
+                        <Link className="menu_element" to="/roles/admin">
+                            Roles
+                        </Link>
                     )}
                     {singed && (
                         <>
