@@ -43,9 +43,9 @@ export const validateProductForm = (data) => {
     }
 }
 
-export const validateListForm = (data) => {
+export const validateNameForm = (data) => {
     const newErrors = {
-        name: validateName(data.name),
+        name: validateName(data.name || data.display_name),
     }
     if (!newErrors.name) {
         return { newErrors, valid: true }

@@ -73,9 +73,11 @@ const Menu = ({ pageName }) => {
                     {!singed ? (
                         <button className="menu_guest">Guest</button>
                     ) : (
-                        <button className="menu_sessionStarted">
-                            {sessionData.user.user_metadata.display_name}
-                        </button>
+                        <Link className="menu_element" to="/user/profile">
+                            <button className="menu_sessionStarted">
+                                {sessionData.user.user_metadata.display_name}
+                            </button>
+                        </Link>
                     )}
                 </div>
             </nav>

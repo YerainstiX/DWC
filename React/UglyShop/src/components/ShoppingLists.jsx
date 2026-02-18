@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import useLists from "../hooks/useLists"
 import useSession from "../hooks/useSession"
 import List from "./List"
-import { validateListForm } from "../lib/validations"
+import { validateNameForm } from "../lib/validations"
 import "./ShoppingLists.css"
 
 //The component to show all the list of the user
@@ -35,7 +35,7 @@ const ShoppingLists = ({ setEditingList }) => {
     }
 
     const handleSubmit = () => {
-        const { newErrors, valid } = validateListForm(formData)
+        const { newErrors, valid } = validateNameForm(formData)
 
         if (!valid) {
             setErrors(newErrors)
