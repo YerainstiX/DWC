@@ -1,0 +1,248 @@
+.profile_container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    font-family: Arial, sans-serif;
+}
+
+/* LEFT SIDE - IMAGE */
+.profile_img {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+}
+
+.profile_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* ✨ Editing state */
+.profile_img.editing img {
+    cursor: pointer;
+    box-shadow: 0 0 0 4px #2563eb;
+    transform: scale(1.05);
+}
+
+.profile_img.editing::after {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.75);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile_img.editing:hover::after {
+    opacity: 1;
+}
+
+/* RIGHT SIDE - INFO */
+.profile_info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 0;   /* 🔥 evita que el flex explote */
+}
+
+
+.profile_name {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border 0.2s ease;
+}
+
+.profile_name:focus {
+    border: 1px solid #2563eb;
+    outline: none;
+}
+
+.profile_description {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;        /* solo vertical */
+    min-height: 80px;
+    max-height: 200px;       /* límite */
+    width: 100%;
+    box-sizing: border-box;  /* MUY IMPORTANTE */
+    font-family: inherit;
+}
+
+
+.profile_email {
+    color: #555;
+    font-size: 14px;
+}
+
+.profile_created {
+    color: #888;
+    font-size: 13px;
+}
+
+/* BUTTONS */
+.profile_confirm_btn,
+.profile_cancel_btn,
+.profile_edit_btn {
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.profile_confirm_btn {
+    background: #2563eb;
+    color: white;
+}
+
+.profile_confirm_btn:hover {
+    background: #1d4ed8;
+}
+
+.profile_cancel_btn {
+    background: #e5e7eb;
+}
+
+.profile_cancel_btn:hover {
+    background: #d1d5db;
+}
+
+.profile_edit_btn {
+    background: #2563eb;
+    color: white;
+}
+
+.profile_edit_btn:hover {
+    background: #1d4ed8;
+}
+
+/* ERROR / STATUS */
+.profile_errors {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #dc2626;
+}
+
+/* OVERLAY */
+.profile_modal_overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.2s ease forwards;
+}
+
+/* MODAL */
+.profile_popup {
+    width: 500px;
+    max-width: 90%;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideUp 0.25s ease forwards;
+}
+
+/* TITLE STYLE */
+.profile_popup label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* INPUT */
+.profile_popup input {
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    transition:
+        border 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.profile_popup input:focus {
+    outline: none;
+    border: 1px solid #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* BUTTON ROW */
+.profile_popup .profile_confirm_btn,
+.profile_popup .profile_cancel_btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+/* Confirm */
+.profile_popup .profile_confirm_btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    transition: background 0.2s ease;
+}
+
+.profile_popup .profile_confirm_btn:hover {
+    background: #1e40af;
+}
+
+/* Cancel */
+.profile_popup .profile_cancel_btn {
+    background: #f3f4f6;
+    border: none;
+}
+
+.profile_popup .profile_cancel_btn:hover {
+    background: #e5e7eb;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

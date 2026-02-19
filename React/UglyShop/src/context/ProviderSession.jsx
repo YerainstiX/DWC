@@ -112,6 +112,7 @@ const ProviderSession = ({ children }) => {
             TABLE_PROFILES,
             `user_id,
             email,
+            avatar_url,
             user_roles (
                 role
             )

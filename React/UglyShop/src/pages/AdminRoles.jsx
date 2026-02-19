@@ -4,7 +4,7 @@ import AdminRole from "../components/AdminRole"
 import "./AdminRoles.css"
 const AdminRoles = () => {
     const { getUserWithRoles, userRoles } = useSession()
-
+    console.log(userRoles)
     useEffect(() => {
         getUserWithRoles()
     }, [])
@@ -17,6 +17,7 @@ const AdminRoles = () => {
                     id={user.user_id}
                     email={user.email}
                     role={user?.user_roles?.role}
+                    avatar_url={user?.avatar_url}
                 ></AdminRole>
             ))}
         </div>

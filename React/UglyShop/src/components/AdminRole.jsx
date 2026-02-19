@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import useSession from "../hooks/useSession"
 import "./AdminRole.css"
 
-const AdminRole = ({ id, email, role }) => {
+const AdminRole = ({ id, email, role, avatar_url }) => {
     const { sessionData, changeRole, isAdmin } = useSession()
     //The users can't manage their own role for security and in case the user has brain lag.
     const isOwn = id === sessionData.user.id
@@ -45,6 +45,10 @@ const AdminRole = ({ id, email, role }) => {
 
     return (
         <div className="AdminRole_container">
+            <div className="AdminRole_avatar">
+                <img src={avatar_url} alt="avatar" />
+            </div>
+            <div className="AdminRole_info">
             <p className="AdminRole_email">{formData.email}</p>
             <label htmlFor="role">Role</label>
             <select
@@ -65,6 +69,7 @@ const AdminRole = ({ id, email, role }) => {
             {infoMessage && (
                 <p className="AdminNote_infoMessage">{infoMessage.status}</p>
             )}
+            </div>
         </div>
     )
 }

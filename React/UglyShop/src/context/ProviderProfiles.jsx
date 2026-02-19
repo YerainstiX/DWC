@@ -15,10 +15,9 @@ const ProviderProfiles = ({ children }) => {
     }
 
     const editProfile = async (data, id) => {
-        console.log(id)
         const editedProfile = await editTable(TABLE, data, id, "user_id")
 
-        if (editedProfile) setProfile(editProfile)
+        if (editedProfile) setProfile([editedProfile])
     }
 
     const box = { getProfile, editProfile, profile }
