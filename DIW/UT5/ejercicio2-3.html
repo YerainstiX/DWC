@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Smart Health Monitoring Wristwatch</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700"
+            rel="stylesheet"
+        />
+
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <style type="text/tailwindcss">
+            @tailwind base;
+            @tailwind components;
+            @tailwind utilities;
+
+            @layer utilities {
+                @media (max-width: 950px) {
+                    .coco\:bg-yellow {
+                        @apply bg-[rgb(236,201,75)];
+                    }
+                }
+                @media (max-width: 700px) {
+                    .coco\:bg-green {
+                        @apply bg-[rgb(72,187,120)];
+                    }
+                    .coco\:img-bigger {
+                        @apply w-100;
+                    }
+                    .coco\:text-below {
+                        @apply flex-col;
+                    }
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex flex-col bg-green-400 items-center py-3">
+            <h1 class="text-4xl text-white font-bold">Tailwind CSS</h1>
+            <h2 class="text-xl text-blue-700">
+                Utility-first CSS framework that makes writing CSS a joy
+            </h2>
+            <a
+                href="#"
+                class="bg-red-500 text-white rounded w-fit px-6 py-2 my-5 hover:bg-red-300 hover:underline"
+                >Buy book</a
+            >
+        </div>
+
+        <div class="flex flex-col items-center bg-pink-300">
+            <h1 class="text-center my-3 text-xl font-bold text-zinc-700">
+                Avatar
+            </h1>
+            <div class="flex flex-row m-7 gap-6 coco:text-below items-center">
+                <div class="md:flex-shrink-0 coco:img-bigger">
+                    <img
+                        class="rounded-lg md:w-56 sm:flex sm:justify-center"
+                        src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80"
+                        alt="Woman paying for a purchase"
+                    />
+                </div>
+                <div class="">
+                    <div class="uppercase text-blue-600 font-bold">
+                        Marketing
+                    </div>
+                    <a
+                        href="#"
+                        class="block text-sm font-bold hover:underline hover:text-stone-500"
+                        >Finding customers for your new business</a
+                    >
+                    <p class="text-xs text-stone-400 my-2">
+                        Getting a new business off the ground is a lot of hard
+                        work. Here are five ideas you can use to find your first
+                        customers.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="flex items-center flex-col justify-center aling-center bg-yellow-200"
+        >
+            <h2 class="text-2xl font-bold my-5">Responsive Screens</h2>
+            <div
+                class="bg-pink-500 w-32 h-32 mb-8 coco:bg-yellow coco:bg-green"
+            ></div>
+        </div>
+    </body>
+</html>

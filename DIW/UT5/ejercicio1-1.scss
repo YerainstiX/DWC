@@ -1,0 +1,30 @@
+$destacado1: #ff8000;
+$destacado2: #2e5f64;
+
+div {
+    padding: 20px;
+}
+
+#primero {
+    .destacado {
+        color: $destacado1;
+        font-size: 1.6rem;
+        padding: 6px;
+        text-align: center;
+    }
+}
+
+#segundo {
+    .destacado {
+        color: $destacado2;
+        font-size: 1.4rem;
+        text-decoration: underline;
+        padding: 5px;
+    }
+    p:not(.destacado)::first-line {
+        font-style: italic;
+    }
+    #parrafos {
+        text-align: right;
+    }
+}

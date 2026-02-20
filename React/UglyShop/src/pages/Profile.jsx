@@ -6,7 +6,8 @@ import "./Profile.css"
 
 const Profile = () => {
     const { getProfile, editProfile, profile } = useProfile()
-    const { isAdmin, sessionData, user } = useSession()
+    const { user } = useSession()
+    //If there is no avatar it will show this one
     const withoutAvatar =
         "https://i.pinimg.com/474x/0e/16/cc/0e16cc66e2b4da46ce88355100a5c69e.jpg"
 
@@ -17,6 +18,7 @@ const Profile = () => {
     const [changeImage, setChangeImage] = useState(false)
 
     const userId = user?.id
+
     const [formData, setFormData] = useState({
         display_name: "",
         avatar_url: "",
@@ -37,6 +39,7 @@ const Profile = () => {
         }))
     }
 
+    //The method to manage all the logic of updating the profile
     const handleSave = async () => {
         const { newErrors, valid } = validateNameForm(formData)
 
@@ -67,6 +70,8 @@ const Profile = () => {
         getProfile()
     }, [userId])
 
+    //Due to the policies the admin can see all the profiles, so in case the user is an admin,
+    //I've done this logic
     useEffect(() => {
         if (!profile || !userId) return
 

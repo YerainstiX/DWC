@@ -1,0 +1,23 @@
+div {
+  padding: 20px;
+}
+
+#primero .destacado {
+  color: #ff8000;
+  font-size: 1.6rem;
+  padding: 6px;
+  text-align: center;
+}
+
+#segundo .destacado {
+  color: #2e5f64;
+  font-size: 1.4rem;
+  text-decoration: underline;
+  padding: 5px;
+}
+#segundo p:not(.destacado)::first-line {
+  font-style: italic;
+}
+#segundo #parrafos {
+  text-align: right;
+}/*# sourceMappingURL=ejercicio1.css.map */
