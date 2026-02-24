@@ -32,8 +32,6 @@ const AdminRole = ({ id, email, role, avatar_url }) => {
     }
 
     const handleSave = () => {
-        console.log(isAdmin)
-        console.log(formData.role)
         if (isAdmin) {
             changeRole({ role: formData.role }, id)
             setRoleChanged(true)

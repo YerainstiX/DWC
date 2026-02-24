@@ -30,7 +30,6 @@ const EditProduct = () => {
 
     useEffect(() => {
         setProduct(products.find((product) => product.id === id))
-        console.log(product)
     }, [id, products])
 
     useEffect(() => {
