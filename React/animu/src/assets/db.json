@@ -1,0 +1,40 @@
+{
+    "animes": [
+        {
+            "id": "7ca36b20-671e-4363-83f1-7d12f4591f93",
+            "title": "One Piece",
+            "studio": "Toei Animation",
+            "episodes": 1100,
+            "image": "https://m.media-amazon.com/images/M/MV5BMTNjNGU4NjQtZTRiOC00OTdkLThmYzMtMjZiNWZlZTM2MGRiXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
+            "isFinished": false,
+            "genre": ["Action", "Adventure", "Fantasy"]
+        },
+        {
+            "id": "3e284b25-508d-4e9e-99e7-56e6d5e1f7d2",
+            "title": "Fullmetal Alchemist: Brotherhood",
+            "studio": "Bones",
+            "episodes": 64,
+            "image": "https://m.media-amazon.com/images/M/MV5BZmMyYzAyMzUtNTAwOC00N2IzLWEzNWYtZTEyNjA0ZGE0YUM2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
+            "isFinished": true,
+            "genre": ["Adventure", "Dark Fantasy", "Steampunk"]
+        },
+        {
+            "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+            "title": "Jujutsu Kaisen",
+            "studio": "MAPPA",
+            "episodes": 47,
+            "image": "https://m.media-amazon.com/images/M/MV5BNGYyYmI5NGYtZDVjYy00NzVjLThjM2ItMGY2N2VjZTM1YmY1XkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
+            "isFinished": false,
+            "genre": ["Action", "Supernatural"]
+        },
+        {
+            "id": "d9b2f3a1-1a2b-4c3d-8e9f-0g1h2i3j4k5l",
+            "title": "Cowboy Bebop",
+            "studio": "Sunrise",
+            "episodes": 26,
+            "image": "https://m.media-amazon.com/images/M/MV5BNGNlNjBkODEtZThlOC00YzhlLTgwMGItZDRmYWQwNmFmZGUzXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
+            "isFinished": true,
+            "genre": ["Sci-Fi", "Neo-noir", "Space Western"]
+        }
+    ]
+}
