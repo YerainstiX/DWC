@@ -1,0 +1,108 @@
+{
+    "games": [
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440000",
+            "title": "The Legend of Zelda: Breath of the Wild",
+            "genre": "Adventure",
+            "platform": ["Nintendo Switch", "Wii U"],
+            "developer": "Nintendo",
+            "release_year": 2017,
+            "rating": 9.8,
+            "stock": 15,
+            "on_sale": true,
+            "image": "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
+            "description": "Explora las tierras de Hyrule en esta aventura de mundo abierto."
+        },
+        {
+            "id": "123e4567-e89b-12d3-a456-426614174000",
+            "title": "Elden Ring",
+            "genre": "RPG",
+            "platform": ["PC", "PS5", "Xbox Series X"],
+            "developer": "FromSoftware",
+            "release_year": 2022,
+            "rating": 9.5,
+            "stock": 8,
+            "on_sale": false,
+            "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400",
+            "description": "Un juego de rol y acción ambientado en las Tierras Intermedias."
+        },
+        {
+            "id": "789bcdef-0123-4567-89ab-cdef01234567",
+            "title": "Cyberpunk 2077",
+            "genre": "RPG",
+            "platform": ["PC", "PS5", "PS4", "Xbox"],
+            "developer": "CD Projekt Red",
+            "release_year": 2020,
+            "rating": 8.0,
+            "stock": 0,
+            "on_sale": true,
+            "image": "https://images.unsplash.com/photo-1605898960710-9aa6cc900981?auto=format&fit=crop&q=80&w=400",
+            "description": "Un RPG de acción de mundo abierto ambientado en Night City."
+        },
+        {
+            "id": "a1b2c3d4-e5f6-4a5b-8c7d-9e0f1a2b3c4d",
+            "title": "Hollow Knight",
+            "genre": "Metroidvania",
+            "platform": ["PC", "Nintendo Switch", "PS4"],
+            "developer": "Team Cherry",
+            "release_year": 2017,
+            "rating": 9.0,
+            "stock": 25,
+            "on_sale": false,
+            "image": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&q=80&w=400",
+            "description": "Aventura épica a través de un reino de insectos y héroes en ruinas."
+        },
+        {
+            "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+            "title": "Red Dead Redemption 2",
+            "genre": "Action-Adventure",
+            "platform": ["PC", "PS4", "Xbox One"],
+            "developer": "Rockstar Games",
+            "release_year": 2018,
+            "rating": 9.9,
+            "stock": 12,
+            "on_sale": true,
+            "image": "https://images.unsplash.com/photo-1533972751724-9135a8410a4c?auto=format&fit=crop&q=80&w=400",
+            "description": "Una epopeya sobre la vida en el implacable corazón de América."
+        },
+        {
+            "id": "6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b",
+            "title": "God of War Ragnarök",
+            "genre": "Action",
+            "platform": ["PS5", "PS4"],
+            "developer": "Santa Monica Studio",
+            "release_year": 2022,
+            "rating": 9.6,
+            "stock": 5,
+            "on_sale": false,
+            "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=400",
+            "description": "Kratos y Atreus deben viajar a cada uno de los nueve reinos en busca de respuestas."
+        },
+        {
+            "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+            "title": "Minecraft",
+            "genre": "Sandbox",
+            "platform": ["All"],
+            "developer": "Mojang",
+            "release_year": 2011,
+            "rating": 9.0,
+            "stock": 100,
+            "on_sale": false,
+            "image": "https://images.unsplash.com/photo-1627389955609-70231fca553d?auto=format&fit=crop&q=80&w=400",
+            "description": "Construye cualquier cosa que puedas imaginar en un mundo infinito."
+        },
+        {
+            "id": "e2d45678-90ab-cdef-1234-567890abcdef",
+            "title": "Stardew Valley",
+            "genre": "Simulation",
+            "platform": ["PC", "Switch", "Mobile", "PS4"],
+            "developer": "ConcernedApe",
+            "release_year": 2016,
+            "rating": 9.2,
+            "stock": 40,
+            "on_sale": true,
+            "image": "https://images.unsplash.com/photo-1580234811497-9bd7fd2f357d?auto=format&fit=crop&q=80&w=400",
+            "description": "Te has mudado a la granja de tu abuelo en Stardew Valley."
+        }
+    ]
+}
