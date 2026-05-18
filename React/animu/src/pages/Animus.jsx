@@ -45,7 +45,16 @@ const Animus = () => {
                         <h1>Empty List</h1>
                     ) : (
                         filteredAnimus?.map((animu) => (
-                            <Animu key={animu.id} id={animu.id} name={animu.title}></Animu>
+                            <Animu
+                                key={animu.id}
+                                id={animu.id}
+                                name={animu.title}
+                                studio={animu.studio}
+                                episodes={animu.episodes}
+                                image={animu.image}
+                                isFinished={animu.isfinished}
+                                genre={animu.genre}
+                            ></Animu>
                         ))
                     )}
                 </div>

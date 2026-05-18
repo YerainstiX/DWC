@@ -10,7 +10,7 @@ const Paths = () => {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Home></Home>} />
+                <Route path="/" element={<Home />} />
                 <Route path="/animus" element={<Animus></Animus>} />
                 <Route path="/animus/:id" element={<AnimuDetails></AnimuDetails>} />
                 <Route path="/animus/save" element={<SaveAnimu></SaveAnimu>} />

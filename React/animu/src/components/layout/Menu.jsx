@@ -11,6 +11,9 @@ const Menu = () => {
                 <li>
                     <Link to="/animus">Animus</Link>
                 </li>
+                <li>
+                    <Link to="/animus/save">SaveAnimu</Link>
+                </li>
             </ul>
         </>
     )

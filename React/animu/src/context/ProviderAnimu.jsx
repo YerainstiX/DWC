@@ -1,15 +1,14 @@
-import { createContext, useEffect, useState } from "react"
+import React, { createContext, useEffect, useState } from "react"
 import useAPI from "../hooks/useAPI"
 
 const ContextAnimu = createContext()
 
 const ProviderAnimu = ({ children }) => {
-    const URL = "http://localhost:6969/animes"
     const [animus, setAnimus] = useState([])
+    const URL = "http://localhost:6969/animes"
+    const { loading, errors, get, post, put, destroy } = useAPI()
 
-    const { get, post, put, destroy, loading, errors } = useAPI()
-
-    const getAnimus = async () => setAnimus(await get(URL))
+    const getAnimu = async () => setAnimus(await get(URL))
 
     const getAnimuById = async (id) => await get(`${URL}/${id}`)
 
@@ -20,21 +19,21 @@ const ProviderAnimu = ({ children }) => {
     const deleteAnimu = async (id) => await destroy(`${URL}/${id}`)
 
     useEffect(() => {
-        getAnimus()
+        getAnimu()
     }, [])
 
-    const value = {
-        getAnimus,
+    const box = {
+        animus,
+        loading,
+        errors,
+        getAnimu,
         getAnimuById,
         saveAnimu,
         editAnimu,
         deleteAnimu,
-        animus,
-        loading,
-        errors,
     }
 
-    return <ContextAnimu value={value}>{children}</ContextAnimu>
+    return <ContextAnimu value={box}>{children}</ContextAnimu>
 }
 
 export default ProviderAnimu
