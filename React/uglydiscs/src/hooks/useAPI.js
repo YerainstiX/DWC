@@ -19,9 +19,7 @@ const useAPI = () => {
             })
 
             if (!response.ok) {
-                throw new Error(
-                    `Something went wrong: ${response.status} | ${response.statusText}`
-                )
+                throw new Error(`Something went wrong: ${response.status} | ${response.statusText}`)
             }
 
             return await response.json()
@@ -35,14 +33,11 @@ const useAPI = () => {
 
     const get = async (url) => await request(url, { method: "GET" })
 
-    const post = async (url, body) =>
-        await request(url, { method: "POST", body: body })
+    const post = async (url, body) => await request(url, { method: "POST", body: body })
 
-    const put = async (url, body) =>
-        await request(url, { method: "PUT", body: body })
+    const put = async (url, body) => await request(url, { method: "PUT", body: body })
 
-    const patch = async (url, body) =>
-        await request(url, { method: "PATCH", body: body })
+    const patch = async (url, body) => await request(url, { method: "PATCH", body: body })
 
     const destroy = async (url) => await request(url, { method: "DELETE" })
 

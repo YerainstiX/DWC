@@ -1,0 +1,77 @@
+{
+  "games": [
+    {
+      "titulo": "perrororo",
+      "plataforma": "Nintendo Switch",
+      "genero": "Plataformas",
+      "lanzamiento": 2017,
+      "precio": 45.5,
+      "disponible": false,
+      "imagen": "https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?q=80&w=400",
+      "characters": [
+        "http://localhost:3001/characters/3"
+      ],
+      "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+    },
+    {
+      "id": "123e4567-e89b-12d3-a456-426614174000",
+      "titulo": "God of War Ragnarök",
+      "plataforma": "PlayStation 5",
+      "genero": "Acción",
+      "lanzamiento": 2022,
+      "precio": 69.99,
+      "disponible": true,
+      "imagen": "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=400",
+      "characters": [
+        "http://localhost:3001/characters/4",
+        "http://localhost:3001/characters/5"
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "titulo": "Red Dead Redemption 2",
+      "plataforma": "Multiplataforma",
+      "genero": "Western",
+      "lanzamiento": 2018,
+      "precio": 19.99,
+      "disponible": true,
+      "imagen": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=400",
+      "characters": [
+        "http://localhost:3001/characters/6"
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "nombre": "Malenia",
+      "rol": "Jefe",
+      "id": "0STEjW9Bjz0"
+    },
+    {
+      "nombre": "Miquella",
+      "rol": "NPC",
+      "id": "Esic1CJH_lw"
+    },
+    {
+      "nombre": "Mario",
+      "rol": "Protagonista",
+      "id": "GEenkX1RMfg"
+    },
+    {
+      "nombre": "Kratos",
+      "rol": "Protagonista",
+      "id": "5DWwdqGzYoc"
+    },
+    {
+      "nombre": "Atreus",
+      "rol": "Coprotagonista",
+      "id": "Qv5vUi3Q-3E"
+    },
+    {
+      "nombre": "Arthur Morgan",
+      "rol": "Protagonista",
+      "id": "hjOlrE6MRA4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
