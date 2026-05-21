@@ -27,6 +27,7 @@ const ProviderDiscs = ({ children }) => {
         editDisc,
         getDiscById,
     }
+    
     return <ContextDisc value={box}>{children}</ContextDisc>
 }
 

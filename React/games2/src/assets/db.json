@@ -1,0 +1,27 @@
+{
+  "games": [
+    {
+      "id": "123e4567-e89b-12d3-a456-426614174000",
+      "title": "oococooc"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "title": "adadada"
+    }
+  ],
+  "characters": [
+    {
+      "name": "Kratos",
+      "id": "fr2Xwx-o_gE"
+    },
+    {
+      "name": "Atreus",
+      "id": "pwOhjGRw6B0"
+    },
+    {
+      "name": "Arthur",
+      "id": "w_1Gjka-Cwk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

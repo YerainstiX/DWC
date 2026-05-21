@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
-const useAPI = () => {
+const useApi = () => {
     const [loading, setLoading] = useState(false)
     const [errors, setErrors] = useState(null)
 
@@ -26,15 +26,12 @@ const useAPI = () => {
         }
     }
 
-    const get = async (url) => await request(url, { method: "GET" })
-
-    const post = async (url, body) => await request(url, { method: "POST", body: body })
-
-    const put = async (url, body) => await request(url, { method: "PUT", body: body })
-
-    const destroy = async (url) => await request(url, { method: "DELETE" })
+    const get = (url) => request(url, { method: "GET" })
+    const post = (url, body) => request(url, { method: "POST", body: body })
+    const put = (url, body) => request(url, { method: "PUT", body: body })
+    const destroy = (url) => request(url, { method: "DELETE" })
 
     return { loading, errors, get, post, put, destroy }
 }
 
-export default useAPI
+export default useApi
